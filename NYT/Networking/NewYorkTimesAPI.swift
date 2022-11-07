@@ -8,10 +8,13 @@
 import Foundation
 import Moya
 
-public enum NewYorkTimesAPI {
-    //static private let apiKey = "VJpu2AKG82l1bFS4qEpNKOK09tySw9YC"
-    case article
-    
+struct APIResults: Decodable {
+    // we have only one case
+    let artciles: [Article]
+}
+
+public enum NewYorkTimesAPI: String, CodingKey {
+    case articles = "results"
 }
 
 extension NewYorkTimesAPI: TargetType {
@@ -21,7 +24,7 @@ extension NewYorkTimesAPI: TargetType {
     
     public var path: String {
         switch self {
-        case .article:
+        case .articles:
             return "/mostpopular/v2/viewed/7.json?api-key="
         }
     }
@@ -41,7 +44,7 @@ extension NewYorkTimesAPI: TargetType {
     }
     
     public var headers: [String : String]? {
-        ["Content-Type": "application/json"]
+        return ["Content-Type": "application/json"]
     }
     
     public var validationType: ValidationType {
