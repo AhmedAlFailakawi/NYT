@@ -1,0 +1,1219 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2022 The New York Times Company.  All Rights Reserved.",
+  "num_results": 20,
+  "results": [
+    {
+      "uri": "nyt://article/eb2365b6-50db-5799-b0c6-d4fc2583f72e",
+      "url": "https://www.nytimes.com/2022/11/01/dining/julie-powell-dead.html",
+      "id": 100000008609963,
+      "asset_id": 100000008609963,
+      "source": "New York Times",
+      "published_date": "2022-11-01",
+      "updated": "2022-11-03 14:41:34",
+      "section": "Food",
+      "subsection": "",
+      "nytdsection": "food",
+      "adx_keywords": "Deaths (Obituaries);Cooking and Cookbooks;Writing and Writers;Books and Literature;Movies;Blogs and Blogging (Internet);Powell, Julie;Child, Julia",
+      "column": null,
+      "byline": "By Kim Severson and Julia Moskin",
+      "type": "Article",
+      "title": "Julie Powell, Food Writer Known for ‘Julie \u0026 Julia,’ Dies at 49",
+      "abstract": "She attempted to cook every recipe in a classic Julia Child cookbook and documented the effort in a popular blog that became a best-selling book and a hit movie.",
+      "des_facet": [
+        "Deaths (Obituaries)",
+        "Cooking and Cookbooks",
+        "Writing and Writers",
+        "Books and Literature",
+        "Movies",
+        "Blogs and Blogging (Internet)"
+      ],
+      "org_facet": [],
+      "per_facet": [
+        "Powell, Julie",
+        "Child, Julia"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Julie Powell in 2009, the year Nora Ephron's movie “Julie \u0026 Julia,” based on Ms. Powell’s book, was released.",
+          "copyright": "Kelly Campbell, via Little, Brown \u0026amp; Company",
+          "approved_for_syndication": 0,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/01/dining/01powell-obit1/merlin_29215068_e3a6bb15-0501-415c-8920-b58412a3661e-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/01/dining/01powell-obit1/merlin_29215068_e3a6bb15-0501-415c-8920-b58412a3661e-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/01/dining/01powell-obit1/merlin_29215068_e3a6bb15-0501-415c-8920-b58412a3661e-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/99f1986f-032e-58e2-bad8-6ead27e5e89a",
+      "url": "https://www.nytimes.com/2022/11/01/arts/music/takeoff-migos-dead.html",
+      "id": 100000008610659,
+      "asset_id": 100000008610659,
+      "source": "New York Times",
+      "published_date": "2022-11-01",
+      "updated": "2022-11-02 10:53:08",
+      "section": "Arts",
+      "subsection": "Music",
+      "nytdsection": "arts",
+      "adx_keywords": "Murders, Attempted Murders and Homicides;Rap and Hip-Hop;Content Type: Personal Profile;Takeoff (Rapper);Migos (Music Group);Houston (Tex)",
+      "column": null,
+      "byline": "By Joe Coscarelli and J. David Goodman",
+      "type": "Article",
+      "title": "Takeoff, of Atlanta Rap Trio Migos, Shot Dead at 28",
+      "abstract": "The rapper was killed in a shooting at a bowling alley in Houston overnight.",
+      "des_facet": [
+        "Murders, Attempted Murders and Homicides",
+        "Rap and Hip-Hop",
+        "Content Type: Personal Profile"
+      ],
+      "org_facet": [
+        "Migos (Music Group)"
+      ],
+      "per_facet": [
+        "Takeoff (Rapper)"
+      ],
+      "geo_facet": [
+        "Houston (Tex)"
+      ],
+      "media": [],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/e13e9562-3484-5c3f-a9d7-8f0ad96fdcc5",
+      "url": "https://www.nytimes.com/2022/11/03/sports/basketball/kyrie-irving-apology-antisemitic-documentary.html",
+      "id": 100000008616559,
+      "asset_id": 100000008616559,
+      "source": "New York Times",
+      "published_date": "2022-11-03",
+      "updated": "2022-11-04 22:57:15",
+      "section": "Sports",
+      "subsection": "N.B.A.",
+      "nytdsection": "sports",
+      "adx_keywords": "Basketball;Anti-Semitism;Social Media;Fines (Penalties);Irving, Kyrie;Brooklyn Nets;Anti-Defamation League",
+      "column": null,
+      "byline": "By Tania Ganguli",
+      "type": "Article",
+      "title": "Nets Suspend Kyrie Irving Indefinitely After Antisemitic Movie Post",
+      "abstract": "Irving posted a link to an antisemitic movie last week but had not apologized until hours after the Nets suspended him for a minimum of five games.",
+      "des_facet": [
+        "Basketball",
+        "Anti-Semitism",
+        "Social Media",
+        "Fines (Penalties)"
+      ],
+      "org_facet": [
+        "Brooklyn Nets",
+        "Anti-Defamation League"
+      ],
+      "per_facet": [
+        "Irving, Kyrie"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Nets guard Kyrie Irving distanced himself from some of the false assertions made in an antisemitic movie he linked to on Twitter last week.",
+          "copyright": "Jessie Alcheh/Associated Press",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/03/sports/03nba-kyrie-statement-1/merlin_215815359_8d369c6d-24c7-43d6-b263-f2b9f232e320-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/03/sports/03nba-kyrie-statement-1/merlin_215815359_8d369c6d-24c7-43d6-b263-f2b9f232e320-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/03/sports/03nba-kyrie-statement-1/merlin_215815359_8d369c6d-24c7-43d6-b263-f2b9f232e320-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/10010b33-3878-5a7b-8edd-5e088582f4ce",
+      "url": "https://www.nytimes.com/2022/11/05/arts/music/aaron-carter-dead.html",
+      "id": 100000008620493,
+      "asset_id": 100000008620493,
+      "source": "New York Times",
+      "published_date": "2022-11-05",
+      "updated": "2022-11-06 10:41:50",
+      "section": "Arts",
+      "subsection": "Music",
+      "nytdsection": "arts",
+      "adx_keywords": "Deaths (Obituaries);Pop and Rock Music;Carter, Aaron;Backstreet Boys",
+      "column": null,
+      "byline": "By Melina Delkic and McKenna Oxenden",
+      "type": "Article",
+      "title": "Aaron Carter, Singer and Onetime Teenage Sensation, Dies at 34",
+      "abstract": "Mr. Carter, who released his first album at age 9 and “Aaron’s Party” at age 12, was the younger brother of Nick Carter, a member of the Backstreet Boys.",
+      "des_facet": [
+        "Deaths (Obituaries)",
+        "Pop and Rock Music"
+      ],
+      "org_facet": [
+        "Backstreet Boys"
+      ],
+      "per_facet": [
+        "Carter, Aaron"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Aaron Carter in 2012. He released five studio albums and was a contestant on the show “Dancing With the Stars.”",
+          "copyright": "Cindy Ord/Getty Images",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/05/multimedia/05xp-aaroncarter/05xp-aaroncarter-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/05/multimedia/05xp-aaroncarter/05xp-aaroncarter-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/05/multimedia/05xp-aaroncarter/05xp-aaroncarter-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/6f29686d-3f39-5ec9-9ce9-330988d58aec",
+      "url": "https://www.nytimes.com/2022/11/03/realestate/housekeeper-daughter-dream-home-renovation.html",
+      "id": 100000008572642,
+      "asset_id": 100000008572642,
+      "source": "New York Times",
+      "published_date": "2022-11-03",
+      "updated": "2022-11-05 22:30:45",
+      "section": "Real Estate",
+      "subsection": "",
+      "nytdsection": "real estate",
+      "adx_keywords": "internal-sub-only;Real Estate and Housing (Residential);Friendship;Domestic Service;Content Type: Personal Profile;Albuquerque (NM);New Mexico",
+      "column": null,
+      "byline": "By Steven Kurutz",
+      "type": "Article",
+      "title": "She Bought the House Her Mother Cleaned for 43 Years",
+      "abstract": "Nichol Naranjo says she was destined to own the house that was a refuge, “a place to come and catch our breath. And to dream.”",
+      "des_facet": [
+        "internal-sub-only",
+        "Real Estate and Housing (Residential)",
+        "Friendship",
+        "Domestic Service",
+        "Content Type: Personal Profile"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [
+        "Albuquerque (NM)",
+        "New Mexico"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Margaret Gaxiola, left, was once the housekeeper of the home that her daughter Nichol Naranjo, right, bought in 2020.",
+          "copyright": "John Burcham for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/06/realestate/00motherskeeper-nichol-marg/00motherskeeper-nichol-marg-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/06/realestate/00motherskeeper-nichol-marg/merlin_215405874_1ad6b3d0-bdca-406e-9aa7-ccb653cba43b-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/06/realestate/00motherskeeper-nichol-marg/merlin_215405874_1ad6b3d0-bdca-406e-9aa7-ccb653cba43b-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/1fbff207-ff9e-5147-b040-350cb5995430",
+      "url": "https://www.nytimes.com/2022/11/02/us/politics/russia-ukraine-nuclear-weapons.html",
+      "id": 100000008609756,
+      "asset_id": 100000008609756,
+      "source": "New York Times",
+      "published_date": "2022-11-02",
+      "updated": "2022-11-03 10:58:02",
+      "section": "U.S.",
+      "subsection": "Politics",
+      "nytdsection": "u.s.",
+      "adx_keywords": "Russian Invasion of Ukraine (2022);Defense and Military Forces;Nuclear Weapons;Dirty Bombs and Radiological Weapons;International Relations;United States International Relations;Putin, Vladimir V;Russia;Ukraine",
+      "column": null,
+      "byline": "By Helene Cooper, Julian E. Barnes and Eric Schmitt",
+      "type": "Article",
+      "title": "Russian Military Leaders Discussed Use of Nuclear Weapons, U.S. Officials Say",
+      "abstract": "The conversations alarmed the Biden administration because they showed how frustrated Moscow had become over its battlefield setbacks in Ukraine.",
+      "des_facet": [
+        "Russian Invasion of Ukraine (2022)",
+        "Defense and Military Forces",
+        "Nuclear Weapons",
+        "Dirty Bombs and Radiological Weapons",
+        "International Relations",
+        "United States International Relations"
+      ],
+      "org_facet": [],
+      "per_facet": [
+        "Putin, Vladimir V"
+      ],
+      "geo_facet": [
+        "Russia",
+        "Ukraine"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Ukrainian soldiers on the Kherson front. Since Russia invaded Ukraine in February and suffered significant casualties, President Vladimir V. Putin has fanned fears that he might resort to a nuclear weapon.",
+          "copyright": "Jim Huylebroek for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/01/us/politics/00dc-intel_2/00dc-intel_2-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/01/us/politics/00dc-intel_2/merlin_213627753_b7fd2bb5-fa47-4e63-b9f2-4d22ab967623-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/01/us/politics/00dc-intel_2/merlin_213627753_b7fd2bb5-fa47-4e63-b9f2-4d22ab967623-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/e994b19e-77e9-5491-97c8-722c00703de4",
+      "url": "https://www.nytimes.com/2022/11/03/technology/twitter-layoffs-elon-musk.html",
+      "id": 100000008612298,
+      "asset_id": 100000008612298,
+      "source": "New York Times",
+      "published_date": "2022-11-03",
+      "updated": "2022-11-04 12:06:04",
+      "section": "Technology",
+      "subsection": "",
+      "nytdsection": "technology",
+      "adx_keywords": "Layoffs and Job Reductions;Social Media;Mergers, Acquisitions and Divestitures;Computers and the Internet;Musk, Elon;Twitter",
+      "column": null,
+      "byline": "By Kate Conger and Ryan Mac",
+      "type": "Article",
+      "title": "Elon Musk Begins Layoffs at Twitter",
+      "abstract": "The social media company’s 7,500 employees have been bracing for job cuts since Mr. Musk took it over last week.",
+      "des_facet": [
+        "Layoffs and Job Reductions",
+        "Social Media",
+        "Mergers, Acquisitions and Divestitures",
+        "Computers and the Internet"
+      ],
+      "org_facet": [
+        "Twitter"
+      ],
+      "per_facet": [
+        "Musk, Elon"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Twitter’s headquarters in San Francisco. About half the company’s 7,500 workers appeared set to lose their jobs.",
+          "copyright": "Jim Wilson/The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/business/00twitter-layoffs-01/00twitter-layoffs-01-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/business/00twitter-layoffs-01/00twitter-layoffs-01-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/business/00twitter-layoffs-01/00twitter-layoffs-01-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/62d2d02c-5a93-54ed-98f6-8f3886a2511a",
+      "url": "https://www.nytimes.com/2022/11/01/arts/television/christina-applegate-dead-to-me.html",
+      "id": 100000008599052,
+      "asset_id": 100000008599052,
+      "source": "New York Times",
+      "published_date": "2022-11-01",
+      "updated": "2022-11-02 01:53:05",
+      "section": "Arts",
+      "subsection": "Television",
+      "nytdsection": "arts",
+      "adx_keywords": "Television;Applegate, Christina",
+      "column": null,
+      "byline": "By Alexis Soloski",
+      "type": "Article",
+      "title": "Christina Applegate Pours One Out for ‘Dead to Me’",
+      "abstract": "Diagnosed with multiple sclerosis during filming of the show’s final season, Applegate was determined to finish the story. She said it was the hardest thing she’s ever done.",
+      "des_facet": [
+        "Television"
+      ],
+      "org_facet": [],
+      "per_facet": [
+        "Applegate, Christina"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Christina Applegate in the final season of “Dead to Me,” premiering Nov. 17 on Netflix. “This is the first time anyone’s going to see me the way I am,” she said.",
+          "copyright": "Saeed Adyani/Netflix",
+          "approved_for_syndication": 0,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/arts/01applegate1/01applegate1-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/arts/01applegate1/merlin_215788803_d47b9b0e-fc5d-44db-99c4-5e3ba999aa80-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/arts/01applegate1/merlin_215788803_d47b9b0e-fc5d-44db-99c4-5e3ba999aa80-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/5323f4a2-f37b-5f00-905e-dc30cc798d02",
+      "url": "https://www.nytimes.com/2022/11/02/us/politics/republicans-social-security-medicare.html",
+      "id": 100000008610881,
+      "asset_id": 100000008610881,
+      "source": "New York Times",
+      "published_date": "2022-11-02",
+      "updated": "2022-11-03 08:39:12",
+      "section": "U.S.",
+      "subsection": "Politics",
+      "nytdsection": "u.s.",
+      "adx_keywords": "Social Security (US);Medicare;Retirement;Midterm Elections (2022);United States Politics and Government;Biden, Joseph R Jr;Democratic Party;Republican Party;House of Representatives;Senate",
+      "column": null,
+      "byline": "By Jim Tankersley",
+      "type": "Article",
+      "title": "Republicans, Eyeing Majority, Float Changes to Social Security and Medicare",
+      "abstract": "Democrats have seized on Republican proposals to limit retirement benefits to galvanize voters ahead of the midterm elections.",
+      "des_facet": [
+        "Social Security (US)",
+        "Medicare",
+        "Retirement",
+        "Midterm Elections (2022)",
+        "United States Politics and Government"
+      ],
+      "org_facet": [
+        "Democratic Party",
+        "Republican Party",
+        "House of Representatives",
+        "Senate"
+      ],
+      "per_facet": [
+        "Biden, Joseph R Jr"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Senator Rick Scott, Republican of Florida, has proposed subjecting nearly all federal spending programs to a renewal vote every year, which would make Medicare and Social Security more vulnerable to budget cuts.",
+          "copyright": "Nicole Craine for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/business/02dc-entitlements01/02dc-entitlements01-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/business/02dc-entitlements01/02dc-entitlements01-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/02/business/02dc-entitlements01/02dc-entitlements01-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/ccec0255-169f-587a-b789-789e6278ad0e",
+      "url": "https://www.nytimes.com/2022/11/01/well/live/brushing-teeth-breakfast.html",
+      "id": 100000008572383,
+      "asset_id": 100000008572383,
+      "source": "New York Times",
+      "published_date": "2022-11-01",
+      "updated": "2022-11-01 05:00:10",
+      "section": "Well",
+      "subsection": "Live",
+      "nytdsection": "well",
+      "adx_keywords": "Teeth and Dentistry;Content Type: Service;Bacteria;Fluorides;Carbohydrates",
+      "column": null,
+      "byline": "By Hannah Seo",
+      "type": "Article",
+      "title": "Is It Better to Brush Your Teeth Before Breakfast or After?",
+      "abstract": "It’s a hotly debated question in dentistry.",
+      "des_facet": [
+        "Teeth and Dentistry",
+        "Content Type: Service",
+        "Bacteria",
+        "Fluorides",
+        "Carbohydrates"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "Aileen Son for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/08/multimedia/25ASKWELL-BrushBreakfast2-1-24f0/25ASKWELL-BrushBreakfast2-1-24f0-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/08/multimedia/25ASKWELL-BrushBreakfast2-1-24f0/25ASKWELL-BrushBreakfast2-1-24f0-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/08/multimedia/25ASKWELL-BrushBreakfast2-1-24f0/25ASKWELL-BrushBreakfast2-1-24f0-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/9cab2b51-fca5-59be-9d1c-d39fa7390cdd",
+      "url": "https://www.nytimes.com/2015/01/09/style/no-37-big-wedding-or-small.html",
+      "id": 100000003439827,
+      "asset_id": 100000003439827,
+      "source": "New York Times",
+      "published_date": "2015-01-09",
+      "updated": "2022-09-08 08:10:33",
+      "section": "Style",
+      "subsection": "",
+      "nytdsection": "style",
+      "adx_keywords": "Love (Emotion);Dating and Relationships;Psychology and Psychologists;Aron, Arthur (1945- )",
+      "column": null,
+      "byline": "By Daniel Jones",
+      "type": "Article",
+      "title": "The 36 Questions That Lead to Love",
+      "abstract": "A series of personal questions used by the psychologist Arthur Aron to explore the idea of fostering closeness through mutual vulnerability.",
+      "des_facet": [
+        "Love (Emotion)",
+        "Dating and Relationships",
+        "Psychology and Psychologists"
+      ],
+      "org_facet": [],
+      "per_facet": [
+        "Aron, Arthur (1945- )"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "Brian Rea",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2015/01/11/fashion/11LOVE-tight/11LOVE-tight-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2015/01/11/fashion/11LOVE-tight/11LOVE-tight-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2015/01/11/fashion/11LOVE-tight/11LOVE-tight-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/3d899319-ef08-52e9-b912-777f977c96dc",
+      "url": "https://www.nytimes.com/2022/10/29/technology/twitter-layoffs-musk-jobs.html",
+      "id": 100000008607121,
+      "asset_id": 100000008607121,
+      "source": "New York Times",
+      "published_date": "2022-10-29",
+      "updated": "2022-10-30 13:31:51",
+      "section": "Technology",
+      "subsection": "",
+      "nytdsection": "technology",
+      "adx_keywords": "Layoffs and Job Reductions;Social Media;Mergers, Acquisitions and Divestitures;Appointments and Executive Changes;Musk, Elon;Twitter",
+      "column": null,
+      "byline": "By Kate Conger, Ryan Mac, Sheera Frenkel and Mike Isaac",
+      "type": "Article",
+      "title": "Elon Musk Is Said to Have Ordered Job Cuts Across Twitter",
+      "abstract": "The billionaire planned to begin layoffs as soon as Saturday, people with knowledge of the matter said.",
+      "des_facet": [
+        "Layoffs and Job Reductions",
+        "Social Media",
+        "Mergers, Acquisitions and Divestitures",
+        "Appointments and Executive Changes"
+      ],
+      "org_facet": [
+        "Twitter"
+      ],
+      "per_facet": [
+        "Musk, Elon"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Twitter’s headquarters in San Francisco. Layoffs had been expected and feared by Twitter employees.",
+          "copyright": "Constanza Hevia/Agence France-Presse — Getty Images",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/10/29/multimedia/29twitter-layoffs-1-1-8266/29twitter-layoffs-1-1-8266-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/29/multimedia/29twitter-layoffs-1-1-8266/29twitter-layoffs-1-1-8266-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/29/multimedia/29twitter-layoffs-1-1-8266/29twitter-layoffs-1-1-8266-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/66b26a3f-bda0-5a5d-9720-8dd1a1cc678b",
+      "url": "https://www.nytimes.com/2022/10/31/us/politics/democrats-republicans-senate-election-polls.html",
+      "id": 100000008605746,
+      "asset_id": 100000008605746,
+      "source": "New York Times",
+      "published_date": "2022-10-31",
+      "updated": "2022-11-03 17:15:32",
+      "section": "U.S.",
+      "subsection": "Politics",
+      "nytdsection": "u.s.",
+      "adx_keywords": "United States Politics and Government;Elections, Senate;Midterm Elections (2022);Voting and Voters;Polls and Public Opinion;Laxalt, Adam;Masto, Catherine Cortez;Kelly, Mark E (1964- );Masters, Blake (1986- );Fetterman, John (1969- );Oz, Mehmet C;Warnock, Raphael G;Walker, Herschel;Democratic Party;Republican Party;Arizona;Pennsylvania;Georgia;Nevada",
+      "column": null,
+      "byline": "By Lisa Lerer and Ruth Igielnik",
+      "type": "Article",
+      "title": "Senate Control Hinges on Neck-and-Neck Races, Times/Siena Poll Finds",
+      "abstract": "The contests are close in Arizona, Georgia, Nevada and Pennsylvania. Many voters want Republicans to flip the Senate, but prefer the Democrat in their state.",
+      "des_facet": [
+        "United States Politics and Government",
+        "Elections, Senate",
+        "Midterm Elections (2022)",
+        "Voting and Voters",
+        "Polls and Public Opinion"
+      ],
+      "org_facet": [
+        "Democratic Party",
+        "Republican Party"
+      ],
+      "per_facet": [
+        "Laxalt, Adam",
+        "Masto, Catherine Cortez",
+        "Kelly, Mark E (1964- )",
+        "Masters, Blake (1986- )",
+        "Fetterman, John (1969- )",
+        "Oz, Mehmet C",
+        "Warnock, Raphael G",
+        "Walker, Herschel"
+      ],
+      "geo_facet": [
+        "Arizona",
+        "Pennsylvania",
+        "Georgia",
+        "Nevada"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "Lalena Fisher",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/10/30/us/senate-poll-fourstates-promo/senate-poll-fourstates-promo-thumbStandard-v2.png",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/30/us/senate-poll-fourstates-promo/senate-poll-fourstates-promo-mediumThreeByTwo210-v2.png",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/30/us/senate-poll-fourstates-promo/senate-poll-fourstates-promo-mediumThreeByTwo440-v2.png",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/7daa956b-f899-5d9a-9956-cb73fb25e3ec",
+      "url": "https://www.nytimes.com/2022/11/04/technology/elon-musk-twitter-layoffs.html",
+      "id": 100000008617887,
+      "asset_id": 100000008617887,
+      "source": "New York Times",
+      "published_date": "2022-11-04",
+      "updated": "2022-11-05 16:30:17",
+      "section": "Technology",
+      "subsection": "",
+      "nytdsection": "technology",
+      "adx_keywords": "Layoffs and Job Reductions;Social Media;Mergers, Acquisitions and Divestitures;Computers and the Internet;Musk, Elon;Twitter",
+      "column": null,
+      "byline": "By Kate Conger, Ryan Mac and Mike Isaac",
+      "type": "Article",
+      "title": "Confusion and Frustration Reign as Elon Musk Cuts Half of Twitter’s Staff",
+      "abstract": "The layoffs hit across many divisions, including the engineering and machine learning units, the teams that manage content moderation, and the sales and advertising departments.",
+      "des_facet": [
+        "Layoffs and Job Reductions",
+        "Social Media",
+        "Mergers, Acquisitions and Divestitures",
+        "Computers and the Internet"
+      ],
+      "org_facet": [
+        "Twitter"
+      ],
+      "per_facet": [
+        "Musk, Elon"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "On Friday morning, at least nine security guards were seen patrolling Twitter headquarters in San Francisco. Employees had been told to stay home as layoffs were carried out.",
+          "copyright": "Jason Henry for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/03/business/04TWITTER-LAYOFFS-01/03TWITTER-LAYOFFS-01-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/03/business/04TWITTER-LAYOFFS-01/merlin_214496358_0fcb6c25-26eb-4433-a184-06e14425f93e-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/03/business/04TWITTER-LAYOFFS-01/merlin_214496358_0fcb6c25-26eb-4433-a184-06e14425f93e-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/9b14b9a1-4ff5-5c1c-a7b7-243c7d92d3f1",
+      "url": "https://www.nytimes.com/article/rsv-symptoms-treatment.html",
+      "id": 100000008605276,
+      "asset_id": 100000008605276,
+      "source": "New York Times",
+      "published_date": "2022-10-29",
+      "updated": "2022-10-30 08:13:20",
+      "section": "Well",
+      "subsection": "",
+      "nytdsection": "well",
+      "adx_keywords": "Content Type: Service;Respiratory Syncytial Virus (RSV);Children and Childhood;Babies and Infants;Hospitals;Immune System;Viruses;Disease Rates;Coughs",
+      "column": null,
+      "byline": "By Knvul Sheikh",
+      "type": "Article",
+      "title": "R.S.V. Cases Are Rising. Here’s What You Need to Know",
+      "abstract": "Before the Covid pandemic, most people caught respiratory syncytial virus before the age of 2. Now things have changed.",
+      "des_facet": [
+        "Content Type: Service",
+        "Respiratory Syncytial Virus (RSV)",
+        "Children and Childhood",
+        "Babies and Infants",
+        "Hospitals",
+        "Immune System",
+        "Viruses",
+        "Disease Rates",
+        "Coughs"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "Getty Images",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/10/28/well/28WELL-RSV-EXPLAINER1/28WELL-RSV-EXPLAINER1-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/28/well/28WELL-RSV-EXPLAINER1/28WELL-RSV-EXPLAINER1-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/28/well/28WELL-RSV-EXPLAINER1/28WELL-RSV-EXPLAINER1-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/cf58780d-167d-5c48-9e68-079f65aa79be",
+      "url": "https://www.nytimes.com/2022/10/30/business/musk-tweets-hillary-clinton-pelosi-husband.html",
+      "id": 100000008607863,
+      "asset_id": 100000008607863,
+      "source": "New York Times",
+      "published_date": "2022-10-30",
+      "updated": "2022-10-31 13:02:35",
+      "section": "Business",
+      "subsection": "",
+      "nytdsection": "business",
+      "adx_keywords": "Social Media;News and News Media;United States Politics and Government;Rumors and Misinformation;Clinton, Hillary Rodham;Musk, Elon;Twitter;Santa Monica Observer",
+      "column": null,
+      "byline": "By Kurtis Lee",
+      "type": "Article",
+      "title": "Elon Musk, in a Tweet, Shares Link From Site Known to Publish False News",
+      "abstract": "The tweet on Sunday, which was later deleted, posted an article that made baseless allegations about the attack on House Speaker Nancy Pelosi’s husband.",
+      "des_facet": [
+        "Social Media",
+        "News and News Media",
+        "United States Politics and Government",
+        "Rumors and Misinformation"
+      ],
+      "org_facet": [
+        "Twitter",
+        "Santa Monica Observer"
+      ],
+      "per_facet": [
+        "Clinton, Hillary Rodham",
+        "Musk, Elon"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "In the months since Elon Musk announced he would buy Twitter, questions have been raised about how, or if, he would act to combat misinformation and hate speech on the site.",
+          "copyright": "Beck Diefenbach/Reuters",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/multimedia/30musk-tweet-print/30musk-tweet-1-1-1ccc-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/multimedia/30musk-tweet-print/30musk-tweet-1-1-1ccc-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/multimedia/30musk-tweet-print/30musk-tweet-1-1-1ccc-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/db90595f-a127-5839-9558-dc133f23f3e6",
+      "url": "https://www.nytimes.com/article/crowd-crush-safety.html",
+      "id": 100000008608832,
+      "asset_id": 100000008608832,
+      "source": "New York Times",
+      "published_date": "2022-10-31",
+      "updated": "2022-11-02 11:36:18",
+      "section": "Well",
+      "subsection": "Live",
+      "nytdsection": "well",
+      "adx_keywords": "Stampedes;Content Type: Service;Disasters and Emergencies",
+      "column": null,
+      "byline": "By Dani Blum",
+      "type": "Article",
+      "title": "What to Do if You Find Yourself in a Crowd Crush",
+      "abstract": "While tragedies such as the deaths of 151 people at a Halloween event in Seoul are rare, anyone attending a big gathering should keep these safety tips in mind, experts say.",
+      "des_facet": [
+        "Stampedes",
+        "Content Type: Service",
+        "Disasters and Emergencies"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "",
+          "copyright": "Getty Images",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/well/WELL-CROWD-CRUSH1/WELL-CROWD-CRUSH1-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/well/WELL-CROWD-CRUSH1/WELL-CROWD-CRUSH1-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/well/WELL-CROWD-CRUSH1/WELL-CROWD-CRUSH1-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/15631eaa-103c-5d3a-b1c8-cffdd6b6eee8",
+      "url": "https://www.nytimes.com/2022/11/02/movies/jennifer-lawrence-causeway.html",
+      "id": 100000008597707,
+      "asset_id": 100000008597707,
+      "source": "New York Times",
+      "published_date": "2022-11-02",
+      "updated": "2022-11-04 19:00:30",
+      "section": "Movies",
+      "subsection": "",
+      "nytdsection": "movies",
+      "adx_keywords": "Actors and Actresses;Content Type: Personal Profile;Movies;Celebrities;internal-sub-only;audio-neutral-informative;Lawrence, Jennifer;Neugebauer, Lila;Adele (Singer)",
+      "column": null,
+      "byline": "By Kyle Buchanan",
+      "type": "Article",
+      "title": "Who Is Jennifer Lawrence Now?",
+      "abstract": "The Oscar-winning “Hunger Games” actress is free from her franchise commitments. But after a brief hiatus from acting, what will she do next?",
+      "des_facet": [
+        "Actors and Actresses",
+        "Content Type: Personal Profile",
+        "Movies",
+        "Celebrities",
+        "internal-sub-only",
+        "audio-neutral-informative"
+      ],
+      "org_facet": [],
+      "per_facet": [
+        "Lawrence, Jennifer",
+        "Neugebauer, Lila",
+        "Adele (Singer)"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "“I obviously cannot relate to risking my life for my country,” Jennifer Lawrence said, “but I can understand, reading ‘Causeway,’ why I’m getting so emotional about somebody who doesn’t feel like they belong anywhere unless they’re on a schedule.”",
+          "copyright": "Robbie Lawrence for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/11/06/arts/06JENNIFER-LAWRENCE1/merlin_215783394_80ebc324-676a-4964-ad47-d0f87248238d-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/06/arts/06JENNIFER-LAWRENCE1/06JENNIFER-LAWRENCE1-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/11/06/arts/06JENNIFER-LAWRENCE1/06JENNIFER-LAWRENCE1-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/858e363f-4682-5441-a9dd-06b646053d55",
+      "url": "https://www.nytimes.com/2022/10/30/us/suspect-attack-nancy-pelosi-husband.html",
+      "id": 100000008606925,
+      "asset_id": 100000008606925,
+      "source": "New York Times",
+      "published_date": "2022-10-30",
+      "updated": "2022-10-31 06:14:34",
+      "section": "U.S.",
+      "subsection": "",
+      "nytdsection": "u.s.",
+      "adx_keywords": "Murders, Attempted Murders and Homicides;United States Politics and Government;Assaults;Depape, David;Pelosi, Nancy;Pelosi, Paul;House of Representatives;Berkeley (Calif);California;Richmond (Calif);San Francisco (Calif)",
+      "column": null,
+      "byline": "By Kellen Browning, Alan Feuer, Charlie Savage and Eliza Fawcett",
+      "type": "Article",
+      "title": "Who Is the Man Accused of Attacking Nancy Pelosi’s Husband?",
+      "abstract": "Those who have known the suspect describe an individual who seemed to fall into isolation and deeply troubling thoughts.",
+      "des_facet": [
+        "Murders, Attempted Murders and Homicides",
+        "United States Politics and Government",
+        "Assaults"
+      ],
+      "org_facet": [
+        "House of Representatives"
+      ],
+      "per_facet": [
+        "Depape, David",
+        "Pelosi, Nancy",
+        "Pelosi, Paul"
+      ],
+      "geo_facet": [
+        "Berkeley (Calif)",
+        "California",
+        "Richmond (Calif)",
+        "San Francisco (Calif)"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "Investigators working on the street where the House Speaker Nancy Pelosi lives with her husband, Paul.",
+          "copyright": "Jim Wilson",
+          "approved_for_syndication": 0,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/10/30/multimedia/30nat-pelosi-depape-01-1-ff92/30nat-pelosi-depape-01-1-ff92-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/30/multimedia/30nat-pelosi-depape-01-1-ff92/30nat-pelosi-depape-01-1-ff92-mediumThreeByTwo210-v2.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/30/multimedia/30nat-pelosi-depape-01-1-ff92/30nat-pelosi-depape-01-1-ff92-mediumThreeByTwo440-v2.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/88077588-0316-5e64-bd60-a0ea69b58395",
+      "url": "https://www.nytimes.com/2022/10/31/business/education-department-student-loan-relief.html",
+      "id": 100000008609297,
+      "asset_id": 100000008609297,
+      "source": "New York Times",
+      "published_date": "2022-10-31",
+      "updated": "2022-11-01 10:22:17",
+      "section": "Business",
+      "subsection": "",
+      "nytdsection": "business",
+      "adx_keywords": "Student Loans;Colleges and Universities;For-Profit Schools;Personal Finances;Federal Aid (US);United States Politics and Government;Cardona, Miguel A (1975- );Biden, Joseph R Jr;Education Department (US)",
+      "column": null,
+      "byline": "By Stacy Cowley",
+      "type": "Article",
+      "title": "Education Department Expands Student Loan Relief Programs",
+      "abstract": "A lengthy set of rule changes will reduce the total cost for many federal student loan borrowers and ease rules for debt elimination.",
+      "des_facet": [
+        "Student Loans",
+        "Colleges and Universities",
+        "For-Profit Schools",
+        "Personal Finances",
+        "Federal Aid (US)",
+        "United States Politics and Government"
+      ],
+      "org_facet": [
+        "Education Department (US)"
+      ],
+      "per_facet": [
+        "Cardona, Miguel A (1975- )",
+        "Biden, Joseph R Jr"
+      ],
+      "geo_facet": [],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "New rules from the Education Department come as President Biden’s student debt relief plan faces legal challenges.",
+          "copyright": "Al Drago for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/world/31student-loan-relief/31student-loan-relief-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/world/31student-loan-relief/31student-loan-relief-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2022/10/31/world/31student-loan-relief/31student-loan-relief-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    }
+  ]
+}
