@@ -17,7 +17,7 @@ extension ArticleListViewModel {
         return 1
     }
     
-    func numberOfRowsInSection() -> Int {
+    func numberOfRowsInSection(_ section: Int) -> Int {
         return self.articles.count
     }
     

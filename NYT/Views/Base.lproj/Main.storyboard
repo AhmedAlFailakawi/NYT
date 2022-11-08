@@ -62,8 +62,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="qgg-9s-eoF" id="I9z-t9-2hY"/>
-                            <outlet property="delegate" destination="qgg-9s-eoF" id="4r0-FT-kuf"/>
+                            <outlet property="dataSource" destination="qgg-9s-eoF" id="Kfu-Gn-gAc"/>
+                            <outlet property="delegate" destination="qgg-9s-eoF" id="jqX-u3-g6z"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New York Times" id="hxR-yj-8BX"/>

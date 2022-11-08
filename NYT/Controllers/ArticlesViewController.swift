@@ -10,17 +10,17 @@ import Moya
 
 class ArticlesViewController: UITableViewController {
     private var articleListVM: ArticleListViewModel!
-    var newtworkManager: NetworkManager?
-    
-    init(newtworkManager: NetworkManager) {
-        super.init(nibName: nil, bundle: nil)
-        self.newtworkManager = newtworkManager
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+//    var newtworkManager: NetworkManager?
+//
+//    init(newtworkManager: NetworkManager) {
+//        super.init(nibName: nil, bundle: nil)
+//        self.newtworkManager = newtworkManager
+//
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +32,12 @@ extension ArticlesViewController {
     func setup() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        newtworkManager?.getNews { [weak self] (results) in
+        NetworkManager().getNews { [weak self] (results) in
             switch results {
             case .success(let data):
                 self?.articleListVM = ArticleListViewModel(articles: data.article!)
-               // print(self?.articleListVM.articles.first as Any)
+                // For testing
+                print(self?.articleListVM.articles as Any)
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -46,15 +47,15 @@ extension ArticlesViewController {
         }
     }
 }
-
+// MARK: - UITable setup
 extension ArticlesViewController {
-    // MARK: - UITable setup
     override func numberOfSections(in tableView: UITableView) -> Int {
+        //print(self.articleListVM == nil ? 0 : self.articleListVM.numberOfSections)
         return self.articleListVM == nil ? 0 : self.articleListVM.numberOfSections
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articleListVM.numberOfRowsInSection()
+        return self.articleListVM.numberOfRowsInSection(section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

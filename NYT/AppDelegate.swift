@@ -13,16 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let provider = NetworkManager()
-        let appStartVC = ArticlesViewController(newtworkManager: provider)
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = appStartVC
-            self.window?.makeKeyAndVisible()
-//        let attrs = [
-//            NSAttributedString.Key.font: UIFont(name: "Chomsky-8MOa2", size: 24)!
-//        ]
-//
-//        UINavigationBar.appearance().titleTextAttributes = attrs
+//        let provider = NetworkManager()
+//        let appStartVC = ArticlesViewController(newtworkManager: provider)
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.rootViewController = appStartVC
+//        self.window?.makeKeyAndVisible()
+//        
         return true
     }
     
