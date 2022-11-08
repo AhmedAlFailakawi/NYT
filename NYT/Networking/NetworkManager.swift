@@ -9,26 +9,39 @@ import Foundation
 import Moya
 
 protocol Networkable {
-    var provider: MoyaProvider<NewYorkTimesAPI> {get}
-    func getNews(completion: @escaping ([Article]?) -> ())
+    func getNews(completion: @escaping (Result<ArticleList, Error>) -> ())
 }
+
 // MARK: - *** NetworkManager ***
 struct NetworkManager: Networkable {
-    static let apiKey = "VJpu2AKG82l1bFS4qEpNKOK09tySw9YC" // <<<===== API key
-    var provider = MoyaProvider<NewYorkTimesAPI>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
+    private let provider = MoyaProvider<NewYorkTimesAPI>()
+    let apiKey: String = "VJpu2AKG82l1bFS4qEpNKOK09tySw9YC"
     
-    func getNews(completion: @escaping ([Article]?) -> ()) {
+    func getNews(completion: @escaping (Result<ArticleList, Error>) -> ()) {
         provider.request(.articles) { result in
             switch result {
-            case let .success(response):
-                do {
-                    let results = try JSONDecoder().decode(APIResults.self, from: response.data)
-                    completion(results.artciles)
-                } catch let error {
-                    print("You're going down according to the following exception :: \(error)")
+            case .success(let response):
+                switch response.statusCode {
+                case 200:
+                    do {
+                        let results = try JSONDecoder().decode(ArticleList.self, from: response.data)
+                        completion(.success(results))
+                    } catch let error {
+                        print("You're going down according to the following exception :: \(error)")
+                        completion(.failure(error))
+                    }
+                default:
+                    do {
+                        let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: response.data)
+                        let error = NSError(domain: "", code: response.statusCode, userInfo: [NSLocalizedDescriptionKey: errorResponse.fault.faultstring])
+                        completion(.failure(error))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
                 }
+                
             case let .failure(error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }

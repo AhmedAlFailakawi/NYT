@@ -4,43 +4,50 @@
 //
 //  Created by Ahmed AlFailakawi on 11/5/22.
 //
-
+import Foundation
 import UIKit
 import Moya
 
 class ArticlesViewController: UITableViewController {
     private var articleListVM: ArticleListViewModel!
-    var newtworkProvider: Networkable!
-
-    init(newtworkProvider: Networkable) {
+    var newtworkManager: NetworkManager?
+    
+    init(newtworkManager: NetworkManager) {
         super.init(nibName: nil, bundle: nil)
-        self.newtworkProvider = newtworkProvider
+        self.newtworkManager = newtworkManager
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //fatalError("init(coder:) has not been implemented")
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
-    
+}
+
+extension ArticlesViewController {
     func setup() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        newtworkProvider.getNews { articles in
-            if let articles = articles {
-                self.articleListVM = ArticleListViewModel(articles: articles)
+        newtworkManager?.getNews { [weak self] (results) in
+            switch results {
+            case .success(let data):
+                self?.articleListVM = ArticleListViewModel(articles: data.article!)
+               // print(self?.articleListVM.articles.first as Any)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-            
         }
     }
+}
+
+extension ArticlesViewController {
     // MARK: - UITable setup
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.articleListVM == nil ? 0 : self.articleListVM.numberOfSections
@@ -60,6 +67,4 @@ class ArticlesViewController: UITableViewController {
         cell.abstractLabel.text = articleVM.abstract
         return cell
     }
-    
-    
 }

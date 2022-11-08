@@ -8,7 +8,14 @@
 import Foundation
 
 struct ArticleList: Decodable {
-    let articles: [Article]
+    let status: String?
+    let article: [Article]?
+    
+    enum CodingKeys: String, CodingKey {
+        case status
+        case article = "results"
+    }
+    
 }
 
 struct Article: Decodable {

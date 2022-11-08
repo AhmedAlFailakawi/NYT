@@ -14,10 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let provider = NetworkManager()
-        let appStartVC = ArticlesViewController(newtworkProvider: provider)
+        let appStartVC = ArticlesViewController(newtworkManager: provider)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = appStartVC
-        self.window?.makeKeyAndVisible()
+            self.window?.makeKeyAndVisible()
 //        let attrs = [
 //            NSAttributedString.Key.font: UIFont(name: "Chomsky-8MOa2", size: 24)!
 //        ]

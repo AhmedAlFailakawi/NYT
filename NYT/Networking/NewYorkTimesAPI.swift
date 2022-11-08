@@ -8,25 +8,26 @@
 import Foundation
 import Moya
 
-struct APIResults: Decodable {
-    // we have only one case
-    let artciles: [Article]
-}
-
-public enum NewYorkTimesAPI: String, CodingKey {
-    case articles = "results"
+enum NewYorkTimesAPI {
+    case articles
 }
 
 extension NewYorkTimesAPI: TargetType {
+    
     public var baseURL: URL {
-        return URL(string: "https://api.nytimes.com/svc")!
+        switch self {
+        case .articles:
+            guard let url = URL(string: "https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=\(NetworkManager().apiKey)") else { fatalError() }
+            return url
+        }
     }
     
     public var path: String {
-        switch self {
-        case .articles:
-            return "/mostpopular/v2/viewed/7.json?api-key="
-        }
+//        switch self {
+//        case .articles:
+//            return "/mostpopular/v2/viewed/7.json?api-key="
+//        }
+        return ""
     }
     
     public var method: Moya.Method {
@@ -44,19 +45,11 @@ extension NewYorkTimesAPI: TargetType {
     }
     
     public var headers: [String : String]? {
-        return ["Content-Type": "application/json"]
+        return nil
     }
     
     public var validationType: ValidationType {
         return .successCodes
     }
     
-}
-// for testing
-func stubbedResponse(_ filename: String) -> Data! {
-    @objc class TestClass: NSObject { }
-    
-    let bundle = Bundle(for: TestClass.self)
-    let path = bundle.path(forResource: filename, ofType: "json")
-    return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
 }

@@ -12,6 +12,7 @@
 		4027FF722918C92500D144F3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF712918C92500D144F3 /* NetworkManager.swift */; };
 		4027FF742918D13600D144F3 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 4027FF732918D13600D144F3 /* sample.json */; };
 		4027FF792918F0BA00D144F3 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF782918F0BA00D144F3 /* ArticleTableViewCell.swift */; };
+		4027FF86291976EA00D144F3 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF85291976EA00D144F3 /* Failure.swift */; };
 		40DAA945291663E700ABCF5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA944291663E700ABCF5E /* AppDelegate.swift */; };
 		40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA946291663E700ABCF5E /* SceneDelegate.swift */; };
 		40DAA949291663E700ABCF5E /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA948291663E700ABCF5E /* ArticlesViewController.swift */; };
@@ -53,6 +54,7 @@
 		4027FF712918C92500D144F3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4027FF732918D13600D144F3 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		4027FF782918F0BA00D144F3 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		4027FF85291976EA00D144F3 /* Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
 		40DAA941291663E700ABCF5E /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DAA944291663E700ABCF5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40DAA946291663E700ABCF5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				4027FF6D29181EE600D144F3 /* Article.swift */,
+				4027FF85291976EA00D144F3 /* Failure.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40DAA949291663E700ABCF5E /* ArticlesViewController.swift in Sources */,
+				4027FF86291976EA00D144F3 /* Failure.swift in Sources */,
 				40DAA945291663E700ABCF5E /* AppDelegate.swift in Sources */,
 				40DAA97A291664A100ABCF5E /* NewYorkTimesAPI.swift in Sources */,
 				4027FF722918C92500D144F3 /* NetworkManager.swift in Sources */,
@@ -684,6 +688,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -713,6 +718,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -27,7 +27,6 @@ extension ArticleListViewModel {
     }
 }
 
-
 // - MARK: - Article View Model
 struct ArticleViewModel {
     private let article: Article
@@ -48,4 +47,3 @@ extension ArticleViewModel {
         return self.article.abstract
     }
 }
-
