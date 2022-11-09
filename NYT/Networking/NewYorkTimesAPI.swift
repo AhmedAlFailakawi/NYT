@@ -17,17 +17,17 @@ extension NewYorkTimesAPI: TargetType {
     public var baseURL: URL {
         switch self {
         case .articles:
-            guard let url = URL(string: "https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=\(NetworkManager().apiKey)") else { fatalError() }
+            guard let url = URL(string: "https://api.nytimes.com/svc/") else { fatalError() }
             return url
         }
     }
     
     public var path: String {
-//        switch self {
-//        case .articles:
-//            return "/mostpopular/v2/viewed/7.json?api-key="
-//        }
-        return ""
+        switch self {
+        case .articles:
+            // don't add ? after json, it would be misinterpret
+            return "mostpopular/v2/viewed/7.json"
+        }
     }
     
     public var method: Moya.Method {
@@ -39,9 +39,7 @@ extension NewYorkTimesAPI: TargetType {
     }
     
     public var task: Moya.Task {
-        // NYT API doesn't require any additional request data to be passed
-        // At leaset, that's what I know...
-        return .requestPlain
+        return .requestParameters(parameters: ["api-key" : "VJpu2AKG82l1bFS4qEpNKOK09tySw9YC"], encoding: URLEncoding.default)
     }
     
     public var headers: [String : String]? {

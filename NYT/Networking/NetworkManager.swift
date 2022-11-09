@@ -15,7 +15,6 @@ protocol Networkable {
 // MARK: - *** NetworkManager ***
 struct NetworkManager: Networkable {
     private let provider = MoyaProvider<NewYorkTimesAPI>()
-    let apiKey: String = "VJpu2AKG82l1bFS4qEpNKOK09tySw9YC"
     
     func getNews(completion: @escaping (Result<ArticleList, Error>) -> ()) {
         provider.request(.articles) { result in

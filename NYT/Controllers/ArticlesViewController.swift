@@ -10,17 +10,6 @@ import Moya
 
 class ArticlesViewController: UITableViewController {
     private var articleListVM: ArticleListViewModel!
-//    var newtworkManager: NetworkManager?
-//
-//    init(newtworkManager: NetworkManager) {
-//        super.init(nibName: nil, bundle: nil)
-//        self.newtworkManager = newtworkManager
-//
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
