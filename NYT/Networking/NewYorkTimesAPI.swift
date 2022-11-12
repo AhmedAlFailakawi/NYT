@@ -15,11 +15,8 @@ enum NewYorkTimesAPI {
 extension NewYorkTimesAPI: TargetType {
     
     public var baseURL: URL {
-        switch self {
-        case .articles:
-            guard let url = URL(string: "https://api.nytimes.com/svc/") else { fatalError() }
-            return url
-        }
+        guard let url = URL(string: "https://api.nytimes.com/svc/") else { fatalError() }
+        return url
     }
     
     public var path: String {
@@ -29,7 +26,6 @@ extension NewYorkTimesAPI: TargetType {
             return "mostpopular/v2/viewed/7.json"
         }
     }
-    
     public var method: Moya.Method {
         return .get
     }
@@ -37,7 +33,7 @@ extension NewYorkTimesAPI: TargetType {
     public var data: Data {
         return Data()
     }
-    
+    //VJpu2AKG82l1bFS4qEpNKOK09tySw9YC
     public var task: Moya.Task {
         return .requestParameters(parameters: ["api-key" : "VJpu2AKG82l1bFS4qEpNKOK09tySw9YC"], encoding: URLEncoding.default)
     }

@@ -10,23 +10,21 @@ import Moya
 
 class ArticlesViewController: UITableViewController {
     private var articleListVM: ArticleListViewModel!
+    let standardThumbnail = "Standard Thumbnail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupTitleAndAbstract()
+        //setupImages()
     }
 }
-
+// MARK: - Set up
 extension ArticlesViewController {
-    func setup() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+    func setupTitleAndAbstract() {
         NetworkManager().getNews { [weak self] (results) in
             switch results {
             case .success(let data):
                 self?.articleListVM = ArticleListViewModel(articles: data.article!)
-                // For testing
-                print(self?.articleListVM.articles as Any)
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -39,7 +37,6 @@ extension ArticlesViewController {
 // MARK: - UITable setup
 extension ArticlesViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        //print(self.articleListVM == nil ? 0 : self.articleListVM.numberOfSections)
         return self.articleListVM == nil ? 0 : self.articleListVM.numberOfSections
     }
     
@@ -51,10 +48,38 @@ extension ArticlesViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell else {
             fatalError("ArticleTableViewCell not found")
         }
-        
+        print(indexPath.count)
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
         cell.titleLabel.text = articleVM.title
         cell.abstractLabel.text = articleVM.abstract
+        guard let imageString = articleVM.article.media?.first?.mediaMetadata?.first?.url else {return cell}
+        imageSetUp(imageUrlString: imageString, cell: cell)
+        
         return cell
+    }
+    
+    // if you click, go to the article's url
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //print("Pressed cell no: \(indexPath.row)")
+        let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
+        // deselect
+        tableView.deselectRow(at: indexPath, animated: true)
+        // open url
+        UIApplication.shared.open(articleVM.url)
+        
+    }
+}
+
+extension ArticlesViewController {
+    func imageSetUp(imageUrlString: String, cell: ArticleTableViewCell) {
+        guard let url = URL(string: imageUrlString) else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            if let imageData = try? Data(contentsOf: url) {
+                if let loadedImage = UIImage(data: imageData) {
+                    cell.articleThumbnail.image = loadedImage
+                }
+            }
+        }
     }
 }

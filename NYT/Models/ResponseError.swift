@@ -1,5 +1,5 @@
 //
-//  Failure.swift
+//  ResponseError.swift
 //  NYT
 //
 //  Created by Ahmed AlFailakawi on 11/7/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ErrorResponse: Codable {
+struct ResponseError: Codable {
     let fault: Fault
 }
 

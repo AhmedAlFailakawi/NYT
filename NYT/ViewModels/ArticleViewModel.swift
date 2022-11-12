@@ -29,7 +29,7 @@ extension ArticleListViewModel {
 
 // - MARK: - Article View Model
 struct ArticleViewModel {
-    private let article: Article
+     let article: Article
 }
 
 extension ArticleViewModel {
@@ -40,10 +40,14 @@ extension ArticleViewModel {
 
 extension ArticleViewModel {
     var title: String {
-        return self.article.title
+        return self.article.title ?? ""
     }
     
     var abstract: String {
-        return self.article.abstract
+        return self.article.abstract ?? ""
+    }
+    
+    var url: URL {
+        return self.article.url ?? URL(string: "")!
     }
 }

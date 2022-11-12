@@ -7,19 +7,24 @@
 
 import Foundation
 
-struct ArticleList: Decodable {
-    let status: String?
+struct Article: Codable {
+    let title: String?
+    let abstract: String?
+    let url: URL?
+    let media: [Media]?
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case abstract
+        case url
+        case media        
+    }
+}
+
+struct ArticleList: Codable {
     let article: [Article]?
     
     enum CodingKeys: String, CodingKey {
-        case status
         case article = "results"
     }
-    
 }
-
-struct Article: Decodable {
-    let title: String
-    let abstract: String
-}
-
