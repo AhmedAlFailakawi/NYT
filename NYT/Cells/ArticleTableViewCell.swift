@@ -13,4 +13,10 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var abstractLabel: UILabel!
     @IBOutlet weak var articleThumbnail: UIImageView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+//        self.isHidden = true
+        articleThumbnail.kf.cancelDownloadTask()
+        articleThumbnail.image = nil
+    }
 }

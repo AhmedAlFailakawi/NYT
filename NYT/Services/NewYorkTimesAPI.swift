@@ -22,7 +22,7 @@ extension NewYorkTimesAPI: TargetType {
     public var path: String {
         switch self {
         case .articles:
-            // don't add ? after json, it would be misinterpret
+            // don't add ? after json, it would get misinterpreted
             return "mostpopular/v2/viewed/7.json"
         }
     }
@@ -33,7 +33,7 @@ extension NewYorkTimesAPI: TargetType {
     public var data: Data {
         return Data()
     }
-    //VJpu2AKG82l1bFS4qEpNKOK09tySw9YC
+
     public var task: Moya.Task {
         return .requestParameters(parameters: ["api-key" : "VJpu2AKG82l1bFS4qEpNKOK09tySw9YC"], encoding: URLEncoding.default)
     }

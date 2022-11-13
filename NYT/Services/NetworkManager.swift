@@ -24,10 +24,6 @@ struct NetworkManager: Networkable {
                 case 200:
                     do {
                         let results = try JSONDecoder().decode(ArticleList.self, from: response.data)
-                        // ^^^ tesing territory starts ^^^
-//                        let hereToHelp = results.self.article?[0].media?.first?.mediaMetadata?.first?.url
-//                        print(hereToHelp as Any)
-                        // ^^^ tesing territory ends ^^^
                         completion(.success(results))
                     } catch let error {
                         print("You're going down according to the following exception :: \(error)")

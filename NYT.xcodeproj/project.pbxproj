@@ -14,6 +14,8 @@
 		4027FF792918F0BA00D144F3 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF782918F0BA00D144F3 /* ArticleTableViewCell.swift */; };
 		4027FF86291976EA00D144F3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF85291976EA00D144F3 /* ResponseError.swift */; };
 		40651F79291B87C3004D6E6C /* NewYorkTimes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */; };
+		4071912A2920BAA00071F15C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 407191292920BAA00071F15C /* Kingfisher */; };
+		4071912C2920BAEB0071F15C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4071912B2920BAEB0071F15C /* ImageDownloader.swift */; };
 		40DAA945291663E700ABCF5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA944291663E700ABCF5E /* AppDelegate.swift */; };
 		40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA946291663E700ABCF5E /* SceneDelegate.swift */; };
 		40DAA949291663E700ABCF5E /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA948291663E700ABCF5E /* ArticlesViewController.swift */; };
@@ -58,6 +60,7 @@
 		4027FF782918F0BA00D144F3 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4027FF85291976EA00D144F3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NewYorkTimes.ttf; path = ../../Downloads/newyorktimes/NewYorkTimes.ttf; sourceTree = "<group>"; };
+		4071912B2920BAEB0071F15C /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		40DAA941291663E700ABCF5E /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40DAA944291663E700ABCF5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40DAA946291663E700ABCF5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4071912A2920BAA00071F15C /* Kingfisher in Frameworks */,
 				B86F81EB30AF22146B4A6286 /* Pods_NYT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,7 +152,7 @@
 				40DAA9772916646100ABCF5E /* Controllers */,
 				40DAA9762916645700ABCF5E /* ViewModels */,
 				40DAA9752916645000ABCF5E /* Models */,
-				40DAA9742916644700ABCF5E /* Networking */,
+				40DAA9742916644700ABCF5E /* Services */,
 				40DAA944291663E700ABCF5E /* AppDelegate.swift */,
 				40DAA946291663E700ABCF5E /* SceneDelegate.swift */,
 				4027FF732918D13600D144F3 /* sample.json */,
@@ -175,13 +179,14 @@
 			path = NYTUITests;
 			sourceTree = "<group>";
 		};
-		40DAA9742916644700ABCF5E /* Networking */ = {
+		40DAA9742916644700ABCF5E /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				40DAA979291664A100ABCF5E /* NewYorkTimesAPI.swift */,
 				4027FF712918C92500D144F3 /* NetworkManager.swift */,
+				4071912B2920BAEB0071F15C /* ImageDownloader.swift */,
 			);
-			path = Networking;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		40DAA9752916645000ABCF5E /* Models */ = {
@@ -260,6 +265,9 @@
 			dependencies = (
 			);
 			name = NYT;
+			packageProductDependencies = (
+				407191292920BAA00071F15C /* Kingfisher */,
+			);
 			productName = NYT;
 			productReference = 40DAA941291663E700ABCF5E /* NYT.app */;
 			productType = "com.apple.product-type.application";
@@ -336,6 +344,9 @@
 				Base,
 			);
 			mainGroup = 40DAA938291663E700ABCF5E;
+			packageReferences = (
+				407191282920BAA00071F15C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 40DAA942291663E700ABCF5E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -507,6 +518,7 @@
 				40DAA97A291664A100ABCF5E /* NewYorkTimesAPI.swift in Sources */,
 				40E78819291C0DEA007D0F74 /* Media.swift in Sources */,
 				4027FF722918C92500D144F3 /* NetworkManager.swift in Sources */,
+				4071912C2920BAEB0071F15C /* ImageDownloader.swift in Sources */,
 				4027FF792918F0BA00D144F3 /* ArticleTableViewCell.swift in Sources */,
 				4027FF7029181FA000D144F3 /* ArticleViewModel.swift in Sources */,
 				40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */,
@@ -694,6 +706,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -724,6 +737,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -860,6 +874,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		407191282920BAA00071F15C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		407191292920BAA00071F15C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 407191282920BAA00071F15C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 40DAA939291663E700ABCF5E /* Project object */;
 }
