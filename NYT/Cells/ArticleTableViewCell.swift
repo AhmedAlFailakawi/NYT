@@ -15,8 +15,14 @@ class ArticleTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-//        self.isHidden = true
         articleThumbnail.kf.cancelDownloadTask()
         articleThumbnail.image = nil
+    }
+    
+    func makeRoundedThumbnail() {
+        let radius = CGRectGetWidth(articleThumbnail.frame) / 2
+        articleThumbnail.layer.cornerRadius = radius
+        articleThumbnail.layer.masksToBounds = true
+        
     }
 }

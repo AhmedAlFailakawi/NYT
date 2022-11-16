@@ -21,11 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navBarAppearance.titleTextAttributes = [
                 .foregroundColor: UIColor.white,
                 .font: UIFont(name: "NewYorkTimes", size: 30)!
+                    
             ]
+           
             navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             navBarAppearance.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
             UINavigationBar.appearance().standardAppearance = navBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+            UINavigationBar.appearance().tintColor = UIColor.white
         } else {
             UINavigationBar.appearance().barTintColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
             UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

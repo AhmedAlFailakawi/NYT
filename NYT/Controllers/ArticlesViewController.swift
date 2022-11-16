@@ -12,12 +12,15 @@ import Moya
 class ArticlesViewController: UITableViewController {
     private var articleListVM: ArticleListViewModel!
     private let imageDownloader = ImageDownloader()
+    private var detailsView = DetailsViewModel()
+    private let detailsVC = DetailsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         showAlert()
         getArticles()
-    }    
+    }
 }
 
 // MARK: - Get latest news
@@ -50,55 +53,69 @@ extension ArticlesViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell else {
             fatalError("ArticleTableViewCell not found")
         }
-//        cell.isHidden = false
+        
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
         cell.titleLabel.text = articleVM.title
         cell.abstractLabel.text = articleVM.abstract
-        guard let imageString = articleVM.article.media?.first?.mediaMetadata?.first?.url else {return cell}
+        guard let imageString = articleVM.article.media?.first?.mediaMetadata?.first?.url else {
+            cell.articleThumbnail.image = UIImage(named: "defaultThumbnail")?.preparingThumbnail(of: CGSize(width: 100, height: 100))
+            cell.makeRoundedThumbnail()
+            return cell
+        }
         imageDownloader.getImageWithDownsampling(imageUrlString: imageString, cell: cell)
+        cell.makeRoundedThumbnail()
         
         return cell
     }
     
-    // If you click, it'll direct you the article's url
+    // If you click, it'll navigate to DetailsViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
-        // Deselect row
-        tableView.deselectRow(at: indexPath, animated: true)
-        // open url
-        UIApplication.shared.open(articleVM.url)
+        self.performSegue(withIdentifier: "DetailsSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedPath = tableView.indexPathForSelectedRow else { return }
+        let articleVM = self.articleListVM.articleAtIndex(selectedPath.row)
         
+        if segue.identifier == "DetailsSegue", let nextVC = segue.destination as? DetailsViewController {
+            nextVC.titleText = articleVM.title
+            nextVC.abstractText = articleVM.abstract
+            nextVC.url = articleVM.url
+            // get image
+            
+        }
     }
 }
 // MARK: - No internet connection methods
 extension ArticlesViewController {
     func isInternetAvailable() -> Bool
-        {
-            var zeroAddress = sockaddr_in()
-            zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-            zeroAddress.sin_family = sa_family_t(AF_INET)
-
-            let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-                $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
-                    SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
-                }
-            }
-
-            var flags = SCNetworkReachabilityFlags()
-            if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-                return false
-            }
-            let isReachable = flags.contains(.reachable)
-            let needsConnection = flags.contains(.connectionRequired)
-            return (isReachable && !needsConnection)
-        }
-
-        func showAlert() {
-            if !isInternetAvailable() {
-                let alert = UIAlertController(title: "Oops!", message: "Please, check your internet connection", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-                alert.addAction(action)
-                present(alert, animated: true, completion: nil)
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
             }
         }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        
+        return (isReachable && !needsConnection)
+    }
+    
+    func showAlert() {
+        if !isInternetAvailable() {
+            let alert = UIAlertController(title: "Oops!", message: "Please, check your internet connection", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+    }
 }
