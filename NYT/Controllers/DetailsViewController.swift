@@ -6,43 +6,34 @@
 //
 import Foundation
 import UIKit
+import Kingfisher
 
 class DetailsViewController: UIViewController {
-    private var articleListVM: ArticleListViewModel!
-    private var detailsVM: DetailsViewModel!
-    @IBOutlet weak var thumbnailView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var abstractTextView: UITextView!
     @IBOutlet weak var newspaperBarButton: UIBarButtonItem!
+    @IBOutlet weak var thumbnailView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    private var articleListVM: ArticleListViewModel!
     var titleText: String = ""
     var abstractText: String = ""
-    var image: UIImage = UIImage(named: "defaultThumbnail")!
+    var date: String = ""
+    var imageUrlString: String = ""
+    var imageView: UIImageView = UIImageView(image: UIImage(named: "defaultThumbnail")!)
     var url: URL = URL(string: "https://www.nytimes.com")!
+    var imageUrl: URL = URL(string: "https://www.nytimes.com")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = titleText
         abstractTextView.text = abstractText
-        thumbnailView.image = image
-        
-        getArticles()
+        dateLabel.text = date
+        thumbnailView.kf.indicatorType = .activity
+        thumbnailView.kf.setImage(with: imageUrl,options: [.scaleFactor(UIScreen.main.scale),.cacheOriginalImage])
     }
+    
     
     @IBAction func newspaperBarButtonPressed(_ sender: Any) {
         UIApplication.shared.open(url)
-    }
-}
-// - MARK: Get data
-extension DetailsViewController {
-    func getArticles() {
-        NetworkManager().getNews { [weak self] (results) in
-            switch results {
-            case .success(let data):
-                self?.articleListVM = ArticleListViewModel(articles: data.article!)
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
     }
 }

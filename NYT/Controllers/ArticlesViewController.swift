@@ -8,6 +8,7 @@ import Foundation
 import SystemConfiguration
 import UIKit
 import Moya
+import Kingfisher
 
 class ArticlesViewController: UITableViewController {
     private var articleListVM: ArticleListViewModel!
@@ -20,9 +21,15 @@ class ArticlesViewController: UITableViewController {
         overrideUserInterfaceStyle = .light
         showAlert()
         getArticles()
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+    }
+    @objc func refresh(sender: AnyObject) {
+        print("Refreshing...")
+        showAlert()
+        getArticles()
+        self.refreshControl?.endRefreshing()
     }
 }
-
 // MARK: - Get latest news
 extension ArticlesViewController {
     func getArticles() {
@@ -57,14 +64,13 @@ extension ArticlesViewController {
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
         cell.titleLabel.text = articleVM.title
         cell.abstractLabel.text = articleVM.abstract
-        guard let imageString = articleVM.article.media?.first?.mediaMetadata?.first?.url else {
+        guard let imageString = articleVM.article.media?.first?.mediaMetadata?[1].url else {
             cell.articleThumbnail.image = UIImage(named: "defaultThumbnail")?.preparingThumbnail(of: CGSize(width: 100, height: 100))
             cell.makeRoundedThumbnail()
             return cell
         }
         imageDownloader.getImageWithDownsampling(imageUrlString: imageString, cell: cell)
         cell.makeRoundedThumbnail()
-        
         return cell
     }
     
@@ -72,24 +78,30 @@ extension ArticlesViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "DetailsSegue", sender: self)
     }
-    
+}
+// MARK: - Segue
+extension ArticlesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let selectedPath = tableView.indexPathForSelectedRow else { return }
-        let articleVM = self.articleListVM.articleAtIndex(selectedPath.row)
-        
-        if segue.identifier == "DetailsSegue", let nextVC = segue.destination as? DetailsViewController {
-            nextVC.titleText = articleVM.title
-            nextVC.abstractText = articleVM.abstract
-            nextVC.url = articleVM.url
-            // get image
+        if segue.identifier == "DetailsSegue" {
+            let nextVC = segue.destination as? DetailsViewController
             
+            guard let selectedPath = tableView.indexPathForSelectedRow else { return }
+            let articleVM = self.articleListVM.articleAtIndex(selectedPath.row)
+            nextVC?.titleText = articleVM.title
+            nextVC?.abstractText = articleVM.abstract
+            nextVC?.date = articleVM.published_date
+            nextVC?.url = articleVM.url
+            
+            guard let imageString = articleVM.article.media?.first?.mediaMetadata?[2].url else { return }
+            nextVC?.imageUrlString = imageString
+            let url = URL(string: imageString)
+            nextVC?.imageUrl = url!
         }
     }
 }
 // MARK: - No internet connection methods
 extension ArticlesViewController {
-    func isInternetAvailable() -> Bool
-    {
+    func isInternetAvailable() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)

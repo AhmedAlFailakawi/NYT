@@ -12,12 +12,14 @@ struct Article: Codable {
     let abstract: String?
     let url: URL?
     let media: [Media]?
+    let published_date: String?
     
     enum CodingKeys: String, CodingKey {
         case title
         case abstract
         case url
-        case media        
+        case media
+        case published_date
     }
 }
 

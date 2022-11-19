@@ -20,9 +20,16 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     func makeRoundedThumbnail() {
-        let radius = CGRectGetWidth(articleThumbnail.frame) / 2
-        articleThumbnail.layer.cornerRadius = radius
-        articleThumbnail.layer.masksToBounds = true
+        articleThumbnail.frame.size.width = 200
+//        articleThumbnail.frame.size.height = 50
+        articleThumbnail.layer.cornerRadius = 50
+        articleThumbnail.clipsToBounds = true
+//        let radius = CGRectGetWidth(articleThumbnail.frame) / 2
+//        articleThumbnail.layer.cornerRadius = radius
+//        articleThumbnail.layer.masksToBounds = true
+        
+//        articleThumbnail.layer.cornerRadius = self.frame.size.height / 2
+//        articleThumbnail.clipsToBounds = true
         
     }
 }

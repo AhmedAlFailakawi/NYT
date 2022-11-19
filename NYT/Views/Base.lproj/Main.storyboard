@@ -29,14 +29,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q1c-wX-Ewn">
-                                            <rect key="frame" x="10" y="5" width="100" height="95"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZ9-rD-HDV">
+                                            <rect key="frame" x="10" y="3" width="100" height="99"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q1c-wX-Ewn">
+                                                    <rect key="frame" x="2" y="3" width="96" height="93"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="NVU-LC-EIr"/>
+                                                <constraint firstAttribute="width" constant="100" id="2g8-bx-6Mt"/>
+                                                <constraint firstAttribute="bottom" secondItem="q1c-wX-Ewn" secondAttribute="bottom" constant="3" id="HHs-lK-F1E"/>
+                                                <constraint firstItem="q1c-wX-Ewn" firstAttribute="top" secondItem="rZ9-rD-HDV" secondAttribute="top" constant="3" id="V5A-U2-4yT"/>
+                                                <constraint firstAttribute="trailing" secondItem="q1c-wX-Ewn" secondAttribute="trailing" constant="2" id="pHR-lR-UDm"/>
+                                                <constraint firstItem="q1c-wX-Ewn" firstAttribute="leading" secondItem="rZ9-rD-HDV" secondAttribute="leading" constant="2" id="tHO-NI-dty"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eeU-Uy-R2v">
-                                            <rect key="frame" x="120" y="13" width="251" height="79"/>
+                                            <rect key="frame" x="120" y="21" width="251" height="63"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymu-jX-8ty">
                                                     <rect key="frame" x="0.0" y="0.0" width="251" height="15.666666666666666"/>
@@ -45,7 +55,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKv-eI-kDa">
-                                                    <rect key="frame" x="0.0" y="35.666666666666657" width="251" height="43.333333333333343"/>
+                                                    <rect key="frame" x="0.0" y="35.666666666666664" width="251" height="27.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -54,13 +64,13 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="eeU-Uy-R2v" secondAttribute="bottom" constant="2" id="Ao2-LF-ReZ"/>
-                                        <constraint firstItem="eeU-Uy-R2v" firstAttribute="leading" secondItem="q1c-wX-Ewn" secondAttribute="trailing" constant="10" id="TcN-9k-WEI"/>
-                                        <constraint firstAttribute="bottom" secondItem="q1c-wX-Ewn" secondAttribute="bottom" constant="5" id="Y7c-la-R98"/>
-                                        <constraint firstItem="eeU-Uy-R2v" firstAttribute="top" secondItem="Wms-hz-2Ig" secondAttribute="topMargin" constant="2" id="iYU-uJ-rUc"/>
-                                        <constraint firstItem="q1c-wX-Ewn" firstAttribute="leading" secondItem="Wms-hz-2Ig" secondAttribute="leading" constant="10" id="jEs-aB-VQ9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eeU-Uy-R2v" secondAttribute="bottom" constant="10" id="Ao2-LF-ReZ"/>
+                                        <constraint firstItem="eeU-Uy-R2v" firstAttribute="leading" secondItem="rZ9-rD-HDV" secondAttribute="trailing" constant="10" id="QKq-mk-0Hl"/>
+                                        <constraint firstAttribute="bottom" secondItem="rZ9-rD-HDV" secondAttribute="bottom" constant="3" id="fj2-iW-V3Z"/>
+                                        <constraint firstItem="eeU-Uy-R2v" firstAttribute="top" secondItem="Wms-hz-2Ig" secondAttribute="topMargin" constant="10" id="iYU-uJ-rUc"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="eeU-Uy-R2v" secondAttribute="trailing" constant="2" id="lJG-SJ-BFK"/>
-                                        <constraint firstItem="q1c-wX-Ewn" firstAttribute="top" secondItem="Wms-hz-2Ig" secondAttribute="top" constant="5" id="mOb-we-Sw5"/>
+                                        <constraint firstItem="rZ9-rD-HDV" firstAttribute="top" secondItem="Wms-hz-2Ig" secondAttribute="top" constant="3" id="tgZ-qH-Sbz"/>
+                                        <constraint firstItem="rZ9-rD-HDV" firstAttribute="leading" secondItem="Wms-hz-2Ig" secondAttribute="leading" constant="10" id="uIY-Ki-0Cc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -76,6 +86,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="The New York Times" id="hxR-yj-8BX"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="JMW-Zv-ota">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="7Ur-Xk-Clk" kind="show" identifier="DetailsSegue" id="8FA-Aw-UYR"/>
                     </connections>
@@ -96,15 +109,15 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cI-Ml-3uB">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="993"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="edp-ID-wzA">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="1110"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="993"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRN-Iv-uOP">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="jLl-2j-zhu">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultThumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="jLl-2j-zhu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
                                                             </imageView>
                                                         </subviews>
@@ -118,10 +131,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVQ-7s-skK">
-                                                        <rect key="frame" x="0.0" y="250" width="393" height="120"/>
+                                                        <rect key="frame" x="0.0" y="250" width="393" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Zuckerberg, Meta’s chief executive, met with executives on Tuesday about the layoffs." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPp-3b-Hgf">
-                                                                <rect key="frame" x="5" y="0.0" width="383" height="120"/>
+                                                                <rect key="frame" x="15" y="0.0" width="363" height="90"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -129,15 +142,34 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="dPp-3b-Hgf" secondAttribute="trailing" constant="5" id="B0Y-0k-xJr"/>
-                                                            <constraint firstAttribute="height" constant="120" id="RR7-O1-4DK"/>
-                                                            <constraint firstItem="dPp-3b-Hgf" firstAttribute="leading" secondItem="rVQ-7s-skK" secondAttribute="leading" constant="5" id="Sru-uk-Zon"/>
+                                                            <constraint firstAttribute="trailing" secondItem="dPp-3b-Hgf" secondAttribute="trailing" constant="15" id="B0Y-0k-xJr"/>
+                                                            <constraint firstAttribute="height" constant="90" id="RR7-O1-4DK"/>
+                                                            <constraint firstItem="dPp-3b-Hgf" firstAttribute="leading" secondItem="rVQ-7s-skK" secondAttribute="leading" constant="15" id="Sru-uk-Zon"/>
                                                             <constraint firstAttribute="bottom" secondItem="dPp-3b-Hgf" secondAttribute="bottom" id="rKO-bb-dgI"/>
                                                             <constraint firstItem="dPp-3b-Hgf" firstAttribute="top" secondItem="rVQ-7s-skK" secondAttribute="top" id="sKA-ge-PEA"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Og9-fv-oct">
+                                                        <rect key="frame" x="0.0" y="340" width="393" height="13"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022-11-14" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNz-XB-Edb">
+                                                                <rect key="frame" x="15" y="0.0" width="69" height="13"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ZNz-XB-Edb" secondAttribute="trailing" constant="309" id="A94-ul-ybU"/>
+                                                            <constraint firstAttribute="height" constant="13" id="RZM-O2-b0W"/>
+                                                            <constraint firstItem="ZNz-XB-Edb" firstAttribute="top" secondItem="Og9-fv-oct" secondAttribute="top" id="Xwf-12-5ji"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ZNz-XB-Edb" secondAttribute="bottom" id="cSf-zB-jFi"/>
+                                                            <constraint firstItem="ZNz-XB-Edb" firstAttribute="leading" secondItem="Og9-fv-oct" secondAttribute="leading" constant="15" id="gBb-BT-caP"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sC3-le-lMN">
-                                                        <rect key="frame" x="0.0" y="370" width="393" height="30"/>
+                                                        <rect key="frame" x="0.0" y="353" width="393" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="________________________________" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XA-Md-nSw">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="30"/>
@@ -156,10 +188,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSK-C9-SRv">
-                                                        <rect key="frame" x="0.0" y="400" width="393" height="220"/>
+                                                        <rect key="frame" x="0.0" y="383" width="393" height="120"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-hJ-FaE">
-                                                                <rect key="frame" x="20" y="0.0" width="353" height="220"/>
+                                                                <rect key="frame" x="20" y="0.0" width="353" height="120"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
@@ -171,18 +203,18 @@
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="uJY-hJ-FaE" secondAttribute="trailing" constant="20" id="8zw-9Z-LJD"/>
                                                             <constraint firstItem="uJY-hJ-FaE" firstAttribute="leading" secondItem="HSK-C9-SRv" secondAttribute="leading" constant="20" id="PKR-Pz-2zb"/>
-                                                            <constraint firstAttribute="height" constant="220" id="S6v-7f-l0I"/>
+                                                            <constraint firstAttribute="height" constant="120" id="S6v-7f-l0I"/>
                                                             <constraint firstAttribute="bottom" secondItem="uJY-hJ-FaE" secondAttribute="bottom" id="pDP-WW-HEN"/>
                                                             <constraint firstItem="uJY-hJ-FaE" firstAttribute="top" secondItem="HSK-C9-SRv" secondAttribute="top" id="qar-lp-NnJ"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTw-qY-Kcd">
-                                                        <rect key="frame" x="0.0" y="620" width="393" height="220"/>
+                                                        <rect key="frame" x="0.0" y="503" width="393" height="220"/>
                                                         <subviews>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfq-se-8PS">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfq-se-8PS">
                                                                 <rect key="frame" x="20" y="0.0" width="353" height="220"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <mutableString key="text">The New York Times is an American daily newspaper based in New York City with a worldwide readership. It was founded in 1851 by Henry Jarvis Raymond and George Jones, and was initially published by Raymond, Jones &amp; Company. The newspaper's influence grew in 1870 and 1871, when it published a series of exposés on William Tweed, leader of the city's Democratic Party — popularly known as "Tammany Hall" (from its early-19th-century meeting headquarters) — that led to the end of the Tweed Ring's domination of New York's City Hall.</mutableString>
+                                                                <string key="text">The New York Times is an American daily newspaper based in New York City with a worldwide readership. It was founded in 1851 by Henry Jarvis Raymond and George Jones, and was initially published by Raymond, Jones &amp; Company. The newspaper's influence grew in 1870 and 1871, when it published a series of exposés on William Tweed, leader of the city's Democratic Party — popularly known as "Tammany Hall" (from its early-19th-century meeting headquarters) — that led to the end of the Tweed Ring's domination of New York's City Hall.</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -198,7 +230,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dM-kQ-q3R">
-                                                        <rect key="frame" x="0.0" y="840" width="393" height="50"/>
+                                                        <rect key="frame" x="0.0" y="723" width="393" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The New York Times" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWP-Ed-KwK">
                                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -217,12 +249,12 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAj-Bt-feg">
-                                                        <rect key="frame" x="0.0" y="890" width="393" height="220"/>
+                                                        <rect key="frame" x="0.0" y="773" width="393" height="220"/>
                                                         <subviews>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0M-bb-76u">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0M-bb-76u">
                                                                 <rect key="frame" x="20" y="0.0" width="353" height="220"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <mutableString key="text">In the 1880s, The New York Times gradually transitioned from supporting Republican Party candidates in its editorials to becoming more politically independent and analytical.[32] In 1884, the paper supported Democrat Grover Cleveland (former mayor of Buffalo and governor of New York) in his first presidential campaign.[33] While this move cost The New York Times a portion of its readership among its more Republican readers (revenue declined from $188,000 to $56,000 from 1883 to 1884), the paper eventually regained most of its lost ground within a few years.[34]</mutableString>
+                                                                <string key="text">In the 1880s, The New York Times gradually transitioned from supporting Republican Party candidates in its editorials to becoming more politically independent and analytical.[32] In 1884, the paper supported Democrat Grover Cleveland (former mayor of Buffalo and governor of New York) in his first presidential campaign.[33] While this move cost The New York Times a portion of its readership among its more Republican readers (revenue declined from $188,000 to $56,000 from 1883 to 1884), the paper eventually regained most of its lost ground within a few years.[34]</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -285,8 +317,9 @@
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
                         <outlet property="abstractTextView" destination="uJY-hJ-FaE" id="vuA-xO-w65"/>
+                        <outlet property="dateLabel" destination="ZNz-XB-Edb" id="6hV-HU-3LD"/>
                         <outlet property="newspaperBarButton" destination="eXR-kJ-Hcw" id="IWy-Y8-JiN"/>
-                        <outlet property="thumbnailView" destination="jLl-2j-zhu" id="WKc-fG-GYR"/>
+                        <outlet property="thumbnailView" destination="jLl-2j-zhu" id="Clx-0X-LEB"/>
                         <outlet property="titleLabel" destination="dPp-3b-Hgf" id="HQ1-rj-5EP"/>
                     </connections>
                 </viewController>
@@ -314,7 +347,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mark" width="440" height="293"/>
+        <image name="defaultThumbnail" width="1200" height="1200"/>
         <image name="newspaper.fill" catalog="system" width="128" height="112"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

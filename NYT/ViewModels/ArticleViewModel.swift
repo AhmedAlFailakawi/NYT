@@ -50,4 +50,8 @@ extension ArticleViewModel {
     var url: URL {
         return self.article.url ?? URL(string: "")!
     }
+    
+    var published_date: String {
+        return self.article.published_date ?? ""
+    }
 }

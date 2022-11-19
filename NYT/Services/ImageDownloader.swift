@@ -14,7 +14,6 @@ struct ImageDownloader {
         guard let url = URL(string: imageUrlString) else { return }
         let processor = DownsamplingImageProcessor(size: cell.articleThumbnail.bounds.size)
         cell.articleThumbnail.kf.indicatorType = .activity
-        
         cell.articleThumbnail.kf.setImage(with: url,
                                           options: [
                                             .processor(processor),
