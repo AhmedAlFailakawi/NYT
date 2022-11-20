@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (5.6.2)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - ReachabilitySwift (5.0.0)
+
+DEPENDENCIES:
+  - Moya (~> 15.0)
+  - ReachabilitySwift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Moya
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+
+PODFILE CHECKSUM: 7420e87976fa9170be358a39646f0bb8196bfabb
+
+COCOAPODS: 1.11.3
