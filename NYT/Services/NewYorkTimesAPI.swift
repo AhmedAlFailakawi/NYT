@@ -13,8 +13,7 @@ enum NewYorkTimesAPI {
 }
 
 extension NewYorkTimesAPI: TargetType {
-    
-    public var baseURL: URL {
+        public var baseURL: URL {
         guard let url = URL(string: "https://api.nytimes.com/svc/") else { fatalError() }
         return url
     }
@@ -22,7 +21,7 @@ extension NewYorkTimesAPI: TargetType {
     public var path: String {
         switch self {
         case .articles:
-            // don't add ? after json, it would get misinterpreted
+            // :: Note to myself :: don't add ? after json, it would get misinterpreted
             return "mostpopular/v2/viewed/7.json"
         }
     }
@@ -45,5 +44,4 @@ extension NewYorkTimesAPI: TargetType {
     public var validationType: ValidationType {
         return .successCodes
     }
-    
 }

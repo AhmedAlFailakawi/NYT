@@ -7,9 +7,8 @@
 import Foundation
 import Kingfisher
 import UIKit
-
+// Used for table view cells rounded thumbnails
 struct ImageDownloader {
-    // Advanced with downsampling
     func getImageWithDownsampling(imageUrlString: String, cell: ArticleTableViewCell) {
         guard let url = URL(string: imageUrlString) else { return }
         let processor = DownsamplingImageProcessor(size: cell.articleThumbnail.bounds.size)

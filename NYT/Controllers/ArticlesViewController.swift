@@ -13,8 +13,6 @@ import Kingfisher
 class ArticlesViewController: UITableViewController {
     private var articleListVM: ArticleListViewModel!
     private let imageDownloader = ImageDownloader()
-    private var detailsView = DetailsViewModel()
-    private let detailsVC = DetailsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,12 +72,12 @@ extension ArticlesViewController {
         return cell
     }
     
-    // If you click, it'll navigate to DetailsViewController
+    // If you click on cell, it'll navigate you to DetailsViewController by performing a segue.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "DetailsSegue", sender: self)
     }
 }
-// MARK: - Segue
+// MARK: - Prepare for Segue
 extension ArticlesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsSegue" {
@@ -87,19 +85,19 @@ extension ArticlesViewController {
             
             guard let selectedPath = tableView.indexPathForSelectedRow else { return }
             let articleVM = self.articleListVM.articleAtIndex(selectedPath.row)
+            
             nextVC?.titleText = articleVM.title
             nextVC?.abstractText = articleVM.abstract
             nextVC?.date = articleVM.published_date
             nextVC?.url = articleVM.url
             
             guard let imageString = articleVM.article.media?.first?.mediaMetadata?[2].url else { return }
-            nextVC?.imageUrlString = imageString
             let url = URL(string: imageString)
             nextVC?.imageUrl = url!
         }
     }
 }
-// MARK: - No internet connection methods
+// MARK: - No internet connection methods using SystemConfiguration
 extension ArticlesViewController {
     func isInternetAvailable() -> Bool {
         var zeroAddress = sockaddr_in()

@@ -18,10 +18,8 @@ class DetailsViewController: UIViewController {
     var titleText: String = ""
     var abstractText: String = ""
     var date: String = ""
-    var imageUrlString: String = ""
-    var imageView: UIImageView = UIImageView(image: UIImage(named: "defaultThumbnail")!)
     var url: URL = URL(string: "https://www.nytimes.com")!
-    var imageUrl: URL = URL(string: "https://www.nytimes.com")!
+    var imageUrl: URL = URL(string: "https://static01.nyt.com/vi-assets/images/share/1200x1200_t.png")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
