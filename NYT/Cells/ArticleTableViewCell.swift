@@ -21,8 +21,8 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     func makeRoundedThumbnail() {
-        articleThumbnail.frame.size.width = 200
-        articleThumbnail.layer.cornerRadius = 50
+        articleThumbnail.frame.size.width = 100
+        articleThumbnail.layer.cornerRadius = articleThumbnail.frame.size.width / 2
         articleThumbnail.clipsToBounds = true
     }
 }
