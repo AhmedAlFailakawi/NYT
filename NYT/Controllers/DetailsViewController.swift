@@ -23,6 +23,8 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "The New York Times"
+        
         titleLabel.text = titleText
         abstractTextView.text = abstractText
         dateLabel.text = date

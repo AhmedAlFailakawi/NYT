@@ -9,25 +9,74 @@ import SystemConfiguration
 import UIKit
 import Moya
 import Kingfisher
+import SnapKit
 
 class ArticlesViewController: UITableViewController {
+    // MARK: - *** Properties ***
     private var articleListVM: ArticleListViewModel!
     private let imageDownloader = ImageDownloader()
+    private let articleCellView = ArticleCellView()
+    private var didUpdateConstraints = false
     
+    // move it to ArticleCellView
+    let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.contentMode = .scaleToFill
+        stack.distribution = .fillEqually
+        stack.spacing = 20
+        stack.backgroundColor = .gray
+        return stack
+    }()
+    
+    var didSetupConstraints = false
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-//        overrideUserInterfaceStyle = .light
+        tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = 105
+        self.title = "The New York Times"
+        
+        setup()
         showAlert()
         getArticles()
-        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        //   self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
     }
-    @objc func refresh(sender: AnyObject) {
-        print("Refreshing...")
-        showAlert()
-        getArticles()
-        self.refreshControl?.endRefreshing()
+    
+    func setup() {
+        self.view.addSubview(articleCellView)
+        articleCellView.addSubview(articleCellView.thumbnailImageView)
+        articleCellView.addSubview(stackView)
+        //        stackView.addSubview(articleCellView.titleLabel)
+        //        stackView.addSubview(articleCellView.abstractLabel)
+        
+
+        articleCellView.thumbnailImageView.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(10)
+            //            $0.top.bottom.equalToSuperview()
+            $0.width.height.equalTo(100)
+//            $0.centerY.equalTo(stackView.snp.centerY)
+            
+        }
+        
+        stackView.snp.makeConstraints {
+            $0.left.equalTo(articleCellView.thumbnailImageView.snp.right).offset(10)
+//            $0.right.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(10)
+            $0.top.bottom.equalTo(articleCellView.thumbnailImageView)
+        }
     }
+    
+    //    @objc func refresh(sender: AnyObject) {
+    //        print("Refreshing...")
+    //        showAlert()
+    //        getArticles()
+    //        self.refreshControl?.endRefreshing()
+    //    }
 }
+
 // MARK: - Get latest news
 extension ArticlesViewController {
     func getArticles() {
@@ -44,6 +93,7 @@ extension ArticlesViewController {
         }
     }
 }
+
 // MARK: - Table view setup
 extension ArticlesViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,28 +105,32 @@ extension ArticlesViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell else {
-            fatalError("ArticleTableViewCell not found")
-        }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCellView.cellIdentifier, for: indexPath) as? ArticleCellView else { fatalError("ArticleCellView not found") }
         
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
         cell.titleLabel.text = articleVM.title
         cell.abstractLabel.text = articleVM.abstract
         guard let imageString = articleVM.article.media?.first?.mediaMetadata?[1].url else {
-            cell.articleThumbnail.image = UIImage(named: "defaultThumbnail")?.preparingThumbnail(of: CGSize(width: 100, height: 100))
-            cell.makeRoundedThumbnail()
+            cell.thumbnailImageView.image = UIImage(named: "defaultThumbnail")?.preparingThumbnail(of: CGSize(width: 100, height: 100))
+            // cell.makeRoundedThumbnail()
             return cell
         }
+        
         imageDownloader.getImageWithDownsampling(imageUrlString: imageString, cell: cell)
-        cell.makeRoundedThumbnail()
+        //  cell.makeRoundedThumbnail()
         return cell
     }
     
     // If you click on cell, it'll navigate you to DetailsViewController by performing a segue.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "DetailsSegue", sender: self)
+        let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
+        print(articleVM.url)
+        //        UIApplication.shared.open(articleVM.url)
+        //        self.performSegue(withIdentifier: "DetailsSegue", sender: self)
     }
 }
+
 // MARK: - Prepare for Segue
 extension ArticlesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,6 +151,7 @@ extension ArticlesViewController {
         }
     }
 }
+
 // MARK: - No internet connection methods using SystemConfiguration
 extension ArticlesViewController {
     func isInternetAvailable() -> Bool {
