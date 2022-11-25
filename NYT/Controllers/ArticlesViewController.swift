@@ -18,63 +18,27 @@ class ArticlesViewController: UITableViewController {
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
     
-    // move it to ArticleCellView
-    let stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.contentMode = .scaleToFill
-        stack.distribution = .fillEqually
-        stack.spacing = 20
-        stack.backgroundColor = .gray
-        return stack
-    }()
-    
-    var didSetupConstraints = false
-    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 105
         self.title = "The New York Times"
+        tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
+//        self.view.addSubview(articleCellView)
         
-        setup()
         showAlert()
         getArticles()
-        //   self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
     }
-    
-    func setup() {
-        self.view.addSubview(articleCellView)
-        articleCellView.addSubview(articleCellView.thumbnailImageView)
-        articleCellView.addSubview(stackView)
-        //        stackView.addSubview(articleCellView.titleLabel)
-        //        stackView.addSubview(articleCellView.abstractLabel)
-        
 
-        articleCellView.thumbnailImageView.snp.makeConstraints {
-            $0.left.equalToSuperview().inset(10)
-            //            $0.top.bottom.equalToSuperview()
-            $0.width.height.equalTo(100)
-//            $0.centerY.equalTo(stackView.snp.centerY)
-            
-        }
-        
-        stackView.snp.makeConstraints {
-            $0.left.equalTo(articleCellView.thumbnailImageView.snp.right).offset(10)
-//            $0.right.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(10)
-            $0.top.bottom.equalTo(articleCellView.thumbnailImageView)
-        }
+    @objc func refresh(sender: AnyObject) {
+        print("Refreshing...")
+        showAlert()
+        getArticles()
+        self.refreshControl?.endRefreshing()
     }
-    
-    //    @objc func refresh(sender: AnyObject) {
-    //        print("Refreshing...")
-    //        showAlert()
-    //        getArticles()
-    //        self.refreshControl?.endRefreshing()
-    //    }
 }
 
 // MARK: - Get latest news

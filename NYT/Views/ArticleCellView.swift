@@ -14,6 +14,15 @@ class ArticleCellView: UITableViewCell {
     // MARK: - *** Properties ***
     static let cellIdentifier = "ArticleTableViewCell"
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
      lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -42,16 +51,49 @@ class ArticleCellView: UITableViewCell {
         imageView.frame.size.width = 100
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "defaultThumbnail")
+//        imageView.image = UIImage(named: "defaultThumbnail")
         
         return imageView
     }()
+    
+    let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.contentMode = .scaleToFill
+        stack.distribution = .fillEqually
+        stack.spacing = 20
+        stack.backgroundColor = .gray
+        return stack
+    }()
+    
     
     // MARK: - *** Methods ***
     override func prepareForReuse() {
         super.prepareForReuse()
         thumbnailImageView.kf.cancelDownloadTask()
         thumbnailImageView.image = nil
+    }
+    
+    func configure() {
+        contentView.addSubview(self.thumbnailImageView)
+        contentView.addSubview(stackView)
+        //        stackView.addSubview(articleCellView.titleLabel)
+        //        stackView.addSubview(articleCellView.abstractLabel)
+        
+
+        self.thumbnailImageView.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(10)
+            //            $0.top.bottom.equalToSuperview()
+            $0.width.height.equalTo(100)
+            $0.centerY.equalTo(stackView.snp.centerY)
+            
+        }
+        
+        stackView.snp.makeConstraints {
+            $0.left.equalTo(self.thumbnailImageView.snp.right).offset(10)
+//            $0.right.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(10)
+            $0.top.bottom.equalTo(self.thumbnailImageView)
+        }
     }
     
     func makeRoundedThumbnail() {
