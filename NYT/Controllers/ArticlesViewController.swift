@@ -96,14 +96,18 @@ extension ArticlesViewController {
         guard let imageString = articleVM.article.media?.first?.mediaMetadata?[2].url else {
             // pass the data
             detailsVC.titleLabel.text = articleVM.title
+            detailsVC.abstractTextView.text = articleVM.abstract
             detailsVC.dateLabel.text = articleVM.published_date
+            
             self.navigationController?.pushViewController(detailsVC, animated: true)
             return
         }
         
         let url = URL(string: imageString)
+        // pass the data
         detailsVC.imageUrl = url!
         detailsVC.titleLabel.text = articleVM.title
+        detailsVC.abstractTextView.text = articleVM.abstract
         detailsVC.dateLabel.text = articleVM.published_date
 
         self.navigationController?.pushViewController(detailsVC, animated: true)
