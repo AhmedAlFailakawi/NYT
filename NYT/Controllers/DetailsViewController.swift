@@ -17,8 +17,8 @@ class DetailsViewController: UIViewController {
     var date: String = ""
     var url: URL = URL(string: "https://www.nytimes.com")!
     var imageUrl: URL = URL(string: "https://static01.nyt.com/vi-assets/images/share/1200x1200_t.png")!
-    
     private let scrollView = UIScrollView()
+    private let button = UIBarButtonItem()
     
     // *** UI Elements Views ***
     lazy var thumbnailView: UIImageView = {
@@ -98,7 +98,6 @@ class DetailsViewController: UIViewController {
         scrollView.isScrollEnabled = true
         scrollView.isPagingEnabled = false
         scrollView.showsVerticalScrollIndicator = true
-//        scrollView.contentSize = CGSizeMake(320,500);
         
         configure()
         abstractTextView.text.append("""
@@ -150,9 +149,8 @@ extension DetailsViewController {
         
         // Constraints
         scrollView.snp.makeConstraints { make in
-//            make.width.equalToSuperview()
+            make.width.equalToSuperview()
             make.left.right.bottom.top.equalToSuperview()
-//            make.left.right.bottom.top.equalTo(self.view.safeAreaLayoutGuide)
         }
         
         // Content view
@@ -160,7 +158,6 @@ extension DetailsViewController {
             make.bottom.top.left.right.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(1500)
-//            make.edges.equalTo(scrollView.contentLayoutGuide)
         }
         
         // Stack view
@@ -224,7 +221,6 @@ extension DetailsViewController {
         abstractParentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(separatorParentView.snp.bottom)
-//            make.height.equalTo(120)
         }
         
         // Random text view
