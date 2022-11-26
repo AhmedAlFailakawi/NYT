@@ -24,9 +24,9 @@ struct Article: Codable {
 }
 
 struct ArticleList: Codable {
-    let article: [Article]?
+    let articles: [Article]?
     
     enum CodingKeys: String, CodingKey {
-        case article = "results"
+        case articles = "results"
     }
 }

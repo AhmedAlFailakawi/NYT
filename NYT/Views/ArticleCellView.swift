@@ -23,45 +23,39 @@ class ArticleCellView: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-     lazy var titleLabel: UILabel = {
+    // MARK: - *** UI Elements ***
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .natural
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 17.0)
-        
+        label.textColor = UIColor(named: "AccentColor")
+        label.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
         return label
     }()
     
-     lazy var abstractLabel: UILabel = {
-       let label = UILabel()
+    lazy var abstractLabel: UILabel = {
+        let label = UILabel()
         label.numberOfLines = 2
         label.textAlignment = .natural
         label.textColor = UIColor(named: "AccentColor")
         label.font = UIFont.systemFont(ofSize: 12.0)
-
         return label
     }()
     
-     lazy var thumbnailImageView: UIImageView = {
-       let imageView = UIImageView()
+    lazy var thumbnailImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-//        imageView.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
-//        imageView.widthAnchor.constraint(equalToConstant: 100.0).isActive = true
         imageView.frame.size.width = 100
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
-//        imageView.image = UIImage(named: "defaultThumbnail")
-        
         return imageView
     }()
     
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.contentMode = .scaleToFill
         stack.distribution = .fillEqually
         stack.spacing = 20
-        stack.backgroundColor = .gray
         return stack
     }()
     
@@ -74,32 +68,38 @@ class ArticleCellView: UITableViewCell {
     }
     
     func configure() {
-        contentView.addSubview(self.thumbnailImageView)
+        // Adding subviews
+        contentView.addSubview(thumbnailImageView)
         contentView.addSubview(stackView)
-        //        stackView.addSubview(articleCellView.titleLabel)
-        //        stackView.addSubview(articleCellView.abstractLabel)
+        stackView.addSubview(titleLabel)
+        stackView.addSubview(abstractLabel)
         
-
-        self.thumbnailImageView.snp.makeConstraints {
+        // Setting up the constraints
+        thumbnailImageView.snp.makeConstraints {
             $0.left.equalToSuperview().inset(10)
-            //            $0.top.bottom.equalToSuperview()
             $0.width.height.equalTo(100)
-            $0.centerY.equalTo(stackView.snp.centerY)
-            
+            $0.centerY.equalToSuperview()
         }
         
         stackView.snp.makeConstraints {
-            $0.left.equalTo(self.thumbnailImageView.snp.right).offset(10)
-//            $0.right.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(10)
-            $0.top.bottom.equalTo(self.thumbnailImageView)
+            $0.left.equalTo(thumbnailImageView.snp.right).offset(10)
+            $0.right.equalToSuperview().inset(10)
+            $0.top.bottom.equalTo(thumbnailImageView)
         }
-    }
-    
-    func makeRoundedThumbnail() {
-        thumbnailImageView.frame.size.width = 100
-        thumbnailImageView.layer.cornerRadius = thumbnailImageView.frame.size.width  / 2
-        thumbnailImageView.clipsToBounds = true
+        
+        titleLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(10)
+            $0.right.equalToSuperview().inset(2)
+            $0.top.equalToSuperview().inset(10)
+        }
+        
+        abstractLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().inset(10)
+            $0.right.equalToSuperview().inset(2)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.bottom.equalToSuperview().offset(2)
+        }
+        
     }
     
 }

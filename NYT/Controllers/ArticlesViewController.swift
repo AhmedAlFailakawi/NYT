@@ -17,27 +17,30 @@ class ArticlesViewController: UITableViewController {
     private let imageDownloader = ImageDownloader()
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
+    let refreshTable = UIRefreshControl()
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 105
         self.title = "The New York Times"
         tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
-//        self.view.addSubview(articleCellView)
         
         showAlert()
         getArticles()
-        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        refreshTable.attributedTitle = NSAttributedString(string: "More bad news coming...")
+        refreshTable.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshTable)
     }
-
+    
     @objc func refresh(sender: AnyObject) {
         print("Refreshing...")
         showAlert()
         getArticles()
-        self.refreshControl?.endRefreshing()
+        refreshTable.endRefreshing()
     }
 }
 
@@ -47,7 +50,7 @@ extension ArticlesViewController {
         NetworkManager().getNews { [weak self] (results) in
             switch results {
             case .success(let data):
-                self?.articleListVM = ArticleListViewModel(articles: data.article!)
+                self?.articleListVM = ArticleListViewModel(articles: data.articles!)
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -77,43 +80,35 @@ extension ArticlesViewController {
         cell.abstractLabel.text = articleVM.abstract
         guard let imageString = articleVM.article.media?.first?.mediaMetadata?[1].url else {
             cell.thumbnailImageView.image = UIImage(named: "defaultThumbnail")?.preparingThumbnail(of: CGSize(width: 100, height: 100))
-            // cell.makeRoundedThumbnail()
             return cell
         }
         
         imageDownloader.getImageWithDownsampling(imageUrlString: imageString, cell: cell)
-        //  cell.makeRoundedThumbnail()
         return cell
     }
     
-    // If you click on cell, it'll navigate you to DetailsViewController by performing a segue.
+    // *** Move to details VC ***
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
-        print(articleVM.url)
-        //        UIApplication.shared.open(articleVM.url)
-        //        self.performSegue(withIdentifier: "DetailsSegue", sender: self)
-    }
-}
-
-// MARK: - Prepare for Segue
-extension ArticlesViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetailsSegue" {
-            let nextVC = segue.destination as? DetailsViewController
-            
-            guard let selectedPath = tableView.indexPathForSelectedRow else { return }
-            let articleVM = self.articleListVM.articleAtIndex(selectedPath.row)
-            
-            nextVC?.titleText = articleVM.title
-            nextVC?.abstractText = articleVM.abstract
-            nextVC?.date = articleVM.published_date
-            nextVC?.url = articleVM.url
-            
-            guard let imageString = articleVM.article.media?.first?.mediaMetadata?[2].url else { return }
-            let url = URL(string: imageString)
-            nextVC?.imageUrl = url!
+        let detailsVC = DetailsViewController()
+        
+        guard let imageString = articleVM.article.media?.first?.mediaMetadata?[2].url else {
+            // pass the data
+            detailsVC.titleLabel.text = articleVM.title
+            detailsVC.dateLabel.text = articleVM.published_date
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+            return
         }
+        
+        let url = URL(string: imageString)
+        detailsVC.imageUrl = url!
+        detailsVC.titleLabel.text = articleVM.title
+        detailsVC.dateLabel.text = articleVM.published_date
+
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
+    
 }
 
 // MARK: - No internet connection methods using SystemConfiguration
