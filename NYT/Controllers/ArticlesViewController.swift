@@ -28,7 +28,7 @@ class ArticlesViewController: UITableViewController {
         tableView.rowHeight = 105
         self.title = "The New York Times"
         tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
-        
+
         showAlert()
         getArticles()
         refreshTable.attributedTitle = NSAttributedString(string: "More bad news coming...")
@@ -98,6 +98,7 @@ extension ArticlesViewController {
             detailsVC.titleLabel.text = articleVM.title
             detailsVC.abstractTextView.text = articleVM.abstract
             detailsVC.dateLabel.text = articleVM.published_date
+            detailsVC.url = articleVM.url
             
             self.navigationController?.pushViewController(detailsVC, animated: true)
             return
@@ -109,6 +110,7 @@ extension ArticlesViewController {
         detailsVC.titleLabel.text = articleVM.title
         detailsVC.abstractTextView.text = articleVM.abstract
         detailsVC.dateLabel.text = articleVM.published_date
+        detailsVC.url = articleVM.url
 
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }

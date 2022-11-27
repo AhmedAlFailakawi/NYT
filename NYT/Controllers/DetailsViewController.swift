@@ -20,7 +20,7 @@ class DetailsViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let button = UIBarButtonItem()
     
-    // *** UI Elements Views ***
+    // MARK: - *** UI Elements Views ***
     lazy var thumbnailView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -86,12 +86,13 @@ class DetailsViewController: UIViewController {
         return textView
     }()
     
+
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "The New York Times"
         self.view.backgroundColor = .systemBackground
-        self.tabBarItem = UITabBarItem(title: "hi", image: .add, tag: 1)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(newspaperBarButtonPressed(_:))), animated: true)
         
         scrollView.contentMode = .scaleToFill
         scrollView.indicatorStyle = .default
@@ -157,7 +158,7 @@ extension DetailsViewController {
         contentView.snp.makeConstraints { make in
             make.bottom.top.left.right.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(1500)
+            make.height.equalTo(1400)
         }
         
         // Stack view
@@ -238,8 +239,8 @@ extension DetailsViewController {
 }
 
 extension DetailsViewController {
-    //    @IBAction func newspaperBarButtonPressed(_ sender: Any) {
-    //        UIApplication.shared.open(url)
-    //    }
+    @objc func newspaperBarButtonPressed(_ sender: Any) {
+        UIApplication.shared.open(url)
+    }
     
 }
