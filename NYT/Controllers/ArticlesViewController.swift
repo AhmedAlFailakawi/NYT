@@ -17,31 +17,38 @@ class ArticlesViewController: UITableViewController {
     private let imageDownloader = ImageDownloader()
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
-    let refreshTable = UIRefreshControl()
+    let refreshTableControl = UIRefreshControl()
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 105
         self.title = "The New York Times"
         tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
-
+        
         showAlert()
         getArticles()
-        refreshTable.attributedTitle = NSAttributedString(string: "More bad news coming...")
-        refreshTable.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        tableView.addSubview(refreshTable)
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming...",attributes: attributes)
+        refreshTableControl.tintColor = .white
+        refreshTableControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.addSubview(refreshTableControl)
     }
     
     @objc func refresh(sender: AnyObject) {
         print("Refreshing...")
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.prepare()
+        generator.impactOccurred()
         showAlert()
         getArticles()
-        refreshTable.endRefreshing()
+        refreshTableControl.endRefreshing()
     }
+
 }
 
 // MARK: - Get latest news
