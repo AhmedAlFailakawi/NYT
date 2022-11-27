@@ -85,7 +85,6 @@ class DetailsViewController: UIViewController {
         
         return textView
     }()
-    
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -158,7 +157,7 @@ extension DetailsViewController {
         contentView.snp.makeConstraints { make in
             make.bottom.top.left.right.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(1400)
+            make.height.equalTo(1100)
         }
         
         // Stack view

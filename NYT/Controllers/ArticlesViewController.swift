@@ -33,7 +33,7 @@ class ArticlesViewController: UITableViewController {
         getArticles()
         
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming...",attributes: attributes)
+        refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming up...",attributes: attributes)
         refreshTableControl.tintColor = .white
         refreshTableControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshTableControl)
