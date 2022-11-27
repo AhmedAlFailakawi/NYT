@@ -92,7 +92,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "The New York Times"
         self.view.backgroundColor = .systemBackground
-        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(newspaperBarButtonPressed(_:))), animated: true)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
         
         scrollView.contentMode = .scaleToFill
         scrollView.indicatorStyle = .default
@@ -239,7 +239,7 @@ extension DetailsViewController {
 }
 
 extension DetailsViewController {
-    @objc func newspaperBarButtonPressed(_ sender: Any) {
+    @objc func readMoreBarButtonPressed(_ sender: Any) {
         UIApplication.shared.open(url)
     }
     
