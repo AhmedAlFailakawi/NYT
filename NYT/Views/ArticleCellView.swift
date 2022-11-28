@@ -76,26 +76,26 @@ class ArticleCellView: UITableViewCell {
         
         // Setting up the constraints
         thumbnailImageView.snp.makeConstraints {
-            $0.left.equalToSuperview().inset(10)
+            $0.leading.equalToSuperview().inset(10)
             $0.width.height.equalTo(100)
             $0.centerY.equalToSuperview()
         }
         
         stackView.snp.makeConstraints {
-            $0.left.equalTo(thumbnailImageView.snp.right).offset(10)
-            $0.right.equalToSuperview().inset(10)
+            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(10)
+            $0.trailing.equalToSuperview().inset(10)
             $0.top.bottom.equalTo(thumbnailImageView)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().inset(10)
-            $0.right.equalToSuperview().inset(2)
+            $0.leading.equalToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(2)
             $0.top.equalToSuperview().inset(10)
         }
         
         abstractLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().inset(10)
-            $0.right.equalToSuperview().inset(2)
+            $0.leading.equalToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(2)
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.bottom.equalToSuperview().offset(2)
         }

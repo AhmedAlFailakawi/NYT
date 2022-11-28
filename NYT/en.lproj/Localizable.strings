@@ -1,0 +1,11 @@
+/* 
+ Localizable.strings
+ NYT
+ 
+ Created by Ahmed AlFailakawi on 11/27/22.
+ 
+ */
+
+"abstract" = " The New York Times is an American daily newspaper based in New York City with a worldwide readership. It was founded in 1851 by Henry Jarvis Raymond and George Jones, and was initially published by Raymond, Jones & Company. The newspaper's influence grew in 1870 and 1871, when it published a series of exposés on William Tweed, leader of the city's Democratic Party — popularly known as \"Tammany Hall\" (from its early-19th-century meeting headquarters) — that led to  the end of the Tweed Ring's domination of New York's City Hall. In the 1880s, The New York Times gradually transitioned from supporting Republican Party candidates in its editorials to becoming more politically independent and analytical.[32] In 1884, the paper supported Democrat Grover Cleveland (former mayor of Buffalo and governor of New York) in his first presidential campaign.[33] While this move cost The New York Times a portion of its readership among its more Republican readers (revenue declined from $188,000 to $56,000 from 1883 to 1884), the paper eventually regained most of its lost ground within a few years.[34]";
+
+"random" = "Random Text Generator is a web application which provides true random text which you can use in your documents or web designs. How does it work? First we took many books available on project Gutenberg and stored their contents in a database. Then a computer algorithm takes the words we stored earlier and shuffles them into sentences and paragraphs.The algorithm takes care to create text that looks similar to an ordinary book but without any real meaning. The reason we want our text to be meaningless is that we want the person viewing the resulting random text to focus on the design we are presenting, rather than try to read and understand the text.";

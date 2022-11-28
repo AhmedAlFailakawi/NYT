@@ -19,6 +19,7 @@ class DetailsViewController: UIViewController {
     var imageUrl: URL = URL(string: "https://static01.nyt.com/vi-assets/images/share/1200x1200_t.png")!
     private let scrollView = UIScrollView()
     private let button = UIBarButtonItem()
+    var languageCode: String = "En"
     
     // MARK: - *** UI Elements Views ***
     lazy var thumbnailView: UIImageView = {
@@ -32,7 +33,7 @@ class DetailsViewController: UIViewController {
         let label = UILabel()
         label.textColor = UIColor(named: "AccentColor")
         label.font = UIFont.preferredFont(forTextStyle: .headline)
-        label.textAlignment = .left
+        label.textAlignment = .natural
         label.numberOfLines = 0
         
         return label
@@ -62,7 +63,7 @@ class DetailsViewController: UIViewController {
     lazy var abstractTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor(named: "AccentColor")
-        textView.textAlignment = .left
+        textView.textAlignment = .natural
         textView.font = UIFont.systemFont(ofSize: 14.0)
         textView.contentMode = .scaleToFill
         textView.isSelectable = true
@@ -75,23 +76,30 @@ class DetailsViewController: UIViewController {
     lazy var randomTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = UIColor(named: "AccentColor")
-        textView.textAlignment = .left
+        textView.textAlignment = .natural
         textView.font = UIFont.systemFont(ofSize: 14.0)
         textView.contentMode = .scaleToFill
         textView.isSelectable = true
         textView.isEditable = false
         textView.isScrollEnabled = false
-        textView.text = "Random Text Generator is a web application which provides true random text which you can use in your documents or web designs. How does it work? First we took many books available on project Gutenberg and stored their contents in a database. Then a computer algorithm takes the words we stored earlier and shuffles them into sentences and paragraphs.The algorithm takes care to create text that looks similar to an ordinary book but without any real meaning. The reason we want our text to be meaningless is that we want the person viewing the resulting random text to focus on the design we are presenting, rather than try to read and understand the text."
+        textView.text = localizedString(forKey: "random")
         
         return textView
     }()
-
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "The New York Times"
         self.view.backgroundColor = .systemBackground
-        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
+        self.view.semanticContentAttribute = languageCode == "Ar" ? .forceRightToLeft : .forceLeftToRight
+        navigationController?.view.semanticContentAttribute = languageCode == "Ar" ? .forceRightToLeft : .forceLeftToRight
+        navigationController?.navigationBar.semanticContentAttribute = languageCode == "Ar" ? .forceRightToLeft : .forceLeftToRight
+        if languageCode == "Ar" {
+            self.navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
+        } else {
+            self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
+        }
         
         scrollView.contentMode = .scaleToFill
         scrollView.indicatorStyle = .default
@@ -100,10 +108,7 @@ class DetailsViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = true
         
         configure()
-        abstractTextView.text.append("""
-                                     The New York Times is an American daily newspaper based in New York City with a worldwide readership. It was founded in 1851 by Henry Jarvis Raymond and George Jones, and was initially published by Raymond, Jones & Company. The newspaper's influence grew in 1870 and 1871, when it published a series of exposés on William Tweed, leader of the city's Democratic Party — popularly known as ""Tammany Hall"" (from its early-19th-century meeting headquarters) — that led to  the end of the Tweed Ring's domination of New York's City Hall. In the 1880s, The New York Times gradually transitioned from supporting Republican Party candidates in its editorials to becoming more politically independent and analytical.[32] In 1884, the paper supported Democrat Grover Cleveland (former mayor of Buffalo and governor of New York) in his first presidential campaign.[33] While this move cost The New York Times a portion of its readership among its more Republican readers (revenue declined from $188,000 to $56,000 from 1883 to 1884), the paper eventually regained most of its lost ground within a few years.[34]
-                                     """)
-        
+        abstractTextView.text.append(contentsOf: localizedString(forKey: "abstract"))
         thumbnailView.kf.indicatorType = .activity
         thumbnailView.kf.setImage(with: imageUrl,options: [.scaleFactor(UIScreen.main.scale),.cacheOriginalImage])
         thumbnailView.clipsToBounds = true
@@ -111,6 +116,7 @@ class DetailsViewController: UIViewController {
     }
     
 }
+
 // MARK: - *** Configuration ***
 extension DetailsViewController {
     func configure() {
@@ -150,63 +156,64 @@ extension DetailsViewController {
         // Constraints
         scrollView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.left.right.bottom.top.equalToSuperview()
+            make.leading.trailing.bottom.top.equalToSuperview()
+            make.height.equalTo(contentView.snp.height).inset(150)
         }
         
         // Content view
         contentView.snp.makeConstraints { make in
-            make.bottom.top.left.right.equalToSuperview()
+            make.bottom.top.leading.trailing.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(1100)
+//            make.height.equalTo(1100)
         }
         
         // Stack view
         stackView.snp.makeConstraints { make in
-            make.right.left.bottom.top.equalToSuperview()
+            make.leading.trailing.bottom.top.equalToSuperview()
         }
         
         // Thumbnail View
         thumbnailView.snp.makeConstraints { make in
-            make.left.right.bottom.top.equalToSuperview()
+            make.leading.trailing.bottom.top.equalToSuperview()
         }
         
         imageParentView.snp.makeConstraints { make in
             make.height.equalTo(250)
-            make.left.right.top.equalToSuperview()
+            make.leading.trailing.top.equalToSuperview()
         }
         
         // Title label
         titleLabel.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(15)
+            make.leading.trailing.equalToSuperview().inset(15)
             make.bottom.top.equalToSuperview()
         }
         
         titleParentView.snp.makeConstraints { make in
             make.height.equalTo(90)
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(imageParentView.snp.bottom)
         }
         
         // Date label
         dateLabel.snp.makeConstraints { make in
-            make.right.lessThanOrEqualTo(309)
-            make.left.equalToSuperview().inset(15)
+            make.trailing.lessThanOrEqualTo(309)
+            make.leading.equalToSuperview().inset(15)
             make.bottom.top.equalToSuperview()
         }
         
         dateParentView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(titleParentView.snp.bottom)
             make.height.equalTo(13)
         }
         
         // Separator label
         separatorLabel.snp.makeConstraints { make in
-            make.top.bottom.left.right.equalToSuperview()
+            make.top.bottom.leading.trailing.equalToSuperview()
         }
         
         separatorParentView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(dateParentView.snp.bottom)
             make.height.equalTo(30)
             
@@ -215,31 +222,42 @@ extension DetailsViewController {
         // Abstract text view
         abstractTextView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.left.right.equalToSuperview().inset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         abstractParentView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(separatorParentView.snp.bottom)
         }
         
         // Random text view
         randomTextView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.left.right.equalToSuperview().inset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         creditsParentView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(abstractParentView.snp.bottom)
         }
         
     }
 }
-
+// MARK: - *** Methods ***
 extension DetailsViewController {
+    
     @objc func readMoreBarButtonPressed(_ sender: Any) {
         UIApplication.shared.open(url)
+    }
+    
+    func localizedString(forKey key: String) -> String {
+        var result = Bundle.main.localizedString(forKey: key, value: nil, table: nil)
+        
+        if result == key {
+            result = Bundle.main.localizedString(forKey: key, value: nil, table: "Default")
+        }
+        
+        return result
     }
     
 }
