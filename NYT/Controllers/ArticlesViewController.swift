@@ -18,13 +18,14 @@ class ArticlesViewController: UITableViewController {
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
     let refreshTableControl = UIRefreshControl()
-    // For English = 0 , Arabic = 1
-    var languageCode: String = "En"
+    var languageCode: String = "en"
+    static var currnetLanguage: Language = Language.english
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up the view
         self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
         self.title = "The New York Times"
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "", image: UIImage(named: "language"), target: self, action: #selector(langaugeBarButtonPressed(_:))), animated: true)
@@ -46,7 +47,7 @@ class ArticlesViewController: UITableViewController {
     
     // MARK: - *** Methods ***
     @objc func refresh(sender: AnyObject) {
-        print("Refreshing...")
+        print("Refreshing...🥤")
         // Haptic feedback
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.prepare()
@@ -57,15 +58,23 @@ class ArticlesViewController: UITableViewController {
     }
     
     @objc func langaugeBarButtonPressed(_ sender: Any) {
-        self.view.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
-        navigationController?.view.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
-        navigationController?.navigationBar.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
         
+//        self.view.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
+//        //        navigationController?.view.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
+//        navigationController?.navigationBar.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
         
-        if languageCode == "En" {
-            languageCode = "Ar"
+        // Using localization system
+        LocalizationSystem.sharedInstance.setLanguage(languageCode: self.languageCode)
+        self.view.semanticContentAttribute =  languageCode == "en" ? .forceRightToLeft :  .forceLeftToRight
+//        navigationController?.view.semanticContentAttribute =  languageCode == "en" ? .forceRightToLeft :  .forceLeftToRight
+        navigationController?.navigationBar.semanticContentAttribute =  languageCode == "en" ? .forceRightToLeft :  .forceLeftToRight
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.window?.rootViewController = ArticlesViewController()
+        
+        if languageCode == "en" {
+            languageCode = "ar"
         } else {
-            languageCode = "En"
+            languageCode = "en"
         }
         // Pass language code to details VC
         DetailsViewController().languageCode = self.languageCode
@@ -104,8 +113,8 @@ extension ArticlesViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCellView.cellIdentifier, for: indexPath) as? ArticleCellView else { fatalError("ArticleCellView not found") }
         
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
-        cell.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
-//        cell.titleLabel.text = articleVM.title
+//        cell.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
+        cell.titleLabel.text = articleVM.title
         cell.abstractLabel.text = articleVM.abstract
         guard let imageString = articleVM.article.media?.first?.mediaMetadata?[1].url else {
             cell.thumbnailImageView.image = UIImage(named: "defaultThumbnail")?.preparingThumbnail(of: CGSize(width: 100, height: 100))
@@ -116,7 +125,6 @@ extension ArticlesViewController {
         return cell
     }
     
-    // *** Move to details VC ***
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
