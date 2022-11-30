@@ -19,7 +19,7 @@ class DetailsViewController: UIViewController {
     var imageUrl: URL = URL(string: "https://static01.nyt.com/vi-assets/images/share/1200x1200_t.png")!
     private let scrollView = UIScrollView()
     private let button = UIBarButtonItem()
-    var languageCode: String = "En"
+    var languageCode: String = ""
     
     // MARK: - *** UI Elements Views ***
     lazy var thumbnailView: UIImageView = {
@@ -90,15 +90,18 @@ class DetailsViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "The New York Times"
         self.view.backgroundColor = .systemBackground
-        self.view.semanticContentAttribute = languageCode == "Ar" ? .forceRightToLeft : .forceLeftToRight
-        navigationController?.view.semanticContentAttribute = languageCode == "Ar" ? .forceRightToLeft : .forceLeftToRight
-        navigationController?.navigationBar.semanticContentAttribute = languageCode == "Ar" ? .forceRightToLeft : .forceLeftToRight
-        if languageCode == "Ar" {
-            self.navigationItem.setLeftBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
-        } else {
-            self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
+        
+        self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
+        
+        if languageCode == "ar" {
+            navigationController?.view.semanticContentAttribute = .forceRightToLeft
+            navigationController?.navigationBar.semanticContentAttribute = .forceRightToLeft
+        } else { // English
+            navigationController?.view.semanticContentAttribute = .forceLeftToRight
+//            navigationController?.navigationBar.semanticContentAttribute = .forceLeftToRight
         }
         
         scrollView.contentMode = .scaleToFill
@@ -164,7 +167,7 @@ extension DetailsViewController {
         contentView.snp.makeConstraints { make in
             make.bottom.top.leading.trailing.equalToSuperview()
             make.width.equalToSuperview()
-//            make.height.equalTo(1100)
+            //            make.height.equalTo(1100)
         }
         
         // Stack view

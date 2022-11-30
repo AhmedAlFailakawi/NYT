@@ -11,6 +11,7 @@ import UIKit
 class LocalizationSystem: NSObject {
     
     var bundle: Bundle!
+    var navigationController = UINavigationController()
     
     class var sharedInstance: LocalizationSystem {
         struct Singleton {
@@ -26,13 +27,6 @@ class LocalizationSystem: NSObject {
     
     func localizedStringForKey(key:String, comment:String) -> String {
         return bundle.localizedString(forKey: key, value: comment, table: nil)
-    }
-    
-    func localizedImagePathForImg(imagename:String, type:String) -> String {
-        guard let imagePath =  bundle.path(forResource: imagename, ofType: type) else {
-            return ""
-        }
-        return imagePath
     }
     
     // MARK: - setLanguage
@@ -60,15 +54,26 @@ class LocalizationSystem: NSObject {
     }
     
     // MARK: - getLanguage
-    // Just gets the current setted up language.
-    func getLanguage() -> String {
-        let appleLanguages = UserDefaults.standard.object(forKey: "AppleLanguages") as! [String]
-        let prefferedLanguage = appleLanguages[0]
-        if prefferedLanguage.contains("-") {
-            let array = prefferedLanguage.components(separatedBy: "-")
-            return array[0]
+    func start() {
+        if let currentLanguge = UserDefaults.standard.string(forKey: "AppleLanguages") {
+            print("current language: \(currentLanguge)")
+            ArticlesViewController.currnetLanguage = Language.init(rawValue: currentLanguge)!
+        } else {
+            if let preferredLangauges = Locale.preferredLanguages.first?.prefix(2) {
+                print("preferred language: \(preferredLangauges)")
+                ArticlesViewController.currnetLanguage = Language(rawValue: String(preferredLangauges)) ?? .english
+               
+
+            }
         }
-        return prefferedLanguage
+        reload()
     }
     
+    func reload() {
+        UIView.appearance().semanticContentAttribute = Language.isEnglish() ? .forceLeftToRight : .forceRightToLeft
+        navigationController.view.semanticContentAttribute = Language.isEnglish() ? .forceLeftToRight : .forceRightToLeft
+        navigationController.navigationBar.semanticContentAttribute = Language.isEnglish() ? .forceLeftToRight : .forceRightToLeft
+        
+    }
+
 }

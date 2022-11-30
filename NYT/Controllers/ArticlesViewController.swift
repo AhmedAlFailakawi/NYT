@@ -18,12 +18,15 @@ class ArticlesViewController: UITableViewController {
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
     let refreshTableControl = UIRefreshControl()
-    var languageCode: String = "en"
+//    var languageCode: String = LocalizationSystem.sharedInstance.getLanguage()
+    var languageCode: String =  "en"
     static var currnetLanguage: Language = Language.english
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print(ArticlesViewController.currnetLanguage)
+        LocalizationSystem.sharedInstance.start()
         
         // Set up the view
         self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
@@ -57,27 +60,25 @@ class ArticlesViewController: UITableViewController {
         refreshTableControl.endRefreshing()
     }
     
+    // MARK: - Language Bar Button
     @objc func langaugeBarButtonPressed(_ sender: Any) {
-        
-//        self.view.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
-//        //        navigationController?.view.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
-//        navigationController?.navigationBar.semanticContentAttribute = languageCode == "En" ? .forceRightToLeft : .forceLeftToRight
-        
-        // Using localization system
-        LocalizationSystem.sharedInstance.setLanguage(languageCode: self.languageCode)
-        self.view.semanticContentAttribute =  languageCode == "en" ? .forceRightToLeft :  .forceLeftToRight
-//        navigationController?.view.semanticContentAttribute =  languageCode == "en" ? .forceRightToLeft :  .forceLeftToRight
-        navigationController?.navigationBar.semanticContentAttribute =  languageCode == "en" ? .forceRightToLeft :  .forceLeftToRight
-        let app = UIApplication.shared.delegate as? AppDelegate
-        app?.window?.rootViewController = ArticlesViewController()
-        
         if languageCode == "en" {
             languageCode = "ar"
         } else {
             languageCode = "en"
         }
+        
+        self.view.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
+//        navigationController?.view.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
+        navigationController?.navigationBar.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
+        
+        let app = UIApplication.shared.delegate as? AppDelegate
+        app?.window?.rootViewController = ArticlesViewController()
+        
         // Pass language code to details VC
-        DetailsViewController().languageCode = self.languageCode
+//        DetailsViewController().languageCode = self.languageCode
+//        LocalizationSystem.sharedInstance.resetLocalization()
+
     }
 }
 
@@ -100,6 +101,7 @@ extension ArticlesViewController {
 
 // MARK: - Table view setup
 extension ArticlesViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.articleListVM == nil ? 0 : self.articleListVM.numberOfSections
     }
@@ -137,6 +139,7 @@ extension ArticlesViewController {
             detailsVC.dateLabel.text = articleVM.published_date
             detailsVC.url = articleVM.url
             
+            detailsVC.languageCode = self.languageCode
             self.navigationController?.pushViewController(detailsVC, animated: true)
             return
         }
@@ -149,6 +152,7 @@ extension ArticlesViewController {
         detailsVC.dateLabel.text = articleVM.published_date
         detailsVC.url = articleVM.url
         
+        detailsVC.languageCode = self.languageCode
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     

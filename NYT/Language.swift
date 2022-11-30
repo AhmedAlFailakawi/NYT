@@ -30,4 +30,8 @@ extension Language {
 //    var isEnglish: Bool {
 //        return languageCode == Language.english.rawValue
 //    }
+//
+//    var isArabic: Bool {
+//        return languageCode == Language.arabic.rawValue
+//    }
 //}
