@@ -8,6 +8,8 @@
 import UIKit
 import SystemConfiguration
 import Foundation
+import LanguageManager_iOS
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -30,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         UINavigationBar.appearance().tintColor = UIColor.white
+        
+//        LanguageManager.shared.defaultLanguage = .deviceLanguage
+
         
         return true
     }

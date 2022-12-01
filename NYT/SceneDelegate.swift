@@ -18,9 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let viewController = ArticlesViewController(nibName: nil, bundle: nil)
+//        let viewController = ArticlesViewController(nibName: nil, bundle: nil)
+//        let navigationVC = UINavigationController(rootViewController: viewController)
+        let viewController = GreetingsViewController(nibName: nil, bundle: nil)
         let navigationVC = UINavigationController(rootViewController: viewController)
-        window?.rootViewController = navigationVC
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
 

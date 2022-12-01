@@ -108,7 +108,7 @@ class DetailsViewController: UIViewController {
         scrollView.indicatorStyle = .default
         scrollView.isScrollEnabled = true
         scrollView.isPagingEnabled = false
-        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsVerticalScrollIndicator = false
         
         configure()
         abstractTextView.text.append(contentsOf: localizedString(forKey: "abstract"))

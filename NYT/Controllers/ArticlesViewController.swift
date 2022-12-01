@@ -10,23 +10,27 @@ import UIKit
 import Moya
 import Kingfisher
 import SnapKit
+import LanguageManager_iOS
 
 class ArticlesViewController: UITableViewController {
     // MARK: - *** Properties ***
-    private var articleListVM: ArticleListViewModel!
+    
+    public var articleListVM: ArticleListViewModel!
     private let imageDownloader = ImageDownloader()
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
     let refreshTableControl = UIRefreshControl()
 //    var languageCode: String = LocalizationSystem.sharedInstance.getLanguage()
-    var languageCode: String =  "en"
-    static var currnetLanguage: Language = Language.english
+    var languageCode: String =  LanguageManager.shared.defaultLanguage.rawValue
+//    static var currnetLanguage: Language = Language.english
+//    var selectedLanguage: language
     
     // MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print(ArticlesViewController.currnetLanguage)
-        LocalizationSystem.sharedInstance.start()
+//        LocalizationSystem.sharedInstance.start()
         
         // Set up the view
         self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
@@ -36,6 +40,7 @@ class ArticlesViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 105
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
         
         showAlert()
@@ -48,7 +53,33 @@ class ArticlesViewController: UITableViewController {
         tableView.addSubview(refreshTableControl)
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        super.viewDidLoad()
+//
+//        // Set up the view
+//        self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+//        self.title = "The New York Times"
+//        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "", image: UIImage(named: "language"), target: self, action: #selector(langaugeBarButtonPressed(_:))), animated: true)
+//
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.rowHeight = 105
+//        tableView.showsVerticalScrollIndicator = false
+//        tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
+//
+//        showAlert()
+//        getArticles()
+//
+//        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming up...",attributes: attributes)
+//        refreshTableControl.tintColor = .white
+//        refreshTableControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+//        tableView.addSubview(refreshTableControl)
+//    }
+    
     // MARK: - *** Methods ***
+    
     @objc func refresh(sender: AnyObject) {
         print("Refreshing...🥤")
         // Haptic feedback
@@ -61,28 +92,32 @@ class ArticlesViewController: UITableViewController {
     }
     
     // MARK: - Language Bar Button
+    
     @objc func langaugeBarButtonPressed(_ sender: Any) {
+        
         if languageCode == "en" {
             languageCode = "ar"
+            LanguageManager.shared.setLanguage(language: .ar)
         } else {
             languageCode = "en"
+            LanguageManager.shared.setLanguage(language: .en)
         }
         
         self.view.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
-//        navigationController?.view.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
+        articleCellView.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
         navigationController?.navigationBar.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
         
-        let app = UIApplication.shared.delegate as? AppDelegate
-        app?.window?.rootViewController = ArticlesViewController()
-        
-        // Pass language code to details VC
-//        DetailsViewController().languageCode = self.languageCode
-//        LocalizationSystem.sharedInstance.resetLocalization()
+            
+//        let app = UIApplication.shared.delegate as? AppDelegate
+//        app?.window?.rootViewController = ArticlesViewController()
+        tableView.reloadData()
 
     }
+    
 }
 
 // MARK: - Get latest news
+
 extension ArticlesViewController {
     func getArticles() {
         NetworkManager().getNews { [weak self] (results) in
@@ -100,6 +135,7 @@ extension ArticlesViewController {
 }
 
 // MARK: - Table view setup
+
 extension ArticlesViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -159,6 +195,7 @@ extension ArticlesViewController {
 }
 
 // MARK: - No internet connection methods using SystemConfiguration
+
 extension ArticlesViewController {
     func isInternetAvailable() -> Bool {
         var zeroAddress = sockaddr_in()
