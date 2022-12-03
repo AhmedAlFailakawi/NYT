@@ -21,7 +21,7 @@ class ArticlesViewController: UITableViewController {
     private var didUpdateConstraints = false
     let refreshTableControl = UIRefreshControl()
 //    var languageCode: String = LocalizationSystem.sharedInstance.getLanguage()
-    var languageCode: String =  LanguageManager.shared.defaultLanguage.rawValue
+    var languageCode: String =  LanguageManager.shared.deviceLanguage!.rawValue
 //    static var currnetLanguage: Language = Language.english
 //    var selectedLanguage: language
     
@@ -35,7 +35,7 @@ class ArticlesViewController: UITableViewController {
         // Set up the view
         self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
         self.title = "The New York Times"
-        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "", image: UIImage(named: "language"), target: self, action: #selector(langaugeBarButtonPressed(_:))), animated: true)
+//        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "", image: UIImage(named: "language"), target: self, action: #selector(langaugeBarButtonPressed(_:))), animated: true)
         
         tableView.dataSource = self
         tableView.delegate = self
