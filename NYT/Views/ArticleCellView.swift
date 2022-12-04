@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Kingfisher
 import SnapKit
+import SkeletonView
 
 class ArticleCellView: UITableViewCell {
     // MARK: - *** Properties ***
@@ -16,6 +17,8 @@ class ArticleCellView: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.isSkeletonable = true
+        contentView.isSkeletonable = true
         configure()
     }
     
@@ -30,6 +33,8 @@ class ArticleCellView: UITableViewCell {
         label.textAlignment = .natural
         label.textColor = UIColor(named: "AccentColor")
         label.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
+//        label.isSkeletonable = true
+        
         return label
     }()
     
@@ -39,6 +44,8 @@ class ArticleCellView: UITableViewCell {
         label.textAlignment = .natural
         label.textColor = UIColor(named: "AccentColor")
         label.font = UIFont.systemFont(ofSize: 12.0)
+//        label.isSkeletonable = true
+
         return label
     }()
     
@@ -48,6 +55,8 @@ class ArticleCellView: UITableViewCell {
         imageView.frame.size.width = 100
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
+        imageView.isSkeletonable = true
+
         return imageView
     }()
     
@@ -56,9 +65,10 @@ class ArticleCellView: UITableViewCell {
         stack.contentMode = .scaleToFill
         stack.distribution = .fillEqually
         stack.spacing = 20
+        stack.isSkeletonable = true
+
         return stack
     }()
-    
     
     // MARK: - *** Methods ***
     override func prepareForReuse() {

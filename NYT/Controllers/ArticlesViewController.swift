@@ -7,10 +7,8 @@
 import Foundation
 import SystemConfiguration
 import UIKit
-import Moya
-import Kingfisher
-import SnapKit
 import LanguageManager_iOS
+import SkeletonView
 
 class ArticlesViewController: UITableViewController {
     // MARK: - *** Properties ***
@@ -50,11 +48,20 @@ class ArticlesViewController: UITableViewController {
         refreshTableControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshTableControl)
     }
+    
+    // MARK: - viewWillAppear
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.isSkeletonable = true
+        tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .none)
         
+    }
+    
     // MARK: - *** Methods ***
     
     @objc func refresh(sender: AnyObject) {
-        print("Refreshing...🥤")
+        print("Refreshing 🥤")
         // Haptic feedback
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.prepare()
@@ -62,6 +69,11 @@ class ArticlesViewController: UITableViewController {
         showAlert()
         getArticles()
         refreshTableControl.endRefreshing()
+    }
+    
+     func scrollToTop() {
+        let topRow = IndexPath(row: 0, section: 0)
+        self.tableView.scrollToRow(at: topRow, at: .top, animated: false)
     }
     
 }
@@ -74,7 +86,10 @@ extension ArticlesViewController {
             switch results {
             case .success(let data):
                 self?.articleListVM = ArticleListViewModel(articles: data.articles!)
+                self?.scrollToTop()
                 DispatchQueue.main.async {
+                    self?.tableView.stopSkeletonAnimation()
+                    self?.view.hideSkeleton()
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
@@ -82,6 +97,18 @@ extension ArticlesViewController {
             }
         }
     }
+}
+
+extension ArticlesViewController: SkeletonTableViewDataSource {
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return ArticleCellView.cellIdentifier
+    }
+    
+//    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 6
+//    }
+
 }
 
 // MARK: - Table view setup
