@@ -96,7 +96,7 @@ class DetailsViewController: UIViewController {
         
         self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
         
-        if languageCode == "ar" {
+        if ArticlesViewController.currnetLanguage == .ar {
             navigationController?.view.semanticContentAttribute = .forceRightToLeft
             navigationController?.navigationBar.semanticContentAttribute = .forceRightToLeft
         } else { // English
@@ -112,6 +112,7 @@ class DetailsViewController: UIViewController {
         
         configure()
         abstractTextView.text.append(contentsOf: localizedString(forKey: "abstract"))
+        randomTextView.text.append(contentsOf: localizedString(forKey: "random"))
         thumbnailView.kf.indicatorType = .activity
         thumbnailView.kf.setImage(with: imageUrl,options: [.scaleFactor(UIScreen.main.scale),.cacheOriginalImage])
         thumbnailView.clipsToBounds = true
@@ -160,14 +161,13 @@ extension DetailsViewController {
         scrollView.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.leading.trailing.bottom.top.equalToSuperview()
-            make.height.equalTo(contentView.snp.height).inset(150)
+            make.height.equalTo(contentView.snp.height).inset(225)
         }
         
         // Content view
         contentView.snp.makeConstraints { make in
             make.bottom.top.leading.trailing.equalToSuperview()
             make.width.equalToSuperview()
-            //            make.height.equalTo(1100)
         }
         
         // Stack view

@@ -20,22 +20,20 @@ class ArticlesViewController: UITableViewController {
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
     let refreshTableControl = UIRefreshControl()
-//    var languageCode: String = LocalizationSystem.sharedInstance.getLanguage()
     var languageCode: String =  LanguageManager.shared.deviceLanguage!.rawValue
-//    static var currnetLanguage: Language = Language.english
-//    var selectedLanguage: language
+    static var currnetLanguage: Languages = .en
     
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(ArticlesViewController.currnetLanguage)
-//        LocalizationSystem.sharedInstance.start()
+        print(ArticlesViewController.currnetLanguage)
+        LanguageManager.shared.setLanguage(language: ArticlesViewController.currnetLanguage)
+        navigationController?.navigationBar.semanticContentAttribute =  ArticlesViewController.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
         
         // Set up the view
         self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
         self.title = "The New York Times"
-//        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "", image: UIImage(named: "language"), target: self, action: #selector(langaugeBarButtonPressed(_:))), animated: true)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -52,66 +50,18 @@ class ArticlesViewController: UITableViewController {
         refreshTableControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshTableControl)
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        super.viewDidLoad()
-//
-//        // Set up the view
-//        self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
-//        self.title = "The New York Times"
-//        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "", image: UIImage(named: "language"), target: self, action: #selector(langaugeBarButtonPressed(_:))), animated: true)
-//
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.rowHeight = 105
-//        tableView.showsVerticalScrollIndicator = false
-//        tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
-//
-//        showAlert()
-//        getArticles()
-//
-//        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//        refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming up...",attributes: attributes)
-//        refreshTableControl.tintColor = .white
-//        refreshTableControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-//        tableView.addSubview(refreshTableControl)
-//    }
-    
+        
     // MARK: - *** Methods ***
     
     @objc func refresh(sender: AnyObject) {
         print("Refreshing...🥤")
         // Haptic feedback
-        let generator = UIImpactFeedbackGenerator(style: .medium)
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.prepare()
         generator.impactOccurred()
         showAlert()
         getArticles()
         refreshTableControl.endRefreshing()
-    }
-    
-    // MARK: - Language Bar Button
-    
-    @objc func langaugeBarButtonPressed(_ sender: Any) {
-        
-        if languageCode == "en" {
-            languageCode = "ar"
-            LanguageManager.shared.setLanguage(language: .ar)
-        } else {
-            languageCode = "en"
-            LanguageManager.shared.setLanguage(language: .en)
-        }
-        
-        self.view.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
-        articleCellView.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
-        navigationController?.navigationBar.semanticContentAttribute =  languageCode == "ar" ? .forceRightToLeft :  .forceLeftToRight
-        
-            
-//        let app = UIApplication.shared.delegate as? AppDelegate
-//        app?.window?.rootViewController = ArticlesViewController()
-        tableView.reloadData()
-
     }
     
 }
@@ -151,9 +101,22 @@ extension ArticlesViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCellView.cellIdentifier, for: indexPath) as? ArticleCellView else { fatalError("ArticleCellView not found") }
         
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
-//        cell.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
-        cell.titleLabel.text = articleVM.title
-        cell.abstractLabel.text = articleVM.abstract
+        
+        // Arabic
+        if ArticlesViewController.currnetLanguage == .ar {
+            cell.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
+            cell.titleLabel.textAlignment = .right
+            cell.abstractLabel.text = Bundle.main.localizedString(forKey: "arabicTxt", value: nil, table: nil)
+            cell.abstractLabel.textAlignment = .right
+            
+            // English
+        } else {
+            cell.titleLabel.text = articleVM.title
+            cell.titleLabel.textAlignment = .left
+            cell.abstractLabel.text = articleVM.abstract
+            cell.abstractLabel.textAlignment = .left
+        }
+        
         guard let imageString = articleVM.article.media?.first?.mediaMetadata?[1].url else {
             cell.thumbnailImageView.image = UIImage(named: "defaultThumbnail")?.preparingThumbnail(of: CGSize(width: 100, height: 100))
             return cell
@@ -170,11 +133,18 @@ extension ArticlesViewController {
         
         guard let imageString = articleVM.article.media?.first?.mediaMetadata?[2].url else {
             // pass the data
-            detailsVC.titleLabel.text = articleVM.title
-            detailsVC.abstractTextView.text = articleVM.abstract
+            if ArticlesViewController.currnetLanguage == .ar {
+                detailsVC.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
+                detailsVC.titleLabel.textAlignment = .right
+                detailsVC.abstractTextView.textAlignment = .right
+                detailsVC.randomTextView.textAlignment = .right
+            } else {
+                detailsVC.titleLabel.text = articleVM.title
+                detailsVC.abstractTextView.text = articleVM.abstract
+            }
+            
             detailsVC.dateLabel.text = articleVM.published_date
             detailsVC.url = articleVM.url
-            
             detailsVC.languageCode = self.languageCode
             self.navigationController?.pushViewController(detailsVC, animated: true)
             return
@@ -183,11 +153,18 @@ extension ArticlesViewController {
         let url = URL(string: imageString)
         // pass the data
         detailsVC.imageUrl = url!
-        detailsVC.titleLabel.text = articleVM.title
-        detailsVC.abstractTextView.text = articleVM.abstract
+        if ArticlesViewController.currnetLanguage == .ar {
+            detailsVC.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
+            detailsVC.titleLabel.textAlignment = .right
+            detailsVC.abstractTextView.textAlignment = .right
+            detailsVC.randomTextView.textAlignment = .right
+        } else {
+            detailsVC.titleLabel.text = articleVM.title
+            detailsVC.abstractTextView.text = articleVM.abstract
+        }
+        
         detailsVC.dateLabel.text = articleVM.published_date
         detailsVC.url = articleVM.url
-        
         detailsVC.languageCode = self.languageCode
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }

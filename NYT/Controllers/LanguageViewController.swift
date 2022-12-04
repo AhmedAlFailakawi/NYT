@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class LanguageViewController: UIViewController {
-    
+    // MARK: - *** Properties ***
     
     let stackView: UIStackView = {
         let stack = UIStackView()
@@ -37,7 +37,7 @@ class LanguageViewController: UIViewController {
         return button
     }()
     
-    // MARK: - *** view did load ***
+    // MARK: - *** viewDidLoad ***
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,6 @@ extension LanguageViewController {
             make.trailing.leading.equalToSuperview().inset(60)
             make.bottom.equalToSuperview().inset(250)
             make.top.equalToSuperview().inset(250)
-            
         }
         
         englishButton.snp.makeConstraints { make in
@@ -89,14 +88,15 @@ extension LanguageViewController {
     
     @objc func englishPressed(_ sender: Any) {
         let viewController = ArticlesViewController(nibName: nil, bundle: nil)
+        ArticlesViewController.currnetLanguage = .en
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func arabicPressed(_ sender: Any) {
         let viewController = ArticlesViewController(nibName: nil, bundle: nil)
+        ArticlesViewController.currnetLanguage = .ar
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }
     
 }
-

@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        LanguageManager.shared.defaultLanguage = .deviceLanguage
 
-        
         return true
     }
     

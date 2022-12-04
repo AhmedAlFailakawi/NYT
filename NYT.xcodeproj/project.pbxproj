@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4002465B29360E23008DC53E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002465A29360E23008DC53E /* Language.swift */; };
 		4002465D293625A6008DC53E /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002465C293625A6008DC53E /* LocalizationSystem.swift */; };
 		4027FF6E29181EE600D144F3 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF6D29181EE600D144F3 /* Article.swift */; };
 		4027FF7029181FA000D144F3 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF6F29181FA000D144F3 /* ArticleViewModel.swift */; };
 		4027FF722918C92500D144F3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF712918C92500D144F3 /* NetworkManager.swift */; };
 		4027FF742918D13600D144F3 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 4027FF732918D13600D144F3 /* sample.json */; };
 		4027FF86291976EA00D144F3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF85291976EA00D144F3 /* ResponseError.swift */; };
-		4043143B2938BC1700917E75 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043143A2938BC1700917E75 /* LocalizationHelper.swift */; };
 		4043143D2938C1AC00917E75 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043143C2938C1AC00917E75 /* LanguageViewController.swift */; };
 		4055E7762922060100E7AC29 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055E7752922060100E7AC29 /* DetailsViewController.swift */; };
 		40651F79291B87C3004D6E6C /* NewYorkTimes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */; };
@@ -54,14 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4002465A29360E23008DC53E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		4002465C293625A6008DC53E /* LocalizationSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationSystem.swift; sourceTree = "<group>"; };
 		4027FF6D29181EE600D144F3 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4027FF6F29181FA000D144F3 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		4027FF712918C92500D144F3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4027FF732918D13600D144F3 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		4027FF85291976EA00D144F3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
-		4043143A2938BC1700917E75 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
 		4043143C2938C1AC00917E75 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		4055E7752922060100E7AC29 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkTimes.ttf; sourceTree = "<group>"; };
@@ -148,9 +144,7 @@
 				40DAA94D291663E800ABCF5E /* Assets.xcassets */,
 				40DAA952291663E800ABCF5E /* Info.plist */,
 				40C1C34029347C2E006402FD /* Localizable.strings */,
-				4002465A29360E23008DC53E /* Language.swift */,
 				4002465C293625A6008DC53E /* LocalizationSystem.swift */,
-				4043143A2938BC1700917E75 /* LocalizationHelper.swift */,
 			);
 			path = NYT;
 			sourceTree = "<group>";
@@ -371,13 +365,11 @@
 				4027FF722918C92500D144F3 /* NetworkManager.swift in Sources */,
 				40BDFFD92930AEE8005011ED /* ArticleCellView.swift in Sources */,
 				4071912C2920BAEB0071F15C /* ImageDownloader.swift in Sources */,
-				4002465B29360E23008DC53E /* Language.swift in Sources */,
 				4027FF7029181FA000D144F3 /* ArticleViewModel.swift in Sources */,
 				40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */,
 				4027FF6E29181EE600D144F3 /* Article.swift in Sources */,
 				4055E7762922060100E7AC29 /* DetailsViewController.swift in Sources */,
 				4002465D293625A6008DC53E /* LocalizationSystem.swift in Sources */,
-				4043143B2938BC1700917E75 /* LocalizationHelper.swift in Sources */,
 				4043143D2938C1AC00917E75 /* LanguageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
