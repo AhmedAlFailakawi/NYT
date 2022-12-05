@@ -28,6 +28,7 @@ class ArticlesViewController: UITableViewController {
         print(ArticlesViewController.currnetLanguage)
         LanguageManager.shared.setLanguage(language: ArticlesViewController.currnetLanguage)
         navigationController?.navigationBar.semanticContentAttribute =  ArticlesViewController.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
+        navigationController?.view.semanticContentAttribute =  ArticlesViewController.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
         
         // Set up the view
         self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
@@ -39,8 +40,8 @@ class ArticlesViewController: UITableViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
         
-        showAlert()
-        getArticles()
+//        showAlert()
+//        getArticles()
         
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming up...",attributes: attributes)
@@ -55,7 +56,8 @@ class ArticlesViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.isSkeletonable = true
         tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .none)
-        
+        showAlert()
+        getArticles()
     }
     
     // MARK: - *** Methods ***
@@ -168,6 +170,9 @@ extension ArticlesViewController {
             } else {
                 detailsVC.titleLabel.text = articleVM.title
                 detailsVC.abstractTextView.text = articleVM.abstract
+                detailsVC.titleLabel.textAlignment = .left
+                detailsVC.abstractTextView.textAlignment = .left
+                detailsVC.randomTextView.textAlignment = .left
             }
             
             detailsVC.dateLabel.text = articleVM.published_date
@@ -188,6 +193,10 @@ extension ArticlesViewController {
         } else {
             detailsVC.titleLabel.text = articleVM.title
             detailsVC.abstractTextView.text = articleVM.abstract
+            detailsVC.titleLabel.textAlignment = .left
+            detailsVC.abstractTextView.textAlignment = .left
+            detailsVC.randomTextView.textAlignment = .left
+            
         }
         
         detailsVC.dateLabel.text = articleVM.published_date

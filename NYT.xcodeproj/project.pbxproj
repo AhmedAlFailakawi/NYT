@@ -20,7 +20,6 @@
 		4071912C2920BAEB0071F15C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4071912B2920BAEB0071F15C /* ImageDownloader.swift */; };
 		40A2EDC9293CA29A0040F9C3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 40A2EDC8293CA29A0040F9C3 /* SkeletonView */; };
 		40A2EDCB293CAD600040F9C3 /* SkeletonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2EDCA293CAD600040F9C3 /* SkeletonTableViewCell.swift */; };
-		40A2EDCD293CAE890040F9C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2EDCC293CAE890040F9C3 /* Extensions.swift */; };
 		40AE4A632938671800D4FE35 /* LanguageManager-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 40AE4A622938671800D4FE35 /* LanguageManager-iOS */; };
 		40BDFFD42930AE27005011ED /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDFFD32930AE27005011ED /* Moya */; };
 		40BDFFD72930AE5E005011ED /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDFFD62930AE5E005011ED /* SnapKit */; };
@@ -66,7 +65,6 @@
 		40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkTimes.ttf; sourceTree = "<group>"; };
 		4071912B2920BAEB0071F15C /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		40A2EDCA293CAD600040F9C3 /* SkeletonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonTableViewCell.swift; sourceTree = "<group>"; };
-		40A2EDCC293CAE890040F9C3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		40AE4A602938665400D4FE35 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		40BDFFD82930AEE8005011ED /* ArticleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellView.swift; sourceTree = "<group>"; };
 		40C1C33F29347C2E006402FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				40DAA952291663E800ABCF5E /* Info.plist */,
 				40C1C34029347C2E006402FD /* Localizable.strings */,
 				4002465C293625A6008DC53E /* LocalizationSystem.swift */,
-				40A2EDCC293CAE890040F9C3 /* Extensions.swift */,
 			);
 			path = NYT;
 			sourceTree = "<group>";
@@ -378,7 +375,6 @@
 				4027FF7029181FA000D144F3 /* ArticleViewModel.swift in Sources */,
 				40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */,
 				4027FF6E29181EE600D144F3 /* Article.swift in Sources */,
-				40A2EDCD293CAE890040F9C3 /* Extensions.swift in Sources */,
 				4055E7762922060100E7AC29 /* DetailsViewController.swift in Sources */,
 				4002465D293625A6008DC53E /* LocalizationSystem.swift in Sources */,
 				4043143D2938C1AC00917E75 /* LanguageViewController.swift in Sources */,
