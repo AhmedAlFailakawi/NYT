@@ -113,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401C539E293DE31400C904A8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				40DAA946291663E700ABCF5E /* SceneDelegate.swift */,
+				40DAA944291663E700ABCF5E /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		40DAA938291663E700ABCF5E = {
 			isa = PBXGroup;
 			children = (
@@ -137,13 +146,12 @@
 		40DAA943291663E700ABCF5E /* NYT */ = {
 			isa = PBXGroup;
 			children = (
+				401C539E293DE31400C904A8 /* App */,
 				40DAA9782916646B00ABCF5E /* Views */,
 				40DAA9772916646100ABCF5E /* Controllers */,
 				40DAA9762916645700ABCF5E /* ViewModels */,
 				40DAA9752916645000ABCF5E /* Models */,
 				40DAA9742916644700ABCF5E /* Services */,
-				40DAA944291663E700ABCF5E /* AppDelegate.swift */,
-				40DAA946291663E700ABCF5E /* SceneDelegate.swift */,
 				4027FF732918D13600D144F3 /* sample.json */,
 				40DAA94D291663E800ABCF5E /* Assets.xcassets */,
 				40DAA952291663E800ABCF5E /* Info.plist */,

@@ -55,7 +55,12 @@ class ArticlesViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.isSkeletonable = true
-        tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .none)
+        if UITraitCollection.current.userInterfaceStyle == .light {
+            tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .none)
+        } else {
+            tableView.showAnimatedSkeleton(usingColor: .darkClouds, transition: .none)
+        }
+        
         showAlert()
         getArticles()
     }
