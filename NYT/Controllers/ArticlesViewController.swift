@@ -18,7 +18,6 @@ class ArticlesViewController: UITableViewController {
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
     let refreshTableControl = UIRefreshControl()
-    var languageCode: String =  LanguageManager.shared.deviceLanguage!.rawValue
     static var currnetLanguage: Languages = .en
     
     // MARK: - viewDidLoad
@@ -160,8 +159,11 @@ extension ArticlesViewController {
         return cell
     }
     
+    // ========= Did Select Row at ===========
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
         let detailsVC = DetailsViewController()
         
@@ -182,7 +184,6 @@ extension ArticlesViewController {
             
             detailsVC.dateLabel.text = articleVM.published_date
             detailsVC.url = articleVM.url
-            detailsVC.languageCode = self.languageCode
             self.navigationController?.pushViewController(detailsVC, animated: true)
             return
         }
@@ -206,7 +207,6 @@ extension ArticlesViewController {
         
         detailsVC.dateLabel.text = articleVM.published_date
         detailsVC.url = articleVM.url
-        detailsVC.languageCode = self.languageCode
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
     

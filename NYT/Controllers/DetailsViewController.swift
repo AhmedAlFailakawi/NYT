@@ -19,7 +19,6 @@ class DetailsViewController: UIViewController {
     var imageUrl: URL = URL(string: "https://static01.nyt.com/vi-assets/images/share/1200x1200_t.png")!
     private let scrollView = UIScrollView()
     private let button = UIBarButtonItem()
-    var languageCode: String = ""
     
     // MARK: - *** UI Elements Views ***
     lazy var thumbnailView: UIImageView = {
