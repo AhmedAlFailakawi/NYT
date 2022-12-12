@@ -60,6 +60,7 @@ class ArticlesViewController: UITableViewController {
             tableView.showAnimatedSkeleton(usingColor: .darkClouds, transition: .none)
         }
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         showAlert()
         getArticles()
     }

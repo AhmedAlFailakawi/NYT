@@ -64,6 +64,7 @@ class ArticleCellView: UITableViewCell {
         let stack = UIStackView()
         stack.contentMode = .scaleToFill
         stack.distribution = .fillEqually
+        stack.axis = .vertical
         stack.spacing = 20
         stack.isSkeletonable = true
 

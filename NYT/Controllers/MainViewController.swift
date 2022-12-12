@@ -10,7 +10,16 @@ import SnapKit
 import SideMenu
 
 class MainViewController: UIViewController {
+    
+    enum MenuStatus {
+        case opened
+        case closed
+    }
+    
     // MARK: - *** Properties ***
+    
+    private var menuStatus: MenuStatus = .closed
+    private let sideMenu = SideMenuNavigationController(rootViewController: SideMenuViewController())
     
     var welcomeLabel: UILabel = {
         let label = UILabel()
@@ -22,7 +31,6 @@ class MainViewController: UIViewController {
         
         return label
     }()
-    
     
     var avatar: UIImageView = {
         let imageView = UIImageView()
@@ -42,7 +50,6 @@ class MainViewController: UIViewController {
     var loginButtom: UIButton = {
         let button = UIButton(configuration: .filled())
         button.setTitle("Let's read", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Ubuntu", size: 17.0)
         button.tintColor = UIColor(displayP3Red: 226 / 255, green: 220 / 255, blue: 200 / 255, alpha: 1.0)
         button.setTitleColor(UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0), for: .normal)
         button.layer.cornerRadius = 25
@@ -65,23 +72,25 @@ class MainViewController: UIViewController {
         self.navigationItem.setLeftBarButton(UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(menuBarButtonPressed)), animated: true)
         
         avatar.center = self.view.center
-        
+        sideMenuSetup()
         setup()
         loginButtom.addTarget(self, action: #selector(loginPressed(_:)), for: .touchUpInside)
+        loginButtom.addTarget(self, action: #selector(pressCancelled(_:)), for: .touchCancel)
         
         //        arabicButton.addTarget(self, action: #selector(arabicPressed(_:)), for: .touchUpInside)
+        
     }
     
-    @objc func menuBarButtonPressed() {
-        let vc = SideMenuViewController()
-        self.present(vc, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//            self.navigationController?.navigationBar.semanticContentAttribute = .forceLeftToRight
+//            self.navigationController?.view.semanticContentAttribute = .forceLeftToRight
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        DispatchQueue.main.async {
+            self.loginButtom.titleLabel?.font = UIFont(name: "Ubuntu", size: 16)
+        }
+        
     }
-    
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //        self.navigationController?.navigationBar.semanticContentAttribute = .forceLeftToRight
-    //        self.navigationController?.view.semanticContentAttribute = .forceLeftToRight
-    //    }
     
     
 }
@@ -105,7 +114,6 @@ extension MainViewController {
         }
         
         avatar.snp.makeConstraints { make in
-            //            make.leading.trailing.equalToSuperview()
             make.center.equalToSuperview()
             make.height.width.equalTo(90)
         }
@@ -118,6 +126,26 @@ extension MainViewController {
         
     }
     
+    func sideMenuSetup() {
+        sideMenu.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = sideMenu
+        SideMenuManager.default.addPanGestureToPresent(toView: view)
+        sideMenu.presentationStyle = .menuSlideIn
+        sideMenu.presentationStyle.backgroundColor = .black
+        sideMenu.presentationStyle.presentingEndAlpha = 0.7
+        sideMenu.statusBarEndAlpha = 0.0
+        sideMenu.menuWidth = (UIScreen.main.bounds.width / 5) * 4
+    }
+    
+    // MARK: - *** Side menu button ***
+    @objc func menuBarButtonPressed() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.prepare()
+        generator.impactOccurred()
+        present(sideMenu, animated: true)
+        
+    }
+    
     @objc func loginPressed(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
@@ -127,33 +155,37 @@ extension MainViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @objc func arabicPressed(_ sender: Any) {
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.prepare()
-        generator.impactOccurred()
-        let viewController = ArticlesViewController(nibName: nil, bundle: nil)
-        ArticlesViewController.currnetLanguage = .ar
-        self.navigationController?.pushViewController(viewController, animated: true)
-        
+    @objc func pressCancelled(_ sender: Any) {
+        self.loginButtom.titleLabel?.font = UIFont(name: "Ubuntu", size: 16)
     }
+    
+    //    @objc func arabicPressed(_ sender: Any) {
+    //        let generator = UIImpactFeedbackGenerator(style: .light)
+    //        generator.prepare()
+    //        generator.impactOccurred()
+    //        let viewController = ArticlesViewController(nibName: nil, bundle: nil)
+    //        ArticlesViewController.currnetLanguage = .ar
+    //        self.navigationController?.pushViewController(viewController, animated: true)
+    //
+    //    }
     
 }
 
 extension MainViewController: SideMenuNavigationControllerDelegate {
     
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Appearing! (animated: \(animated))")
+        //        print("SideMenu Appearing! (animated: \(animated))")
     }
     
     func sideMenuDidAppear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Appeared! (animated: \(animated))")
+        //        print("SideMenu Appeared! (animated: \(animated))")
     }
     
     func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Disappearing! (animated: \(animated))")
+        //        print("SideMenu Disappearing! (animated: \(animated))")
     }
     
     func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
-        print("SideMenu Disappeared! (animated: \(animated))")
+        //        print("SideMenu Disappeared! (animated: \(animated))")
     }
 }

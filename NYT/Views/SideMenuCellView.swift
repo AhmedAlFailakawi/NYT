@@ -8,15 +8,15 @@
 import Foundation
 import UIKit
 import SnapKit
-import SideMenu
 
-class SideMenuCellView: UITableViewVibrantCell {
+class SideMenuCellView: UITableViewCell {
     
     static let cellIdentifier = "SideMenuCellView"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configure()
+        self.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -25,21 +25,19 @@ class SideMenuCellView: UITableViewVibrantCell {
     
     // MARK: - UI elements
     var iconView: UIImageView = {
-       let image = UIImageView()
-//        image.contentMode = .scaleAspectFill
-//        image.frame.size.width = 50
-//        image.layer.cornerRadius = image.frame.size.width / 2
-//        image.clipsToBounds = true
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
         
         return image
     }()
     
-    var labelView: UILabel = {
-       let label = UILabel()
+    var cellTitleLabel: UILabel = {
+        let label = UILabel()
         label.numberOfLines = 0
-        label.textAlignment = .natural
-        label.textColor = UIColor(named: "AccentColor")
-        label.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
+        label.textAlignment = .left
+        label.textColor = .white
+        label.font = UIFont(name: "Ubuntu", size: 14)
         
         return label
     }()
@@ -48,7 +46,25 @@ class SideMenuCellView: UITableViewVibrantCell {
 
 // MARK: - ======== Constraints ===========
 extension SideMenuCellView {
-    func configure() {
-        
+    
+    func setup() {
+        self.addSubview(iconView)
+        self.addSubview(cellTitleLabel)
+        configure()
     }
+
+    func configure() {
+        iconView.snp.makeConstraints {
+            $0.height.width.equalTo(20)
+            $0.leading.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
+        }
+        
+        cellTitleLabel.snp.makeConstraints {
+            $0.leading.equalTo(iconView.snp.trailing).offset(20)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
+    }
+    
 }

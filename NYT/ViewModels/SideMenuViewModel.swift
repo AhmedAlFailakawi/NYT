@@ -32,7 +32,7 @@ extension SideMenuViewModel {
 struct SideMenuListViewModel {
      static func getOptions() -> [SideMenu] {
          let options = [
-            SideMenu(icon: UIImage(named: "langauge"), labelText: "Change language"),
+            SideMenu(icon: UIImage(named: "character.bubble"), labelText: "Change language"),
             SideMenu(icon: UIImage(named: "notifications"), labelText: "Notifications"),
             SideMenu(icon: UIImage(named: "terms"), labelText: "Terms & conditions"),
             SideMenu(icon: UIImage(named: "globe"), labelText: "Website")
