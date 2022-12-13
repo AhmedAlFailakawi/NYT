@@ -15,7 +15,7 @@ class SideMenuCellView: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+        self.backgroundColor = AppColors.backgroundColor
         setup()
     }
     
@@ -35,7 +35,7 @@ class SideMenuCellView: UITableViewCell {
     var cellTitleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textAlignment = .left
+        label.textAlignment = .natural
         label.textColor = .white
         label.font = UIFont(name: "Ubuntu", size: 14)
         
@@ -52,7 +52,7 @@ extension SideMenuCellView {
         self.addSubview(cellTitleLabel)
         configure()
     }
-
+    
     func configure() {
         iconView.snp.makeConstraints {
             $0.height.width.equalTo(20)

@@ -12,16 +12,12 @@ import SideMenu
 
 class SideMenuViewController: UIViewController {
     // MARK: - *** Properties ***
-    public var sideMenuListVM: SideMenuListViewModel!
-    
     // ^^^ Header ^^^
     var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textAlignment = .left
+        label.textAlignment = .natural
         label.textColor = UIColor.white
-        label.font = UIFont(name: "Ubuntu", size: 17.0)
-        label.text = "Ahmed AlFailakawi"
         
         return label
     }()
@@ -37,14 +33,14 @@ class SideMenuViewController: UIViewController {
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor(displayP3Red: 226 / 255, green: 220 / 255, blue: 200 / 255, alpha: 1.0).cgColor
+        imageView.layer.borderColor = AppColors.foregroundColor.cgColor
         
         return imageView
     }()
     
     var separatorLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(displayP3Red: 226 / 255, green: 220 / 255, blue: 200 / 255, alpha: 1.0)
+        label.textColor = AppColors.foregroundColor
         label.font = UIFont.systemFont(ofSize: 17, weight: .ultraLight)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -53,31 +49,24 @@ class SideMenuViewController: UIViewController {
         return label
     }()
     
-    var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.contentMode = .scaleToFill
-        stack.distribution = .fillEqually
-        stack.spacing = 20
-        
-        return stack
-    }()
-    
     var tableView: UITableView = {
         let table = UITableView()
         table.register(SideMenuCellView.self, forCellReuseIdentifier: SideMenuCellView.cellIdentifier)
         table.rowHeight = 50
-        table.separatorColor = UIColor(displayP3Red: 226 / 255, green: 220 / 255, blue: 200 / 255, alpha: 1.0)
-        table.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+        table.separatorColor = AppColors.foregroundColor
+        table.backgroundColor = AppColors.backgroundColor
         table.showsVerticalScrollIndicator = false
+        table.isScrollEnabled = false
         
         return table
     }()
     
     var segmentView: UISegmentedControl = {
-        let view = UISegmentedControl(items: ["Light", "Dark"])
-        view.frame = CGRectMake(60, 250, 200, 30)
+        let view = UISegmentedControl(items: ["Light", "Dark", "System"])
+        view.frame = CGRectMake(0, 0, 90, 30)
         view.selectedSegmentIndex = 0
-        view.addTarget(SideMenuViewController.self, action: #selector(changeAppearance(_:)), for: .touchUpInside)
+        view.selectedSegmentTintColor = AppColors.foregroundColor
+        //        view.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Ubuntu-Medium", size: 14) as Any], for: .normal)
         
         return view
     }()
@@ -86,7 +75,12 @@ class SideMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set up the view
-        self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+        self.view.backgroundColor = AppColors.backgroundColor
+        
+        // Segmented control
+        segmentView.selectedSegmentIndex = 2
+        segmentView.addTarget(self, action: #selector(changeAppearance), for: .valueChanged)
+        segmentView.addTarget(self, action: #selector(changeAppearance), for: .touchUpInside)
         
         // Table view
         tableView.dataSource = self
@@ -100,21 +94,49 @@ class SideMenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if AppLanguage.currnetLanguage == .en {
+            titleLabel.text = "Ahmed AlFailakawi"
+            titleLabel.font = UIFont(name: "Ubuntu", size: 17.0)
+            
+        } else {
+            titleLabel.text = "أحمد الفيلكاوي"
+            titleLabel.font = UIFont(name: "TheSansArabic Light", size: 17.0)
+        }
+        
+        // Segmented controll color setup
+        let selectedTitleTextAttribute = [NSAttributedString.Key.foregroundColor: AppColors.backgroundColor, NSAttributedString.Key.font: UIFont(name: "Ubuntu-Medium", size: 14)]
+        let normalTitleTextAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "Ubuntu-Medium", size: 14)]
+        
+        segmentView.setTitleTextAttributes(selectedTitleTextAttribute as [NSAttributedString.Key : Any], for: .selected)
+        segmentView.setTitleTextAttributes(normalTitleTextAttribute as [NSAttributedString.Key : Any], for: .normal)
+        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    
+        
     }
-    
 }
 
-// MARK: - Methods
 extension SideMenuViewController {
-    
-    @objc func changeAppearance(_ sender: Any) {
+    // MARK: - *** Light | Dark | System ***
+    @objc func changeAppearance(sender: UISegmentedControl) {
+        
+        if segmentView.selectedSegmentIndex == 0 {
+            // Switch to Light
+            AppColors.appAppearance = 0
+            
+        } else if segmentView.selectedSegmentIndex == 1 {
+            // Switch to Dark
+            AppColors.appAppearance = 1
+            
+        } else {
+            // Switch to System
+            AppColors.appAppearance = 2
+        }
         
     }
     
+    // MARK: - *** Setup UI ***
     func setup() {
         self.view.addSubview(avatar)
         self.view.addSubview(titleLabel)
@@ -143,14 +165,14 @@ extension SideMenuViewController {
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(separatorLabel.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().offset(50)
+            //            make.bottom.equalToSuperview().offset(50)
+            make.height.equalTo(200)
             make.trailing.leading.equalToSuperview()
         }
         
         segmentView.snp.makeConstraints { make in
-            make.trailing.leading.equalToSuperview()
-//            make.top.equalTo(tableView.snp.bottom).offset(10)
-            
+            make.top.equalTo(tableView.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(40)
         }
         
     }
@@ -176,6 +198,12 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         var sideMenu = [SideMenu]()
         sideMenu = SideMenuListViewModel.getOptions()
         
+        if AppLanguage.currnetLanguage == .en {
+            cell.cellTitleLabel.font = UIFont(name: "Ubuntu", size: 14)
+        } else {
+            cell.cellTitleLabel.font = UIFont(name: "TheSansArabic Light", size: 14)
+        }
+        
         // Pass data
         cell.cellTitleLabel.text = sideMenu[indexPath.row].labelText
         cell.iconView.image = sideMenu[indexPath.row].icon
@@ -187,9 +215,26 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
         generator.impactOccurred()
-        
         self.tableView.deselectRow(at: indexPath, animated: true)
+        //        let optionVM = SideMenuListViewModel().optionAtIndex(indexPath.row)
         
+        // to open website
+        if indexPath.row == 3 {
+            guard let url = SideMenuListViewModel.getOptions()[3].url else { return }
+            UIApplication.shared.open(url)
+        }
+        
+        // change language
+        if indexPath.row == 0 {
+            if AppLanguage.currnetLanguage == .ar {
+                AppLanguage.currnetLanguage = .en
+            } else {
+                AppLanguage.currnetLanguage = .ar
+            }
+            
+            let vc = ArticlesViewController(nibName: nil, bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         
     }

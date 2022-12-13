@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import LanguageManager_iOS
 
 struct SideMenuViewModel {
     let sideMenu: SideMenu
@@ -27,18 +28,36 @@ extension SideMenuViewModel {
     }
 }
 
-// MARK: - ====== List View Model ======
-
+// MARK: - ====== List View Model =======
 struct SideMenuListViewModel {
      static func getOptions() -> [SideMenu] {
-         let options = [
-            SideMenu(icon: UIImage(named: "character.bubble"), labelText: "Change language"),
-            SideMenu(icon: UIImage(named: "notifications"), labelText: "Notifications"),
-            SideMenu(icon: UIImage(named: "terms"), labelText: "Terms & conditions"),
-            SideMenu(icon: UIImage(named: "globe"), labelText: "Website")
-        ]
+         // icons
+         let language = UIImage(systemName: "character.bubble")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+         let notifications = UIImage(systemName: "envelope.badge")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+         let terms = UIImage(systemName: "text.book.closed")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+         let safari = UIImage(systemName: "safari")?.withTintColor(.white, renderingMode: .alwaysOriginal)
          
-         return options
+         // Check language
+         if AppLanguage.currnetLanguage == .en {
+             let options = [
+                SideMenu(icon: language, labelText: Bundle.main.localizedString(forKey: "lang", value: nil, table: nil), url: URL(string: "")),
+                SideMenu(icon: notifications, labelText:  Bundle.main.localizedString(forKey: "notif", value: nil, table: nil), url: URL(string: "")),
+                SideMenu(icon: terms, labelText:  Bundle.main.localizedString(forKey: "terms", value: nil, table: nil), url:  URL(string: "")),
+                SideMenu(icon: safari, labelText: Bundle.main.localizedString(forKey: "web", value: nil, table: nil), url:  URL(string: "https://www.nytimes.com/international/"))
+            ]
+             
+             return options
+         } else {
+             let options = [
+                SideMenu(icon: language, labelText: Bundle.main.localizedString(forKey: "تغيير اللغة", value: nil, table: nil), url: URL(string: "")),
+                SideMenu(icon: notifications, labelText:  Bundle.main.localizedString(forKey: "الاشعارات", value: nil, table: nil), url: URL(string: "")),
+                SideMenu(icon: terms, labelText:  Bundle.main.localizedString(forKey: "الضوابط والأحكام", value: nil, table: nil), url:  URL(string: "")),
+                SideMenu(icon: safari, labelText: Bundle.main.localizedString(forKey: "الموقع الرسمي", value: nil, table: nil), url:  URL(string: "https://www.nytimes.com/international/"))
+            ]
+             
+             return options
+         }
+         
     }
     
 }

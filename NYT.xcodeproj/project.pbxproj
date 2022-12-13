@@ -26,6 +26,9 @@
 		4071912C2920BAEB0071F15C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4071912B2920BAEB0071F15C /* ImageDownloader.swift */; };
 		40A2EDC9293CA29A0040F9C3 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 40A2EDC8293CA29A0040F9C3 /* SkeletonView */; };
 		40AE4A632938671800D4FE35 /* LanguageManager-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 40AE4A622938671800D4FE35 /* LanguageManager-iOS */; };
+		40B86AD4294709390066A1D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B86AD3294709390066A1D1 /* App.swift */; };
+		40B86AD629470D610066A1D1 /* Ubuntu-M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40B86AD529470D610066A1D1 /* Ubuntu-M.ttf */; };
+		40B86AD829471CB50066A1D1 /* TheSansArabic Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40B86AD729471CB50066A1D1 /* TheSansArabic Light.ttf */; };
 		40BDFFD42930AE27005011ED /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDFFD32930AE27005011ED /* Moya */; };
 		40BDFFD72930AE5E005011ED /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDFFD62930AE5E005011ED /* SnapKit */; };
 		40BDFFD92930AEE8005011ED /* ArticleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDFFD82930AEE8005011ED /* ArticleCellView.swift */; };
@@ -60,7 +63,7 @@
 
 /* Begin PBXFileReference section */
 		4002465C293625A6008DC53E /* LocalizationSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationSystem.swift; sourceTree = "<group>"; };
-		400410C829409F4300E640EF /* Ubuntu-R.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-R.ttf"; path = "ubuntuFont copy/Ubuntu-R.ttf"; sourceTree = "<group>"; };
+		400410C829409F4300E640EF /* Ubuntu-R.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-R.ttf"; sourceTree = "<group>"; };
 		4027B11129405C4900EDAADC /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		4027B11329405E1A00EDAADC /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		4027B115294061B500EDAADC /* SideMenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCellView.swift; sourceTree = "<group>"; };
@@ -75,6 +78,9 @@
 		40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkTimes.ttf; sourceTree = "<group>"; };
 		4071912B2920BAEB0071F15C /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		40AE4A602938665400D4FE35 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		40B86AD3294709390066A1D1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		40B86AD529470D610066A1D1 /* Ubuntu-M.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-M.ttf"; sourceTree = "<group>"; };
+		40B86AD729471CB50066A1D1 /* TheSansArabic Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TheSansArabic Light.ttf"; sourceTree = "<group>"; };
 		40BDFFD82930AEE8005011ED /* ArticleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellView.swift; sourceTree = "<group>"; };
 		40C1C33F29347C2E006402FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		40DAA941291663E700ABCF5E /* NYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,15 +134,26 @@
 			children = (
 				40DAA946291663E700ABCF5E /* SceneDelegate.swift */,
 				40DAA944291663E700ABCF5E /* AppDelegate.swift */,
+				40B86AD3294709390066A1D1 /* App.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		40B86AD929471F9B0066A1D1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				40B86AD729471CB50066A1D1 /* TheSansArabic Light.ttf */,
+				40B86AD529470D610066A1D1 /* Ubuntu-M.ttf */,
+				400410C829409F4300E640EF /* Ubuntu-R.ttf */,
+				40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		40DAA938291663E700ABCF5E = {
 			isa = PBXGroup;
 			children = (
-				400410C829409F4300E640EF /* Ubuntu-R.ttf */,
-				40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */,
+				40B86AD929471F9B0066A1D1 /* Fonts */,
 				40DAA943291663E700ABCF5E /* NYT */,
 				40DAA95A291663E800ABCF5E /* NYTTests */,
 				40DAA964291663E800ABCF5E /* NYTUITests */,
@@ -360,6 +377,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B86AD829471CB50066A1D1 /* TheSansArabic Light.ttf in Resources */,
+				40B86AD629470D610066A1D1 /* Ubuntu-M.ttf in Resources */,
 				40C1C33E29347C2E006402FD /* Localizable.strings in Resources */,
 				400410C929409F4300E640EF /* Ubuntu-R.ttf in Resources */,
 				40651F79291B87C3004D6E6C /* NewYorkTimes.ttf in Resources */,
@@ -401,6 +420,7 @@
 				4071912C2920BAEB0071F15C /* ImageDownloader.swift in Sources */,
 				4027B11429405E1A00EDAADC /* SideMenuViewModel.swift in Sources */,
 				4027FF7029181FA000D144F3 /* ArticleViewModel.swift in Sources */,
+				40B86AD4294709390066A1D1 /* App.swift in Sources */,
 				40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */,
 				4027FF6E29181EE600D144F3 /* Article.swift in Sources */,
 				4055E7762922060100E7AC29 /* DetailsViewController.swift in Sources */,

@@ -11,6 +11,7 @@ import UIKit
 struct SideMenu {
     let icon: UIImage?
     let labelText: String?
+    let url: URL?
 }
 
 //struct SideMenuList {

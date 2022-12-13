@@ -95,7 +95,7 @@ class DetailsViewController: UIViewController {
         
         self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(readMoreBarButtonPressed(_:))), animated: true)
         
-        if ArticlesViewController.currnetLanguage == .ar {
+        if AppLanguage.currnetLanguage == .ar {
             navigationController?.view.semanticContentAttribute = .forceRightToLeft
             navigationController?.navigationBar.semanticContentAttribute = .forceRightToLeft
         } else { // English
@@ -116,6 +116,20 @@ class DetailsViewController: UIViewController {
         thumbnailView.kf.setImage(with: imageUrl,options: [.scaleFactor(UIScreen.main.scale),.cacheOriginalImage])
         thumbnailView.clipsToBounds = true
         
+    }
+    
+    // MARK: - View will appeare
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        switch AppColors.appAppearance {
+        case 0:
+            overrideUserInterfaceStyle = .light
+        case 1:
+            overrideUserInterfaceStyle = .dark
+        default:
+            overrideUserInterfaceStyle = .unspecified
+        }
     }
     
 }

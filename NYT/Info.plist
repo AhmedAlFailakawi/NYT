@@ -8,6 +8,8 @@
 	<array>
 		<string>NewYorkTimes.ttf</string>
 		<string>Ubuntu-R.ttf</string>
+		<string>Ubuntu-M.ttf</string>
+		<string>TheSansArabic Light.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

@@ -18,19 +18,19 @@ class ArticlesViewController: UITableViewController {
     private let articleCellView = ArticleCellView()
     private var didUpdateConstraints = false
     let refreshTableControl = UIRefreshControl()
-    static var currnetLanguage: Languages = .en
+    //    public static let appAppearance = 0
     
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(ArticlesViewController.currnetLanguage)
-        LanguageManager.shared.setLanguage(language: ArticlesViewController.currnetLanguage)
-        navigationController?.navigationBar.semanticContentAttribute =  ArticlesViewController.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
-        navigationController?.view.semanticContentAttribute =  ArticlesViewController.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
+        print(AppLanguage.currnetLanguage)
+        LanguageManager.shared.setLanguage(language: AppLanguage.currnetLanguage)
+        navigationController?.navigationBar.semanticContentAttribute =  AppLanguage.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
+        navigationController?.view.semanticContentAttribute =  AppLanguage.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
         
         // Set up the view
-        self.view.backgroundColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+        self.view.backgroundColor = AppColors.backgroundColor
         self.title = "The New York Times"
         
         tableView.dataSource = self
@@ -39,8 +39,8 @@ class ArticlesViewController: UITableViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
         
-//        showAlert()
-//        getArticles()
+        //        showAlert()
+        //        getArticles()
         
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming up...",attributes: attributes)
@@ -53,16 +53,40 @@ class ArticlesViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        switch AppColors.appAppearance {
+        case 0:
+            overrideUserInterfaceStyle = .light
+        case 1:
+            overrideUserInterfaceStyle = .dark
+        default:
+            overrideUserInterfaceStyle = .unspecified
+        }
+        
+        // MARK: - %%% Skeleton %%%
         tableView.isSkeletonable = true
-        if UITraitCollection.current.userInterfaceStyle == .light {
+        // If user has changed the preferences
+        if AppColors.appAppearance == 0 {
             tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .none)
+            
+        } else if AppColors.appAppearance == 1 {
+            
+            tableView.showAnimatedSkeleton(usingColor: .darkClouds, transition: .none)
+            
+            // Follow system
+        } else if UITraitCollection.current.userInterfaceStyle == .light {
+            
+            tableView.showAnimatedSkeleton(usingColor: .clouds, transition: .none)
+            
         } else {
             tableView.showAnimatedSkeleton(usingColor: .darkClouds, transition: .none)
         }
         
+        // Remove "Back" word from navigation arrow
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         showAlert()
         getArticles()
+        
     }
     
     // MARK: - *** Methods ***
@@ -78,7 +102,7 @@ class ArticlesViewController: UITableViewController {
         refreshTableControl.endRefreshing()
     }
     
-     func scrollToTop() {
+    func scrollToTop() {
         let topRow = IndexPath(row: 0, section: 0)
         self.tableView.scrollToRow(at: topRow, at: .top, animated: false)
     }
@@ -107,15 +131,15 @@ extension ArticlesViewController {
 }
 
 extension ArticlesViewController: SkeletonTableViewDataSource {
-
+    
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return ArticleCellView.cellIdentifier
     }
     
-//    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 6
-//    }
-
+    //    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //        return 6
+    //    }
+    
 }
 
 // MARK: - Table view setup
@@ -137,7 +161,7 @@ extension ArticlesViewController {
         let articleVM = self.articleListVM.articleAtIndex(indexPath.row)
         
         // Arabic
-        if ArticlesViewController.currnetLanguage == .ar {
+        if AppLanguage.currnetLanguage == .ar {
             cell.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
             cell.titleLabel.textAlignment = .right
             cell.abstractLabel.text = Bundle.main.localizedString(forKey: "arabicTxt", value: nil, table: nil)
@@ -170,7 +194,7 @@ extension ArticlesViewController {
         
         guard let imageString = articleVM.article.media?.first?.mediaMetadata?[2].url else {
             // pass the data
-            if ArticlesViewController.currnetLanguage == .ar {
+            if AppLanguage.currnetLanguage == .ar {
                 detailsVC.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
                 detailsVC.titleLabel.textAlignment = .right
                 detailsVC.abstractTextView.textAlignment = .right
@@ -192,7 +216,7 @@ extension ArticlesViewController {
         let url = URL(string: imageString)
         // pass the data
         detailsVC.imageUrl = url!
-        if ArticlesViewController.currnetLanguage == .ar {
+        if AppLanguage.currnetLanguage == .ar {
             detailsVC.titleLabel.text = "العنوان هو العنوان لأنه العنوان ولذلك العنوان هو العنوان"
             detailsVC.titleLabel.textAlignment = .right
             detailsVC.abstractTextView.textAlignment = .right

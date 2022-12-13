@@ -11,3 +11,9 @@
 "random" = "Random Text Generator is a web application which provides true random text which you can use in your documents or web designs. How does it work? First we took many books available on project Gutenberg and stored their contents in a database. Then a computer algorithm takes the words we stored earlier and shuffles them into sentences and paragraphs.The algorithm takes care to create text that looks similar to an ordinary book but without any real meaning. The reason we want our text to be meaningless is that we want the person viewing the resulting random text to focus on the design we are presenting, rather than try to read and understand the text.";
 
 "arabicTxt" = "وأشارت إلى أن الطقس ليلاً سيكون مائل للبرودة وغائم جزئياً إلى غائم، والرياح متقلبة الاتجاه إلى شمالية غربية خفيفة إلى معتدلة السرعة تنشط على فترات 08 - 40 كم/ساعة، مع فرصة لأمطار متفرقة تكون رعدية أحياناً.";
+
+// Side menu
+"lang" = "تغيير اللغة";
+"notif" = "الاشعارات";
+"terms" = "الضوابط والأحكام";
+"web" = "الموقع الرسمي";
