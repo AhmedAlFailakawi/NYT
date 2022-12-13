@@ -48,7 +48,6 @@ class MainViewController: UIViewController {
     var loginButtom: UIButton = {
         let button = UIButton(configuration: .filled())
         button.tintColor = AppColors.foregroundColor
-        button.setTitleColor(AppColors.backgroundColor, for: .normal)
         button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
@@ -74,17 +73,12 @@ class MainViewController: UIViewController {
         setup()
         
         loginButtom.addTarget(self, action: #selector(loginPressed(_:)), for: .touchUpInside)
-        loginButtom.addTarget(self, action: #selector(pressCancelled(_:)), for: .allTouchEvents)
-        
-//        arabicButton.addTarget(self, action: #selector(arabicPressed(_:)), for: .touchUpInside)
-        
+                
     }
     
     // MARK: - ***** View will appear ****
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//            self.navigationController?.navigationBar.semanticContentAttribute = .forceLeftToRight
-//            self.navigationController?.view.semanticContentAttribute = .forceLeftToRight
         
         // Welcome message
         if AppLanguage.currnetLanguage == .en {
@@ -97,16 +91,20 @@ class MainViewController: UIViewController {
         
         // Start button
         if AppLanguage.currnetLanguage == .en {
-            self.loginButtom.setTitle("Let's read", for: .normal)
-            DispatchQueue.main.async {
-                self.loginButtom.titleLabel?.font = UIFont(name: "Ubuntu-Medium", size: 16.0)
-            }
+            let attributedFont = [NSAttributedString.Key.font: UIFont(name: "Ubuntu-Medium", size: 16.0), NSAttributedString.Key.foregroundColor: AppColors.backgroundColor]
             
-        } else {
-            DispatchQueue.main.async {
-                self.loginButtom.titleLabel?.font = UIFont(name: "TheSansArabic Light", size: 17.0)
-                self.loginButtom.setTitle("هيا نقرأ", for: .normal)
-            }
+            let attributedString = NSAttributedString(string: "Let's read", attributes: attributedFont as [NSAttributedString.Key : Any])
+                        
+            self.loginButtom.setAttributedTitle(attributedString, for: .normal)
+    
+        } else { // Arabic
+            
+            let attributedFont = [NSAttributedString.Key.font: UIFont(name: "TheSansArabic Light", size: 17.0), NSAttributedString.Key.foregroundColor: AppColors.backgroundColor]
+            
+            let attributedString = NSAttributedString(string: "هيا نقرأ", attributes: attributedFont as [NSAttributedString.Key : Any])
+                        
+            self.loginButtom.setAttributedTitle(attributedString, for: .normal)
+            
         }
         
         sideMenuSetup()
@@ -191,39 +189,4 @@ extension MainViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @objc func pressCancelled(_ sender: Any) {
-        // Start button
-        if AppLanguage.currnetLanguage == .en {
-            self.loginButtom.setTitle("Let's read", for: .normal)
-            DispatchQueue.main.async {
-                self.loginButtom.titleLabel?.font = UIFont(name: "Ubuntu-Medium", size: 16.0)
-            }
-            
-        } else {
-            DispatchQueue.main.async {
-                self.loginButtom.titleLabel?.font = UIFont(name: "TheSansArabic Light", size: 17.0)
-                self.loginButtom.setTitle("هيا نقرأ", for: .normal)
-            }
-        }
-    }
-    
 }
-
-//extension MainViewController: SideMenuNavigationControllerDelegate {
-//
-//    func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
-//        //        print("SideMenu Appearing! (animated: \(animated))")
-//    }
-//
-//    func sideMenuDidAppear(menu: SideMenuNavigationController, animated: Bool) {
-//        //        print("SideMenu Appeared! (animated: \(animated))")
-//    }
-//
-//    func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
-//        //        print("SideMenu Disappearing! (animated: \(animated))")
-//    }
-//
-//    func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
-//        //        print("SideMenu Disappeared! (animated: \(animated))")
-//    }
-//}
