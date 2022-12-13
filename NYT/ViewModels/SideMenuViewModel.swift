@@ -30,7 +30,7 @@ extension SideMenuViewModel {
 
 // MARK: - ====== List View Model =======
 struct SideMenuListViewModel {
-     static func getOptions() -> [SideMenu] {
+     static func getCells() -> [SideMenu] {
          // icons
          let language = UIImage(systemName: "character.bubble")?.withTintColor(.white, renderingMode: .alwaysOriginal)
          let notifications = UIImage(systemName: "envelope.badge")?.withTintColor(.white, renderingMode: .alwaysOriginal)
@@ -39,23 +39,24 @@ struct SideMenuListViewModel {
          
          // Check language
          if AppLanguage.currnetLanguage == .en {
-             let options = [
+             let cells = [
                 SideMenu(icon: language, labelText: Bundle.main.localizedString(forKey: "lang", value: nil, table: nil), url: URL(string: "")),
                 SideMenu(icon: notifications, labelText:  Bundle.main.localizedString(forKey: "notif", value: nil, table: nil), url: URL(string: "")),
                 SideMenu(icon: terms, labelText:  Bundle.main.localizedString(forKey: "terms", value: nil, table: nil), url:  URL(string: "")),
                 SideMenu(icon: safari, labelText: Bundle.main.localizedString(forKey: "web", value: nil, table: nil), url:  URL(string: "https://www.nytimes.com/international/"))
             ]
              
-             return options
+             return cells
+             
          } else {
-             let options = [
+             let cells = [
                 SideMenu(icon: language, labelText: Bundle.main.localizedString(forKey: "تغيير اللغة", value: nil, table: nil), url: URL(string: "")),
                 SideMenu(icon: notifications, labelText:  Bundle.main.localizedString(forKey: "الاشعارات", value: nil, table: nil), url: URL(string: "")),
                 SideMenu(icon: terms, labelText:  Bundle.main.localizedString(forKey: "الضوابط والأحكام", value: nil, table: nil), url:  URL(string: "")),
                 SideMenu(icon: safari, labelText: Bundle.main.localizedString(forKey: "الموقع الرسمي", value: nil, table: nil), url:  URL(string: "https://www.nytimes.com/international/"))
             ]
              
-             return options
+             return cells
          }
          
     }
@@ -69,11 +70,11 @@ extension SideMenuListViewModel {
     }
     
     func numberOfRowsInSection() -> Int {
-        return SideMenuListViewModel.getOptions().count
+        return SideMenuListViewModel.getCells().count
     }
     
     func optionAtIndex(_ index: Int) -> SideMenuViewModel {
-        let option = SideMenuListViewModel.getOptions()[index]
+        let option = SideMenuListViewModel.getCells()[index]
         return SideMenuViewModel(option)
     }
     

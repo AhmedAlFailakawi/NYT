@@ -187,7 +187,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SideMenuListViewModel.getOptions().count
+        return SideMenuListViewModel.getCells().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -196,7 +196,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         // menu view model
         var sideMenu = [SideMenu]()
-        sideMenu = SideMenuListViewModel.getOptions()
+        sideMenu = SideMenuListViewModel.getCells()
         
         if AppLanguage.currnetLanguage == .en {
             cell.cellTitleLabel.font = UIFont(name: "Ubuntu", size: 14)
@@ -220,7 +220,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         // to open website
         if indexPath.row == 3 {
-            guard let url = SideMenuListViewModel.getOptions()[3].url else { return }
+            guard let url = SideMenuListViewModel.getCells()[3].url else { return }
             UIApplication.shared.open(url)
         }
         

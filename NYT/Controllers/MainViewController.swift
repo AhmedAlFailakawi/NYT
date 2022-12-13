@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
         setup()
         
         loginButtom.addTarget(self, action: #selector(loginPressed(_:)), for: .touchUpInside)
-        loginButtom.addTarget(self, action: #selector(pressCancelled(_:)), for: .touchCancel)
+        loginButtom.addTarget(self, action: #selector(pressCancelled(_:)), for: .allTouchEvents)
         
 //        arabicButton.addTarget(self, action: #selector(arabicPressed(_:)), for: .touchUpInside)
         
@@ -114,6 +114,7 @@ class MainViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
     }
+    
 }
 
 // MARK: - *** Methods ***
@@ -191,7 +192,19 @@ extension MainViewController {
     }
     
     @objc func pressCancelled(_ sender: Any) {
-        self.loginButtom.titleLabel?.font = UIFont(name: "Ubuntu", size: 16)
+        // Start button
+        if AppLanguage.currnetLanguage == .en {
+            self.loginButtom.setTitle("Let's read", for: .normal)
+            DispatchQueue.main.async {
+                self.loginButtom.titleLabel?.font = UIFont(name: "Ubuntu-Medium", size: 16.0)
+            }
+            
+        } else {
+            DispatchQueue.main.async {
+                self.loginButtom.titleLabel?.font = UIFont(name: "TheSansArabic Light", size: 17.0)
+                self.loginButtom.setTitle("هيا نقرأ", for: .normal)
+            }
+        }
     }
     
 }
