@@ -98,13 +98,12 @@ class DetailsViewController: UIViewController {
         if AppLanguage.currnetLanguage == .ar {
             navigationController?.view.semanticContentAttribute = .forceRightToLeft
             navigationController?.navigationBar.semanticContentAttribute = .forceRightToLeft
+            
         } else { // English
             navigationController?.view.semanticContentAttribute = .forceLeftToRight
-//            navigationController?.navigationBar.semanticContentAttribute = .forceLeftToRight
         }
         
         scrollView.contentMode = .scaleToFill
-        scrollView.indicatorStyle = .default
         scrollView.isScrollEnabled = true
         scrollView.isPagingEnabled = false
         scrollView.showsVerticalScrollIndicator = false
@@ -118,7 +117,7 @@ class DetailsViewController: UIViewController {
         
     }
     
-    // MARK: - View will appeare
+    // MARK: - View will appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -130,6 +129,7 @@ class DetailsViewController: UIViewController {
         default:
             overrideUserInterfaceStyle = .unspecified
         }
+        
     }
     
 }

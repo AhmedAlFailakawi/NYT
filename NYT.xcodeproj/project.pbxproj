@@ -41,6 +41,8 @@
 		40DAA966291663E800ABCF5E /* NYTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA965291663E800ABCF5E /* NYTUITests.swift */; };
 		40DAA968291663E800ABCF5E /* NYTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA967291663E800ABCF5E /* NYTUITestsLaunchTests.swift */; };
 		40DAA97A291664A100ABCF5E /* NewYorkTimesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA979291664A100ABCF5E /* NewYorkTimesAPI.swift */; };
+		40DC3E7B29498A0A0067A213 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC3E7A29498A0A0067A213 /* TermsViewController.swift */; };
+		40DC3E7F29498F3B0067A213 /* RadioGroup in Frameworks */ = {isa = PBXBuildFile; productRef = 40DC3E7E29498F3B0067A213 /* RadioGroup */; };
 		40E78819291C0DEA007D0F74 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E78818291C0DEA007D0F74 /* Media.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,7 @@
 		40DAA965291663E800ABCF5E /* NYTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTUITests.swift; sourceTree = "<group>"; };
 		40DAA967291663E800ABCF5E /* NYTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		40DAA979291664A100ABCF5E /* NewYorkTimesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewYorkTimesAPI.swift; sourceTree = "<group>"; };
+		40DC3E7A29498A0A0067A213 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		40E78818291C0DEA007D0F74 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40DC3E7F29498F3B0067A213 /* RadioGroup in Frameworks */,
 				4071912A2920BAA00071F15C /* Kingfisher in Frameworks */,
 				40BDFFD72930AE5E005011ED /* SnapKit in Frameworks */,
 				40AE4A632938671800D4FE35 /* LanguageManager-iOS in Frameworks */,
@@ -243,6 +247,7 @@
 				4055E7752922060100E7AC29 /* DetailsViewController.swift */,
 				4043143C2938C1AC00917E75 /* MainViewController.swift */,
 				4027B11729406A8700EDAADC /* SideMenuViewController.swift */,
+				40DC3E7A29498A0A0067A213 /* TermsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				40AE4A622938671800D4FE35 /* LanguageManager-iOS */,
 				40A2EDC8293CA29A0040F9C3 /* SkeletonView */,
 				401C53A0293E0E7700C904A8 /* SideMenu */,
+				40DC3E7E29498F3B0067A213 /* RadioGroup */,
 			);
 			productName = NYT;
 			productReference = 40DAA941291663E700ABCF5E /* NYT.app */;
@@ -360,6 +366,7 @@
 				40AE4A612938671800D4FE35 /* XCRemoteSwiftPackageReference "LanguageManager-iOS" */,
 				40A2EDC7293CA29A0040F9C3 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				401C539F293E0E7700C904A8 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				40DC3E7D29498F3B0067A213 /* XCRemoteSwiftPackageReference "RadioGroup" */,
 			);
 			productRefGroup = 40DAA942291663E700ABCF5E /* Products */;
 			projectDirPath = "";
@@ -422,6 +429,7 @@
 				4027FF7029181FA000D144F3 /* ArticleViewModel.swift in Sources */,
 				40B86AD4294709390066A1D1 /* App.swift in Sources */,
 				40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */,
+				40DC3E7B29498A0A0067A213 /* TermsViewController.swift in Sources */,
 				4027FF6E29181EE600D144F3 /* Article.swift in Sources */,
 				4055E7762922060100E7AC29 /* DetailsViewController.swift in Sources */,
 				4027B11229405C4900EDAADC /* SideMenu.swift in Sources */,
@@ -817,6 +825,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		40DC3E7D29498F3B0067A213 /* XCRemoteSwiftPackageReference "RadioGroup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yonat/RadioGroup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -849,6 +865,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 40BDFFD52930AE5E005011ED /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		40DC3E7E29498F3B0067A213 /* RadioGroup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40DC3E7D29498F3B0067A213 /* XCRemoteSwiftPackageReference "RadioGroup" */;
+			productName = RadioGroup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

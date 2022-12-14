@@ -13,7 +13,3 @@ struct SideMenu {
     let labelText: String?
     let url: URL?
 }
-
-//struct SideMenuList {
-//    let options: [SideMenu]?
-//}

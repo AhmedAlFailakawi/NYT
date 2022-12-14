@@ -11,7 +11,9 @@ import LanguageManager_iOS
 
 /// Appearance, background & foreground colors
 struct AppColors {
+    /// Dark Green
     static let backgroundColor: UIColor = UIColor(displayP3Red: 44 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1.0)
+    /// Hummos color
     static let foregroundColor: UIColor =  UIColor(displayP3Red: 226 / 255, green: 220 / 255, blue: 200 / 255, alpha: 1.0)
     /// Light | Dark | System
     static var appAppearance = 2 // Default value = System Appearance

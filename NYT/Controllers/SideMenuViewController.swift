@@ -216,13 +216,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         generator.prepare()
         generator.impactOccurred()
         self.tableView.deselectRow(at: indexPath, animated: true)
-        //        let optionVM = SideMenuListViewModel().optionAtIndex(indexPath.row)
-        
-        // to open website
-        if indexPath.row == 3 {
-            guard let url = SideMenuListViewModel.getCells()[3].url else { return }
-            UIApplication.shared.open(url)
-        }
         
         // change language
         if indexPath.row == 0 {
@@ -236,6 +229,17 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
+        // Terms & conditions
+        if indexPath.row == 2 {
+            let vc = TermsViewController(nibName: nil, bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        // to open website
+        if indexPath.row == 3 {
+            guard let url = SideMenuListViewModel.getCells()[3].url else { return }
+            UIApplication.shared.open(url)
+        }
         
     }
     

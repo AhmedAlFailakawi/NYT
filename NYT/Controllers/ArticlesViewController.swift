@@ -24,6 +24,8 @@ class ArticlesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Check language
         print(AppLanguage.currnetLanguage)
         LanguageManager.shared.setLanguage(language: AppLanguage.currnetLanguage)
         navigationController?.navigationBar.semanticContentAttribute =  AppLanguage.currnetLanguage == .ar ? .forceRightToLeft :  .forceLeftToRight
@@ -39,8 +41,8 @@ class ArticlesViewController: UITableViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.register(ArticleCellView.self, forCellReuseIdentifier: ArticleCellView.cellIdentifier)
         
-        //        showAlert()
-        //        getArticles()
+//        showAlert()
+//        getArticles()
         
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         refreshTableControl.attributedTitle = NSAttributedString(string: "More bad news coming up...",attributes: attributes)

@@ -34,6 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         
 //        LanguageManager.shared.defaultLanguage = .deviceLanguage
+        if Bundle.main.preferredLocalizations.first == "ar" {
+            AppLanguage.currnetLanguage = .ar
+        } else {
+            AppLanguage.currnetLanguage = .en
+        }
 
         return true
     }
