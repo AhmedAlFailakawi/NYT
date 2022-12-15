@@ -11,6 +11,8 @@ import Lottie
 import SnapKit
 
 class NotificationsViewController: UIViewController {
+    
+    // MARK: - **** Properties ****
     private let animationView = LottieAnimationView(name: "notifications")
     
     var noNewsLabel: UILabel = {
@@ -71,6 +73,7 @@ class NotificationsViewController: UIViewController {
 
 extension NotificationsViewController {
     
+    /// Setup constraints for animation view and UILabelView.
     func configure() {
         animationView.snp.makeConstraints { make in
             make.top.trailing.leading.equalToSuperview()
@@ -78,7 +81,6 @@ extension NotificationsViewController {
         }
         
         noNewsLabel.snp.makeConstraints { make in
-//            make.top.equalTo(animationView.snp.bottom)
             make.height.equalTo(100)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(70)
