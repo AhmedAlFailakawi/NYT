@@ -33,7 +33,7 @@ class ArticleCellView: UITableViewCell {
         label.textAlignment = .natural
         label.textColor = UIColor(named: "AccentColor")
         label.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
-//        label.isSkeletonable = true
+        label.isSkeletonable = true
         
         return label
     }()
@@ -44,7 +44,7 @@ class ArticleCellView: UITableViewCell {
         label.textAlignment = .natural
         label.textColor = UIColor(named: "AccentColor")
         label.font = UIFont.systemFont(ofSize: 12.0)
-//        label.isSkeletonable = true
+        label.isSkeletonable = true
 
         return label
     }()

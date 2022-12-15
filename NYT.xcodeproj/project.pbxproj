@@ -19,6 +19,8 @@
 		4027FF722918C92500D144F3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF712918C92500D144F3 /* NetworkManager.swift */; };
 		4027FF742918D13600D144F3 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 4027FF732918D13600D144F3 /* sample.json */; };
 		4027FF86291976EA00D144F3 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027FF85291976EA00D144F3 /* ResponseError.swift */; };
+		402CF656294AFC5A00F4599F /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CF655294AFC5A00F4599F /* NotificationsViewController.swift */; };
+		402CF658294B049600F4599F /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 402CF657294B049600F4599F /* notifications.json */; };
 		4043143D2938C1AC00917E75 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043143C2938C1AC00917E75 /* MainViewController.swift */; };
 		4055E7762922060100E7AC29 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4055E7752922060100E7AC29 /* DetailsViewController.swift */; };
 		40651F79291B87C3004D6E6C /* NewYorkTimes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */; };
@@ -29,6 +31,7 @@
 		40B86AD4294709390066A1D1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B86AD3294709390066A1D1 /* App.swift */; };
 		40B86AD629470D610066A1D1 /* Ubuntu-M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40B86AD529470D610066A1D1 /* Ubuntu-M.ttf */; };
 		40B86AD829471CB50066A1D1 /* TheSansArabic Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40B86AD729471CB50066A1D1 /* TheSansArabic Light.ttf */; };
+		40BB8B152949F4EC00284299 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 40BB8B142949F4EC00284299 /* Lottie */; };
 		40BDFFD42930AE27005011ED /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDFFD32930AE27005011ED /* Moya */; };
 		40BDFFD72930AE5E005011ED /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDFFD62930AE5E005011ED /* SnapKit */; };
 		40BDFFD92930AEE8005011ED /* ArticleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDFFD82930AEE8005011ED /* ArticleCellView.swift */; };
@@ -75,6 +78,8 @@
 		4027FF712918C92500D144F3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4027FF732918D13600D144F3 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		4027FF85291976EA00D144F3 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		402CF655294AFC5A00F4599F /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		402CF657294B049600F4599F /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
 		4043143C2938C1AC00917E75 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4055E7752922060100E7AC29 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		40651F78291B87C3004D6E6C /* NewYorkTimes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkTimes.ttf; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 				40BDFFD42930AE27005011ED /* Moya in Frameworks */,
 				401C53A1293E0E7700C904A8 /* SideMenu in Frameworks */,
 				40A2EDC9293CA29A0040F9C3 /* SkeletonView in Frameworks */,
+				40BB8B152949F4EC00284299 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +191,7 @@
 				40DAA9752916645000ABCF5E /* Models */,
 				40DAA9742916644700ABCF5E /* Services */,
 				4027FF732918D13600D144F3 /* sample.json */,
+				402CF657294B049600F4599F /* notifications.json */,
 				40DAA94D291663E800ABCF5E /* Assets.xcassets */,
 				40DAA952291663E800ABCF5E /* Info.plist */,
 				40C1C34029347C2E006402FD /* Localizable.strings */,
@@ -248,6 +255,7 @@
 				4043143C2938C1AC00917E75 /* MainViewController.swift */,
 				4027B11729406A8700EDAADC /* SideMenuViewController.swift */,
 				40DC3E7A29498A0A0067A213 /* TermsViewController.swift */,
+				402CF655294AFC5A00F4599F /* NotificationsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -285,6 +293,7 @@
 				40A2EDC8293CA29A0040F9C3 /* SkeletonView */,
 				401C53A0293E0E7700C904A8 /* SideMenu */,
 				40DC3E7E29498F3B0067A213 /* RadioGroup */,
+				40BB8B142949F4EC00284299 /* Lottie */,
 			);
 			productName = NYT;
 			productReference = 40DAA941291663E700ABCF5E /* NYT.app */;
@@ -367,6 +376,7 @@
 				40A2EDC7293CA29A0040F9C3 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				401C539F293E0E7700C904A8 /* XCRemoteSwiftPackageReference "SideMenu" */,
 				40DC3E7D29498F3B0067A213 /* XCRemoteSwiftPackageReference "RadioGroup" */,
+				40BB8B132949F4EC00284299 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 40DAA942291663E700ABCF5E /* Products */;
 			projectDirPath = "";
@@ -388,6 +398,7 @@
 				40B86AD629470D610066A1D1 /* Ubuntu-M.ttf in Resources */,
 				40C1C33E29347C2E006402FD /* Localizable.strings in Resources */,
 				400410C929409F4300E640EF /* Ubuntu-R.ttf in Resources */,
+				402CF658294B049600F4599F /* notifications.json in Resources */,
 				40651F79291B87C3004D6E6C /* NewYorkTimes.ttf in Resources */,
 				4027FF742918D13600D144F3 /* sample.json in Resources */,
 				40DAA94E291663E800ABCF5E /* Assets.xcassets in Resources */,
@@ -427,6 +438,7 @@
 				4071912C2920BAEB0071F15C /* ImageDownloader.swift in Sources */,
 				4027B11429405E1A00EDAADC /* SideMenuViewModel.swift in Sources */,
 				4027FF7029181FA000D144F3 /* ArticleViewModel.swift in Sources */,
+				402CF656294AFC5A00F4599F /* NotificationsViewController.swift in Sources */,
 				40B86AD4294709390066A1D1 /* App.swift in Sources */,
 				40DAA947291663E700ABCF5E /* SceneDelegate.swift in Sources */,
 				40DC3E7B29498A0A0067A213 /* TermsViewController.swift in Sources */,
@@ -809,6 +821,14 @@
 				minimumVersion = 1.2.5;
 			};
 		};
+		40BB8B132949F4EC00284299 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
 		40BDFFD22930AE27005011ED /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -855,6 +875,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 40AE4A612938671800D4FE35 /* XCRemoteSwiftPackageReference "LanguageManager-iOS" */;
 			productName = "LanguageManager-iOS";
+		};
+		40BB8B142949F4EC00284299 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40BB8B132949F4EC00284299 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		40BDFFD32930AE27005011ED /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;

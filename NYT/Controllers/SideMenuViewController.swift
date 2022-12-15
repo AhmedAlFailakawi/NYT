@@ -211,6 +211,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // MARK: - Did select row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()
@@ -226,6 +227,12 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             let vc = ArticlesViewController(nibName: nil, bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        // Notifications
+        if indexPath.row == 1 {
+            let vc = NotificationsViewController(nibName: nil, bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

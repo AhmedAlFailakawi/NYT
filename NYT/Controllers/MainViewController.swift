@@ -11,15 +11,14 @@ import SideMenu
 
 class MainViewController: UIViewController {
     
+    // MARK: - *** Properties ***
+    private var menuStatus: MenuStatus = .closed
+    private let sideMenu = SideMenuNavigationController(rootViewController: SideMenuViewController())
+    
     enum MenuStatus {
         case opened
         case closed
     }
-    
-    // MARK: - *** Properties ***
-    
-    private var menuStatus: MenuStatus = .closed
-    private let sideMenu = SideMenuNavigationController(rootViewController: SideMenuViewController())
     
     var welcomeLabel: UILabel = {
         let label = UILabel()
@@ -77,6 +76,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - ***** View will appear ****
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -146,8 +146,9 @@ extension MainViewController {
         
     }
     
+    /// Configures the side menu wether you want it on the right side or left side, and more configurations.
     func sideMenuSetup() {
-//        sideMenu.leftSide = true
+
         if AppLanguage.currnetLanguage == .en {
             sideMenu.leftSide = true
             SideMenuManager.default.leftMenuNavigationController = sideMenu
@@ -162,6 +163,7 @@ extension MainViewController {
         sideMenu.presentationStyle.presentingEndAlpha = 0.7
         sideMenu.statusBarEndAlpha = 0.0
         sideMenu.menuWidth = (UIScreen.main.bounds.width / 5) * 4
+        
     }
     
     // MARK: - *** Side menu button ***
